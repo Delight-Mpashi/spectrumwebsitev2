@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Protection Policy | Spectrum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .policy-container {
+        background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100px);
+      }
+      .clause-item {
+        position: relative;
+        padding-left: 1.75rem;
+      }
+      .clause-item:before {
+        content: counters(item, ".") ".";
+        position: absolute;
+        left: 0;
+        font-weight: 600;
+        color: #4f46e5;
+      }
+      .sub-clause {
+        padding-left: 1.5rem;
+      }
+      /* Footer specific styles */
+          /* Hero image section */
+      .hero-image {
+        height: 300px;
+        background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .hero-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-align: center;
+        padding: 0 20px;
+      }
+      #map { height: 400px; }
+      .location-card:hover { transform: translateY(-5px); }
+      .loader {
+        border-top-color: #1d62e3;
+        animation: spinner 1s linear infinite;
+      }
+      @keyframes spinner {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+     
+      
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- navigation starts -->
+    <div class="navigation-bar">
+      <div class="logo">
+        <img
+          src="/public/assets/Images/sclogo.png"
+          alt="spectrum logo"
+        />
+      </div>
+
+      <!-- Nav Right -->
+      <div id="navbar-container">Loading navigation...</div>
+    </div>
+
+    <script>
+      const possiblePaths = [
+        "/components/navbar.html",
+        "/src/components/navbar.html",
+        "./components/navbar.html",
+        "../components/navbar.html",
+      ];
+
+      async function loadNavbar() {
+        for (const path of possiblePaths) {
+          try {
+            const response = await fetch(path);
+            if (response.ok) {
+              document.getElementById("navbar-container").innerHTML =
+                await response.text();
+              console.log(`Navbar loaded successfully from: ${path}`);
+              return;
+            }
+          } catch (error) {
+            console.log(`Attempt failed for path: ${path}`, error);
+          }
+        }
+        document.getElementById("navbar-container").innerHTML =
+          '<div class="error">Navigation failed to load</div>';
+      }
+
+      loadNavbar();
+    </script>
+    <!-- End of navigation -->
+
+    <!-- Hero Image Section -->
+    <div class="hero-image">
+      <div class="hero-content">
+        <h1 class="text-4xl font-bold mb-4">Data Protection Policy</h1>
+        <p class="text-xl max-w-2xl mx-auto">Your privacy and data security are our top priorities</p>
+      </div>
+    </div>
+
+    <div class="min-h-screen policy-container">
+      <div class="max-w-3xl mx-auto px-5 py-12">
+        <!-- Header -->
+        <div class="mb-10 text-center">
+          <div class="inline-block mb-4">
+            <span class="text-2xl font-bold text-gray-800">SPECTRUM</span>
+            <span class="text-2xl font-bold text-indigo-600">CREDIT</span>
+          </div>
+          <div class="h-px w-24 bg-indigo-400 mx-auto"></div>
+        </div>
+
+        <!-- Policy Content -->
+        <div class="bg-white rounded-xl shadow-sm p-8">
+          <ol
+            class="list-none space-y-8 text-gray-700"
+            style="counter-reset: item"
+          >
+            <!-- Clause 1.1 -->
+            <li class="clause-item" style="counter-increment: item">
+              <p class="text-xs leading-relaxed">
+                It is hereby understood and agreed that the data herein has been
+                directly obtained from the Customer who has provided this data
+                to Spectrum to facilitate the processing of the Revolving Credit
+                Facility sought by the Customer.
+              </p>
+            </li>
+
+            <!-- Clause 1.2 -->
+            <li class="clause-item" style="counter-increment: item">
+              <p class="text-xs leading-relaxed mb-4">
+                It is hereby understood and agreed that by signing this
+                Agreement the Customer:
+              </p>
+              <ol class="list-none space-y-4 sub-clause">
+                <li class="clause-item" style="counter-increment: item">
+                  <p class="text-xs leading-relaxed">
+                    Shall provide personal data which is required for
+                    facilitating the processing of the Revolving Credit
+                    Facility, the establishing and maintenance of business and
+                    for the fulfilment of Spectrum's contractual and legal
+                    obligation;
+                  </p>
+                </li>
+                <li class="clause-item" style="counter-increment: item">
+                  <p class="text-xs leading-relaxed">
+                    Consents to Spectrum processing the data as per its internal
+                    company policy and the Act No. 3 The Data Protection Act
+                    2021 of Zambia ("Data Protection Act");
+                  </p>
+                </li>
+                <li class="clause-item" style="counter-increment: item">
+                  <p class="text-xs leading-relaxed">
+                    Has given consent to Spectrum to continue holding and
+                    processing the data provided even after all obligations
+                    under the Revolving Credit Facility have been settled for a
+                    variety of purposes including but not limited to
+                    cross-selling, research, product development, analysis of
+                    market trends, and operation of Spectrum's regulations and
+                    procedures;
+                  </p>
+                </li>
+                <li class="clause-item" style="counter-increment: item">
+                  <p class="text-xs leading-relaxed">
+                    Is at liberty to exercise its rights as a data subject and
+                    as is provided by the Data Protection Act;
+                  </p>
+                </li>
+                <li class="clause-item" style="counter-increment: item">
+                  <p class="text-xs leading-relaxed">
+                    Consents to the use of their personal data from time to time
+                    by Spectrum to market Spectrum's products. The Customer may
+                    opt out of receiving marketing communication at any time
+                    within the duration of the Revolving Credit Facility by
+                    officially communicating to Spectrum through the prescribed
+                    channels of communication.
+                  </p>
+                </li>
+              </ol>
+            </li>
+
+            <!-- Clause 1.3 -->
+            <li class="clause-item" style="counter-increment: item">
+              <p class="text-xs leading-relaxed">
+                Spectrum undertakes to ensure the personal data provided by the
+                Customer is processed in accordance with the Data Protection
+                Act.
+              </p>
+            </li>
+
+            <!-- Clause 1.4 -->
+            <li class="clause-item" style="counter-increment: item">
+              <p class="text-xs leading-relaxed">
+                For queries and more information on Spectrum's data protection
+                policy and privacy statement, the Customers may contact
+                Spectrum's data protection personnel at:
+                <a
+                  href="mailto:online@spectrumcredit.co.zm"
+                  class="text-indigo-600 font-medium hover:underline"
+                  >online@spectrumcredit.co.zm</a>
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>   
+    
+    <!-- Footer -->
+  <!-- Footer -->
+   <div>
+<footer class="bg-spectrum-footer text-white py-12">
+  <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Column 1 -->
+          <div>
+              <img src="/public/assets/Images/sclogo.png" alt="Spectrum Logo" class="h-12 mb-4" loading="lazy">
+              <p class="text-gray-300 text-sm">There When you Need Us!</p>
+              <div class="flex mt-4 space-x-4">
+                  <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" aria-label="Twitter" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="LinkedIn" class="text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+              </div>
+          </div>
+          
+          <!-- Column 2 -->
+          <div>
+              <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                  <li><a href="/" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Home</a></li>
+                  <li><a href="/about" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> About Us</a></li>
+                  <li><a href="/products" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Products</a></li>
+                  <li><a href="/contact" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Contact</a></li>
+              </ul>
+          </div>
+          
+          <!-- Column 3 -->
+          <div>
+              <h3 class="font-bold text-lg mb-4">Products</h3>
+              <ul class="space-y-2">
+                  <li><a href="/products/civil-servant" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Civil Servant Loans</a></li>
+                  <li><a href="/products/nkwazi" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Nkwazi Working Capital</a></li>
+                  <li><a href="/products/sme-financing" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> SME Financing</a></li>
+                  <li><a href="/products/whitebook" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Whitebook</a></li>
+              </ul>
+          </div>
+          
+          <!-- Column 4 -->
+          <div>
+              <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+              <address class="text-gray-300 not-italic text-sm">
+                  <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
+                  <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> info@spectrumcredit.com</p>
+                  <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 123 456 789</p>
+                  <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
+              </address>
+          </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+          <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
+              <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
+              <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
+              <a href="/complaints" class="hover:text-white transition">Complaints</a>
+          </p>
+      </div>
+  </div>
+</footer>
+</div>
+
+<!-- Essential Scripts -->
+<script>
+    // Set current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Add any other necessary JavaScript here
+</script>
+
+  </body>
+</html>
