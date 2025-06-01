@@ -47,7 +47,13 @@
     <div id="navbar-container"></div>
 
 <script>
-  fetch('../src/components/navbar.html')
+  fetch('./components/navbar.html')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return res;
+    })
     .then(res => res.text())
     .then(data => {
       document.getElementById('navbar-container').innerHTML = data;
