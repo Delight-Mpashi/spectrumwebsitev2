@@ -6,6 +6,14 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/components', express.static(path.join(__dirname, 'src/components')));
+app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
+app.use('/styles', express.static(path.join(__dirname, 'src/styles')));
+app.use('/scripts', express.static(path.join(__dirname, 'src/scripts')));
+app.use('/images', express.static(path.join(__dirname, 'src/images')));
+app.use('/fonts', express.static(path.join(__dirname, 'src/fonts')));
+app.use('/data', express.static(path.join(__dirname, 'src/data')));
+app.use('/pages', express.static(path.join(__dirname, 'src/pages')));
+app.use('/services', express.static(path.join(__dirname, 'src/services')));
 
 
 app.get('/', (req, res) => {
