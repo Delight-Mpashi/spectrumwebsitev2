@@ -47,7 +47,7 @@
     <div id="navbar-container"></div>
 
 <script>
-  fetch('/src/components/navbar.html')
+  fetch('./src/components/navbar.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('navbar-container').innerHTML = data;
