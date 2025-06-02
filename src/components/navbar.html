@@ -2,12 +2,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/src/styles/main.css">
   <link rel="stylesheet" href="/src/styles/navigation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            spectrum: {
+              primary: '#1d62e3',
+              secondary: '#4caf50',
+              dark: '#1e293b',
+              light: '#f8fafc',
+              accent: '#f59e0b',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <div class="nav-links">
-  <a href="/Public/index.html"><i class="fas fa-home"></i> Home</a>
-  <a href="/src/pages/FAQ's.html"><i class="fas fa-question-circle"></i> FAQs</a>
-  <a href="/src/pages/AboutUs.html"><i class="fas fa-info-circle"></i> About Us</a>
-  <a href="/src/pages/T's&C.html"><i class="fas fa-file-alt"></i> Terms</a>
+  <a href="/public/index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="/src/pages/faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+  <a href="/src/pages/aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+  <a href="/src/pages/terms.html"><i class="fas fa-file-alt"></i> Terms</a>
   <div class="dropdown">
       <button>
           <i class="fas fa-briefcase"></i> Products
@@ -18,5 +47,5 @@
           <a href="/asset-secured"><i class="fas fa-business-time"></i> Asset Secured</a>
       </div>
   </div>
-  <a href="/src/pages/Contact-Us.html"><i class="fas fa-file-alt"></i> Contact Us</a>
+  <a href="/src/pages/contact-Us.html"><i class="fas fa-file-alt"></i> Contact Us</a>
 </div>
