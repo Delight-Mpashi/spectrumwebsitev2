@@ -40,33 +40,49 @@
 <body>
   <!-- Navigation -->
   <!-- Navigation -->
-  <div class="navigation-bar">
-    <div class="logo">
-      <img src="./assets/images/sclogo.png" alt="spectrum logo">
-    </div>
-
-    <!-- Nav Right -->
-    <div class="nav-links">
-      <a href="./index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="/pages/faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
-      <a href="/pages/aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
-      <a href="/pages/terms.html"><i class="fas fa-file-alt"></i> Terms</a>
-      <div class="dropdown">
-          <button>
-              <i class="fas fa-briefcase"></i> Products
-              <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="dropdown-content">
-              <a href="/pages/civilservant.html"><i class="fas fa-user-tie"></i> Civil Servant</a>
-              <a href="/asset-secured"><i class="fas fa-business-time"></i> Asset Secured</a>
-          </div>
+     <!-- navigation starts -->
+     <div class="navigation-bar">
+      <div class="logo">
+        <img
+          src="/public/assets/images/sclogo.png"
+          alt="spectrum logo"
+        />
       </div>
-      <a href="/pages/contact-Us.html"><i class="fas fa-file-alt"></i> Contact Us</a>
+
+      <!-- Nav Right -->
+      <div id="navbar-container">Loading navigation...</div>
     </div>
 
-  </div>
-  </div>
-  
+    <script>
+      const possiblePaths = [
+        "/components/navbar.html",
+        "/src/components/navbar.html",
+        "./components/navbar.html",
+        "../components/navbar.html",
+      ];
+
+      async function loadNavbar() {
+        for (const path of possiblePaths) {
+          try {
+            const response = await fetch(path);
+            if (response.ok) {
+              document.getElementById("navbar-container").innerHTML =
+                await response.text();
+              console.log(`Navbar loaded successfully from: ${path}`);
+              return;
+            }
+          } catch (error) {
+            console.log(`Attempt failed for path: ${path}`, error);
+          }
+        }
+        document.getElementById("navbar-container").innerHTML =
+          '<div class="error">Navigation failed to load</div>';
+      }
+
+      loadNavbar();
+    </script>
+    <!-- End of navigation -->
+
     <!-- Hero Section -->
      <!-- Hero Section with Compact Form -->
   <div class="relative w-full h-[600px]">
