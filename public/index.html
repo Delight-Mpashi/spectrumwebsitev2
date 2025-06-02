@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/src/styles/main.css" />
-  <link rel="stylesheet" href="/src/styles/navigation.css" />
-  <link rel="stylesheet" href="/src/styles/hero.css">
+  <link rel="stylesheet" href="../src/styles/main.css">
+  <link rel="stylesheet" href="../src/styles/navigation.css">
+  <link rel="stylesheet" href="../src/styles/hero.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -40,49 +40,33 @@
 <body>
   <!-- Navigation -->
   <!-- Navigation -->
-     <!-- navigation starts -->
-     <div class="navigation-bar">
-      <div class="logo">
-        <img
-          src="./assets/images/sclogo.png"
-          alt="spectrum logo"
-        />
-      </div>
-
-      <!-- Nav Right -->
-      <div id="navbar-container">Loading navigation...</div>
+  <div class="navigation-bar">
+    <div class="logo">
+      <img src="./assets/images/sclogo.png" alt="spectrum logo">
     </div>
 
-    <script>
-      const possiblePaths = [
-        "/components/navbar.html",
-        "/src/components/navbar.html",
-        "./components/navbar.html",
-        "../components/navbar.html",
-      ];
+    <!-- Nav Right -->
+    <div class="nav-links">
+      <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="/pages/faqs.html"><i class="fas fa-question-circle"></i> FAQs</a>
+      <a href="/pages/aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="/pages/terms.html"><i class="fas fa-file-alt"></i> Terms</a>
+      <div class="dropdown">
+          <button>
+              <i class="fas fa-briefcase"></i> Products
+              <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="/pages/civilservant.html"><i class="fas fa-user-tie"></i> Civil Servant</a>
+              <a href="/asset-secured"><i class="fas fa-business-time"></i> Asset Secured</a>
+          </div>
+      </div>
+      <a href="/pages/contact-Us.html"><i class="fas fa-file-alt"></i> Contact Us</a>
+    </div>
 
-      async function loadNavbar() {
-        for (const path of possiblePaths) {
-          try {
-            const response = await fetch(path);
-            if (response.ok) {
-              document.getElementById("navbar-container").innerHTML =
-                await response.text();
-              console.log(`Navbar loaded successfully from: ${path}`);
-              return;
-            }
-          } catch (error) {
-            console.log(`Attempt failed for path: ${path}`, error);
-          }
-        }
-        document.getElementById("navbar-container").innerHTML =
-          '<div class="error">Navigation failed to load</div>';
-      }
-
-      loadNavbar();
-    </script>
-    <!-- End of navigation -->
-
+  </div>
+  </div>
+  
     <!-- Hero Section -->
      <!-- Hero Section with Compact Form -->
   <div class="relative w-full h-[600px]">
