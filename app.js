@@ -1,36 +1,49 @@
 const express = require('express');
 const path = require('path');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
+// 1. Serve static files from 'public'
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/components', express.static(path.join(__dirname, 'src/components')));
-app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
-app.use('/styles', express.static(path.join(__dirname, 'src/styles')));
-app.use('/scripts', express.static(path.join(__dirname, 'src/scripts')));
-app.use('/images', express.static(path.join(__dirname, 'src/images')));
-app.use('/fonts', express.static(path.join(__dirname, 'src/fonts')));
-app.use('/data', express.static(path.join(__dirname, 'src/data')));
-app.use('/pages', express.static(path.join(__dirname, 'src/pages')));
-app.use('/services', express.static(path.join(__dirname, 'src/services')));
 
+// 2. Manually expose src subfolders
+const staticFolders = [
+  ['components', 'src/components'],
+  ['scripts', 'src/scripts'],
+  ['styles', 'src/styles'],
+  ['assets', 'src/assets'],
+  ['images', 'src/images'],
+  ['fonts', 'src/fonts'],
+  ['data', 'src/data'],
+  ['pages', 'src/pages'],
+  ['services', 'src/services']
+];
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+staticFolders.forEach(([urlPath, folderPath]) => {
+  const fullPath = path.join(__dirname, folderPath);
+  console.log(`Serving /${urlPath} from ${fullPath}`);
+  app.use(`/${urlPath}`, express.static(fullPath));
 });
 
-// Error handling
-app.use((req, res, next) => {
+// 3. Serve index.html at root
+app.get('/', (req, res) => {
+  const indexPath = path.join(__dirname, 'public', 'index.html');
+  res.sendFile(indexPath);
+});
+
+// 4. 404 Error for unknown routes
+app.use((req, res) => {
   res.status(404).send("Sorry, that route doesn't exist.");
 });
 
+// 5. Global error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+  console.error('Server error:', err);
+  res.status(500).send('Internal Server Error');
 });
 
-// Start server
+// 6. Start server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`✅ Server running at http://localhost:${port}`);
 });
