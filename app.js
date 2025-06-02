@@ -8,11 +8,12 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serves /assets, /ima
 app.use('/components', express.static(path.join(__dirname, 'src/components')));
 app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 
+
 // Route for index
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`✅ Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
