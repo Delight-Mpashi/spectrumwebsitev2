@@ -1,13 +1,12 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
 const port = process.env.PORT || 3000;
 
-// 1. Serve static files from 'public'
+// Serve static files from public/
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 2. Manually expose src subfolders
+// Serve additional folders under /src
 const staticFolders = [
   ['components', 'src/components'],
   ['scripts', 'src/scripts'],
@@ -26,24 +25,17 @@ staticFolders.forEach(([urlPath, folderPath]) => {
   app.use(`/${urlPath}`, express.static(fullPath));
 });
 
-// 3. Serve index.html at root
+// Root route
 app.get('/', (req, res) => {
-  const indexPath = path.join(__dirname, 'public', 'index.html');
-  res.sendFile(indexPath);
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// 4. 404 Error for unknown routes
+// 404 fallback
 app.use((req, res) => {
   res.status(404).send("Sorry, that route doesn't exist.");
 });
 
-// 5. Global error handler
-app.use((err, req, res, next) => {
-  console.error('Server error:', err);
-  res.status(500).send('Internal Server Error');
-});
-
-// 6. Start server
+// Start server
 app.listen(port, () => {
-  console.log(`✅ Server running at http://localhost:${port}`);
+  console.log(`✅ Server is running at http://localhost:${port}`);
 });
