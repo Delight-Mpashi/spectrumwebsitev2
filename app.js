@@ -5,9 +5,10 @@ const port = process.env.PORT || 3000;
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public'))); // Serves /assets, /images, /index.html etc
-app.use('/components', express.static(path.join(__dirname, 'src/components')));
-app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
-
+app.use('/components', express.static(path.join(__dirname, './src/components')));
+app.use('/assets', express.static(path.join(__dirname, './src/assets')));
+app.use('/images', express.static(path.join(__dirname, 'src/images')));
+app.use('/pages',express.static(path.join(__dirname, 'src/pages')));
 
 // Route for index
 app.get('/', (req, res) => {
