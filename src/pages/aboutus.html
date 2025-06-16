@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Learn about Spectrum Credit - Zambia's leading microfinance institution providing accessible financial solutions since 2022">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/src/styles/main.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,6 +19,7 @@
           colors: {
             spectrum: {
               primary: '#1d62e3',
+              'primary-dark': '#1a56cb',
               secondary: '#4caf50',
               dark: '#1e293b',
               light: '#f8fafc',
@@ -32,100 +33,193 @@
       }
     }
   </script>
-  <title>Spectrum Credit - Loan Application</title>
-  <link rel="stylesheet" href="../styles/main.css">
+  <title>About Us | Spectrum Credit - Zambia's Leading Microfinance</title>
+  <style>
+    /* Custom styles for better mobile experience */
+    .hero-image {
+      height: 400px;
+      object-position: center 30%;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-image {
+        height: 500px;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Better focus states for accessibility */
+    a:focus, button:focus, input:focus, select:focus {
+      outline: 2px solid #1d62e3;
+      outline-offset: 2px;
+    }
+    
+    /* Optimize image loading */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
-<body>
-    <!-- Nav Right -->
-    <!-- Navigation -->
-  <div class="navigation-bar">
-    <div class="logo">
-      <img src="/Public/assets/Images/spectrum-credit-logo-brighter transsparent (1).png" alt="spectrum logo">
-    </div>
-
-    <!-- Nav Right -->
-    <div id="navbar-container"></div>
-
-<script>
-  fetch('/src/components/navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-container').innerHTML = data;
-    });
-</script>
-
-  </div>
-  </div>
-
-  <div class="relative w-full h-[600px]">
-    <!-- Background Image -->
-    <img src="/public/assets/images/About-Us.png" alt="Happy customer with money" class="w-full h-full object-cover"> 
-<!-- Add full code here -->
-<div class="bg-white">
-  <!-- Hero Section -->
-  <div class="container mx-auto px-4 py-12">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">About Spectrum Credit</h1>
-      <div class="w-24 h-1.5 bg-blue-600 mx-auto mb-6"></div>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Empowering Zambians with accessible financial solutions since 2022
-      </p>
-    </div>
-
-    <!-- Mission & Vision Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-      <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 transform transition hover:-translate-y-2">
-        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
+<body class="font-sans bg-gray-50">
+  <!-- Navigation -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="flex items-center">
+        <img src="./assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="/public/index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
+        <a href="../pages/faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
+        <a href="../pages/aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About Us</a>
+        <a href="../src/pages/terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
+        
+        <div class="relative group">
+          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+            <a href="../src/pages/loanforms/csloanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Civil Servant</a>
+            <a href="../src/pages/loanforms/assetsecured.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Asset Secured</a>
+          </div>
         </div>
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
-        <p class="text-gray-600 leading-relaxed">
-          To achieve and maintain market leadership in providing emergency loans to qualifying employed men and women across Zambia, 
-          helping them achieve financial stability and growth.
-        </p>
+        
+        <a href="../src/pages/contactus.html" class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition">
+          Contact Us
+        </a>
+      </nav>
+      
+      <!-- Mobile menu button -->
+      <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
+      <div class="flex justify-end mb-6">
+        <button id="close-mobile-menu" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
       </div>
       
-      <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 transform transition hover:-translate-y-2">
-        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
+      <nav class="flex flex-col space-y-4">
+        <a href="./index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
+        <a href="../src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
+        <a href="../src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About Us</a>
+        <a href="../src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
+        
+        <div class="px-3 py-2">
+          <button class="flex items-center justify-between w-full font-medium text-gray-700" id="mobile-products-toggle">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+            <a href="../src/pages/loanforms/csloanForm.html" class="block py-2 text-gray-700 hover:text-blue-600">Civil Servant</a>
+            <a href="../src/pages/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600">Asset Secured</a>
+          </div>
         </div>
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Vision</h2>
-        <p class="text-gray-600 leading-relaxed">
-          To be Zambia's most respected microfinance institution, recognized for our passionate teams, 
-          innovative solutions, and unwavering commitment to customer satisfaction.
+        
+        <a href="../src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
+          Contact Us
+        </a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <div class="relative w-full hero-image">
+    <!-- Background Image -->
+    <img 
+      src="/public/assets/images/About-Us.png" 
+      alt="Happy Spectrum Credit customers" 
+      class="w-full h-full object-cover"
+      loading="eager"
+      width="1920"
+      height="600"
+    >
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">About Spectrum Credit</h1>
+        <p class="text-xl text-white max-w-2xl mx-auto">
+          Empowering Zambians with accessible financial solutions since 2022
         </p>
       </div>
     </div>
+  </div>
+
+  <div class="bg-white">
+    <!-- Mission & Vision Section -->
+    <section class="container mx-auto px-4 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <!-- Mission Card -->
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100 transform transition hover:-translate-y-1">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-spectrum-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
+          <p class="text-gray-600 leading-relaxed">
+            To achieve and maintain market leadership in providing emergency loans to qualifying employed men and women across Zambia, 
+            helping them achieve financial stability and growth.
+          </p>
+        </div>
+        
+        <!-- Vision Card -->
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100 transform transition hover:-translate-y-1">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-spectrum-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Vision</h2>
+          <p class="text-gray-600 leading-relaxed">
+            To be Zambia's most respected microfinance institution, recognized for our passionate teams, 
+            innovative solutions, and unwavering commitment to customer satisfaction.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Who We Are Section -->
-    <div class="bg-gray-50 py-16">
+    <section class="bg-gray-50 py-12 md:py-16">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">Who We Are</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div class="w-20 h-1 bg-spectrum-primary mx-auto"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
           <div class="md:flex">
-            <div class="md:w-2/5 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-8">
-              <img src="/public/assets/images/team.png" alt="Spectrum Credit Team" class="rounded-lg w-full h-auto max-h-96 object-contain">
+            <div class="md:w-2/5 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-6 md:p-8">
+              <img 
+                src="/public/assets/images/team.png" 
+                alt="Spectrum Credit Team" 
+                class="rounded-lg w-full h-auto max-h-80 md:max-h-96 object-contain"
+                loading="lazy"
+                width="400"
+                height="400"
+              >
             </div>
             
-            <div class="md:w-3/5 p-10">
+            <div class="md:w-3/5 p-6 md:p-8">
               <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                <span class="font-bold text-blue-600">Spectrum Credit</span> is a Zambian-owned microfinance leader transforming lives through innovative financial solutions. 
+                <span class="font-bold text-spectrum-primary">Spectrum Credit</span> is a Zambian-owned microfinance leader transforming lives through innovative financial solutions. 
                 We bridge the gap between traditional banking and underserved communities.
               </p>
               
-              <div class="space-y-5">
+              <div class="space-y-4">
                 <div class="flex items-start">
                   <div class="flex-shrink-0 mt-1">
                     <div class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center">
-                      <svg class="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <svg class="h-4 w-4 text-spectrum-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                       </svg>
                     </div>
@@ -138,7 +232,7 @@
                 <div class="flex items-start">
                   <div class="flex-shrink-0 mt-1">
                     <div class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center">
-                      <svg class="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <svg class="h-4 w-4 text-spectrum-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                       </svg>
                     </div>
@@ -151,7 +245,7 @@
                 <div class="flex items-start">
                   <div class="flex-shrink-0 mt-1">
                     <div class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center">
-                      <svg class="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <svg class="h-4 w-4 text-spectrum-primary" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
                       </svg>
                     </div>
@@ -162,7 +256,7 @@
                 </div>
               </div>
               
-              <div class="mt-8 bg-blue-50 p-5 rounded-xl border border-blue-100">
+              <div class="mt-8 bg-blue-50 p-4 md:p-5 rounded-xl border border-blue-100">
                 <p class="text-blue-800 font-medium italic text-center">
                   "Our vision extends beyond loans - we're building financial capability across Zambia, one customer at a time."
                 </p>
@@ -172,149 +266,177 @@
         </div>
 
         <!-- Stats Section -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition hover:scale-105">
-            <div class="text-4xl font-bold text-blue-600 mb-2">3+</div>
-            <div class="text-gray-600 font-medium">Years of Excellence</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16">
+          <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105">
+            <div class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2">3+</div>
+            <div class="text-gray-600 font-medium text-sm md:text-base">Years of Excellence</div>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition hover:scale-105">
-            <div class="text-4xl font-bold text-blue-600 mb-2">50K+</div>
-            <div class="text-gray-600 font-medium">Customers Empowered</div>
+          <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105">
+            <div class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2">50K+</div>
+            <div class="text-gray-600 font-medium text-sm md:text-base">Customers Empowered</div>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition hover:scale-105">
-            <div class="text-4xl font-bold text-blue-600 mb-2">5+</div>
-            <div class="text-gray-600 font-medium">Innovative Products</div>
+          <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105">
+            <div class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2">5+</div>
+            <div class="text-gray-600 font-medium text-sm md:text-base">Innovative Products</div>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md text-center transform transition hover:scale-105">
-            <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
-            <div class="text-gray-600 font-medium">Zambian Passion</div>
+          <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105">
+            <div class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2">100%</div>
+            <div class="text-gray-600 font-medium text-sm md:text-base">Zambian Passion</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Locations Section -->
-    <div class="py-16 bg-white">
+    <section class="py-12 md:py-16 bg-white">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Nationwide Presence</h2>
-          <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Our Nationwide Presence</h2>
+          <div class="w-20 h-1 bg-spectrum-primary mx-auto"></div>
           <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
             We're growing across Zambia to serve you better with convenient locations
           </p>
         </div>
 
         <div class="flex justify-center">
-          <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-6xl">
+          <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 max-w-4xl w-full">
             <img 
               src="/public/assets/images/locations.png" 
               alt="Spectrum Credit branch locations across Zambia"
               class="w-full h-auto rounded-lg object-contain"
-              style="max-height: 700px"
+              style="max-height: 500px"
               loading="lazy"
+              width="800"
+              height="500"
             >
-            <div class="mt-6 flex flex-wrap justify-center gap-4">
-              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Lusaka</span>
-              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Ndola</span>
-              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Kitwe</span>
-              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Mazabuka</span>
-              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Coming Soon</span>
+            <div class="mt-4 md:mt-6 flex flex-wrap justify-center gap-2 md:gap-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">Lusaka</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">Ndola</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">Kitwe</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">Mazabuka</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">Coming Soon</span>
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-10">
-          <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-md transition duration-300 inline-flex items-center">
+        <div class="text-center mt-8 md:mt-10">
+          <a href="/contact" class="inline-flex items-center bg-spectrum-primary hover:bg-spectrum-primary-dark text-white font-medium py-2 md:py-3 px-6 md:px-8 rounded-lg shadow-md transition duration-300">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
             Find Your Nearest Branch
-          </button>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   </div>
-</div>
 
-<!-- Footer -->
- 
-< <!-- Footer Section -->
-<footer class="bg-spectrum-dark text-white py-12">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Column 1 -->
-            <div>
-                <img src="/public/assets/images/sclogo.png" alt="Spectrum Logo" class="h-12 mb-4" loading="lazy">
-                <p class="text-gray-300 text-sm">There When you Need Us!</p>
-                <div class="flex mt-4 space-x-4">
-                    <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn" class="text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            
-            <!-- Column 2 -->
-            <div>
-                <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="/" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Home</a></li>
-                    <li><a href="/about" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> About Us</a></li>
-                    <li><a href="/products" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Products</a></li>
-                    <li><a href="/contact" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Contact</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 3 -->
-            <div>
-                <h3 class="font-bold text-lg mb-4">Products</h3>
-                <ul class="space-y-2">
-                    <li><a href="/products/civil-servant" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Civil Servant Loans</a></li>
-                    <li><a href="/products/nkwazi" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Nkwazi Working Capital</a></li>
-                    <li><a href="/products/sme-financing" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> SME Financing</a></li>
-                    <li><a href="/products/whitebook" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Whitebook</a></li>
-                </ul>
-            </div>
-            
-            <!-- Column 4 -->
-            <div>
-                <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-                <address class="text-gray-300 not-italic text-sm">
-                    <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
-                    <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> info@spectrumcredit.com</p>
-                    <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 123 456 789</p>
-                    <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
-                </address>
-            </div>
+  <!-- Footer -->
+  <footer class="bg-spectrum-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        <!-- Column 1 -->
+        <div>
+          <img 
+            src="public/assets/images/spectrum-credit-logo.png" 
+            alt="Spectrum Credit Logo"
+            class="h-10 mb-4"
+            loading="lazy"
+            width="160"
+            height="40"
+          >
+          <p class="text-gray-300 text-sm">There When You Need Us!</p>
+          <div class="flex mt-4 space-x-4">
+            <a href="#" aria-label="Facebook" class="text-gray-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" class="text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram" class="text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
         
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
-                <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
-                <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
-                <a href="/complaints" class="hover:text-white transition">Complaints</a>
-            </p>
+        <!-- Column 2 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> FAQs</a></li>
+            <li><a href="/about" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> About Us</a></li>
+            <li><a href="/products" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Products</a></li>
+            <li><a href="/contact" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Contact</a></li>
+          </ul>
         </div>
+        
+        <!-- Column 3 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="/whistleblower" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Whistleblower Portal</a></li>
+            <li><a href="/grievance" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Grievance Reporting</a></li>
+            <li><a href="/terms" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Terms and Conditions</a></li>
+            <li><a href="/policy" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Environment and Social Policy</a></li>
+            <li><a href="/privacy" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Data Privacy Statement</a></li>
+            <li><a href="/charter" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right text-xs mr-2"></i> Customer Service Charter</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+          <address class="text-gray-300 not-italic text-sm">
+            <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
+            <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> website@spectrumcredit.com</p>
+            <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 761 197 777</p>
+            <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
+          </address>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
+          <a href="/complaints" class="hover:text-white transition">Complaints</a>
+        </p>
+      </div>
     </div>
-</footer>
+  </footer>
 
-<!-- Essential Scripts -->
-<script>
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/260975992516" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110" aria-label="Chat with us on WhatsApp">
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+    const mobileProductsToggle = document.getElementById('mobile-products-toggle');
+    const mobileProductsMenu = document.getElementById('mobile-products-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenuButton.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+    });
+    
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenuButton.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+    
+    mobileProductsToggle.addEventListener('click', () => {
+      mobileProductsMenu.classList.toggle('hidden');
+      mobileProductsToggle.querySelector('i').classList.toggle('fa-chevron-down');
+      mobileProductsToggle.querySelector('i').classList.toggle('fa-chevron-up');
+    });
+
     // Set current year automatically
     document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // Add any other necessary JavaScript here
-</script>
-
-
-<!-- Floating WhatsApp Button -->
-<div class="fixed bottom-6 right-6 z-50">
-  <a href="https://wa.me/260975992516" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110">
-    <i class="fab fa-whatsapp text-2xl"></i>
-  </a>
-</div>
-
-
+  </script>
 </body>
 </html>
