@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
 app.get('/src', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/images/'));
 });
+app.get('/src/pages/loanforms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms'));
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
