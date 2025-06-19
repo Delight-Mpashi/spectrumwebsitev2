@@ -27,6 +27,11 @@ app.get('/loanforms', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms.html'));
 });
 
+// for all other pages in public
+app.get('/public/index.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));  
+});
+
 // For all other pages in src/pages (optional)
 app.get('/src/pages/:page', (req, res) => {
   const page = req.params.page;
