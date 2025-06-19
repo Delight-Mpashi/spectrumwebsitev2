@@ -4,21 +4,23 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public'))); 
-app.use('/components', express.static(path.join(__dirname, './src/components')));
-app.use('/assets', express.static(path.join(__dirname, './src/assets')));
-app.use('/images', express.static(path.join(__dirname, 'src/images')));
-app.use('/pages',express.static(path.join(__dirname, 'src/pages')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+app.use('/src', express.static(path.join(__dirname, 'src')));
 
 // Route for index
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-app.get('/src', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/images/'));
+
+// Route for FAQ page
+app.get('/faqs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/faqs.html'));
 });
-app.get('/src/pages/loanforms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms'));
+
+// Route for loan forms
+app.get('/loanforms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms.html'));
 });
 
 app.listen(port, () => {
