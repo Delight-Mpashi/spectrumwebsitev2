@@ -143,34 +143,44 @@
         });
     </script>
 
-    <!-- Hero Section -->
-    <div class="hero-image flex items-center justify-center">
-      <div class="hero-content text-center px-4">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h1>
-        <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">Find answers to common questions about our services</p>
+ <!-- Hero Section -->
+<div class="relative min-h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/src/images/FAQ.jpg" 
+      alt="Background"
+      class="w-full h-full object-cover opacity-70"
+    >
+  </div>
+  
+  <!-- Content (white text in front) -->
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h1>
+    <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">Find answers to common questions about our services</p>
+  </div>
+</div>
+
+<!-- FAQ Content -->
+<main class="min-h-screen bg-white">
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <!-- Search Bar -->
+    <div class="mb-8 md:mb-12">
+      <div class="relative max-w-xl mx-auto">
+        <input
+          type="text"
+          placeholder="Search questions..."
+          class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+          id="faq-search"
+          aria-label="Search FAQs"
+        />
+        <div class="absolute right-3 top-3 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
       </div>
     </div>
-
-    <!-- FAQ Content -->
-    <main class="min-h-screen">
-      <div class="max-w-3xl mx-auto px-4 py-12">
-        <!-- Search Bar -->
-        <div class="mb-8 md:mb-12">
-          <div class="relative max-w-xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search questions..."
-              class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-spectrum-primary focus:border-transparent"
-              id="faq-search"
-              aria-label="Search FAQs"
-            />
-            <div class="absolute right-3 top-3 text-gray-400">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-          </div>
-        </div>
 
         <!-- FAQ Categories -->
         <div class="space-y-8">
