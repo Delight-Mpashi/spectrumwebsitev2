@@ -4,15 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spectrum Credit</title>
-  <!-- Preconnect to CDN domains -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <!-- Preload critical CSS -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" as="style">
-  <!-- Load CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-  <!-- Inline critical CSS -->
   <style>
     .mobile-menu{transform:translateX(100%);transition:transform .3s ease-in-out}
     .mobile-menu:not(.hidden){transform:translateX(0)}
@@ -23,8 +19,8 @@
     .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
     .mobile-menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:40;display:none}
     .mobile-menu-overlay.active{display:block}
-    .dropdown-menu{transition:all .3s ease;opacity:0;visibility:hidden;transform:translateY(-10px)}
-    .dropdown-menu.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .dropdown-menu{transition:all .3s ease;opacity:0;visibility:hidden;transform:translateY(-10px);pointer-events:none}
+    .dropdown-menu.show{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
     .dropdown-arrow{transition:transform .3s ease}
     .dropdown-arrow.rotate{transform:rotate(180deg)}
   </style>
@@ -39,12 +35,12 @@
       </a>
 
       <nav class="hidden md:flex items-center space-x-1">
-        <a href="/public/index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
+        <a href="../public/index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
         <a href="/src/pages/faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
         <a href="/src/pages/aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About</a>
         <a href="/src/pages/terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
 
-        <div class="relative group">
+        <div class="relative">
           <button id="desktop-dropdown-button" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600" aria-expanded="false" aria-controls="desktop-dropdown-menu">
             Products <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow" aria-hidden="true"></i>
           </button>
@@ -74,7 +70,7 @@
       </div>
 
       <nav class="flex flex-col space-y-4">
-        <a href="/public/index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
+        <a href="../public/index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
         <a href="/src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
         <a href="/src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About</a>
         <a href="/src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
@@ -127,6 +123,11 @@
         elements.mobile.overlay.classList.toggle('active');
         document.body.classList.toggle('overflow-hidden');
         elements.mobile.button.setAttribute('aria-expanded', isOpen);
+        
+        // Close dropdowns when mobile menu closes
+        if (!isOpen) {
+          closeAllDropdowns();
+        }
       };
 
       // Toggle dropdown
@@ -163,10 +164,22 @@
         toggleDropdown(elements.mobile.dropdown.button, elements.mobile.dropdown.menu);
       });
 
-      document.addEventListener('click', closeAllDropdowns);
+      document.addEventListener('click', (e) => {
+        // Only close if clicking outside dropdown buttons/menus
+        if (!e.target.closest('.dropdown-menu') && !e.target.closest('[aria-controls]')) {
+          closeAllDropdowns();
+        }
+      });
       
       elements.links.forEach(link => {
         link.addEventListener('click', toggleMobileMenu);
+      });
+
+      // Close dropdowns when clicking on dropdown items
+      document.querySelectorAll('.dropdown-menu a').forEach(item => {
+        item.addEventListener('click', () => {
+          closeAllDropdowns();
+        });
       });
     });
   </script>
