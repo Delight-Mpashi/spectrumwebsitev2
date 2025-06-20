@@ -136,24 +136,23 @@
   <!-- Page content goes here -->
 
   <script>
-    fetch('/src/components/navbar.html')
-    .then(res => {
-      if (!res.ok) throw new Error('Navbar not found');
-      return res.text();
-    })
-    .then(data => {
-      document.getElementById('navbar').innerHTML = data;
-      // Initialize mobile menu after navbar loads
-      initMobileMenu();
-    })
-    .catch(err => {
-      console.error('Error loading navbar:', err);
-      document.getElementById('navbar').innerHTML = '<div class="bg-white shadow-sm py-3">Navigation</div>';
-    });
-  
-  function initMobileMenu() {
-    // Mobile menu initialization code here
-  }
+    fetch('../../public/navbar.html')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.text();
+      })
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading navbar:', error);
+        document.getElementById('navbar').innerHTML = `
+          <nav class="fallback-nav">
+            <a href="/">Home</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        `;
+      });
   </script>
 
   <!-- Main Content -->
