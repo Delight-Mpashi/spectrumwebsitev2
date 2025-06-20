@@ -3,32 +3,46 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve static files
+// Set up static file serving with proper path resolution
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/src', express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'src')));
 
-// Asset routes (now available at root level)
-app.use('/images', express.static(path.join(__dirname, 'public/assets/images')));
-app.use('/fonts', express.static(path.join(__dirname, 'public/assets/fonts')));
-app.use('/svg', express.static(path.join(__dirname, 'public/assets/svg')));
+// Explicit static routes for better organization
+app.use('/assets/images', express.static(path.join(__dirname, 'public/assets/images')));
+app.use('/assets/fonts', express.static(path.join(__dirname, 'public/assets/fonts')));
+app.use('/assets/svg', express.static(path.join(__dirname, 'public/assets/svg')));
+app.use('/src/pages', express.static(path.join(__dirname, 'src/pages')));
 
-// Route handlers
+// Route handlers with proper path resolution
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.get('/faqs', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/faqs.html'));
+// Main page routes
+const pages = [
+  'faqs', 'aboutus', 'terms&conditions', 'contactus',
+  'loanforms/csloanForm', 'loanforms/assetsecured'
+];
+
+pages.forEach(page => {
+  app.get(`/${page}`, (req, res) => {
+    res.sendFile(path.join(__dirname, `src/pages/${page}.html`));
+  });
 });
 
-app.get('/loanforms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms.html'));
+// Catch-all for other pages (optional)
+app.get('/:page', (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, `src/pages/${req.params.page}.html`));
+  } catch (err) {
+    res.status(404).sendFile(path.join(__dirname, 'public/404.html'));
+  }
 });
 
-
-// For all other pages in src/pages
-app.get('/src/pages/:page', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages', req.params.page + '.html'));
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).sendFile(path.join(__dirname, 'public/500.html'));
 });
 
 app.listen(port, () => {
