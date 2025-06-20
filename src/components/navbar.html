@@ -53,24 +53,65 @@
     </div>
 
     <nav class="flex flex-col space-y-4">
-      <a href="./index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
-      <a href="../src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
-      <a href="../src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About Us</a>
-      <a href="../src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
+      <a href="/public/index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
+      <a href="/src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
+      <a href="/src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About Us</a>
+      <a href="/src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
 
       <div class="px-3 py-2">
         <button class="flex items-center justify-between w-full font-medium text-gray-700" id="mobile-products-toggle">
           Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
         </button>
         <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-          <a href="../src/pages/loanforms/csloanForm.html" class="block py-2 text-gray-700 hover:text-blue-600">Civil Servant</a>
-          <a href="../src/pages/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600">Asset Secured</a>
+          <a href="/src/pages/loanforms/csloanForm.html" class="block py-2 text-gray-700 hover:text-blue-600">Civil Servant</a>
+          <a href="/src/pages/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600">Asset Secured</a>
         </div>
       </div>
 
-      <a href="../src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
+      <a href="/src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
         Contact Us
       </a>
     </nav>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+    
+    // Products dropdown toggle for mobile
+    const mobileProductsToggle = document.getElementById('mobile-products-toggle');
+    const mobileProductsMenu = document.getElementById('mobile-products-menu');
+    
+    // Toggle mobile menu
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
+    });
+    
+    // Close mobile menu
+    closeMobileMenu.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    });
+    
+    // Toggle products dropdown in mobile menu
+    mobileProductsToggle.addEventListener('click', function() {
+      mobileProductsMenu.classList.toggle('hidden');
+      this.querySelector('i').classList.toggle('fa-chevron-down');
+      this.querySelector('i').classList.toggle('fa-chevron-up');
+    });
+    
+    // Close mobile menu when clicking on a link (optional)
+    const mobileLinks = mobileMenu.querySelectorAll('a:not(#mobile-products-toggle)');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+  });
+</script>

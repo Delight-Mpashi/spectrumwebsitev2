@@ -25,8 +25,6 @@ app.get('/loanforms', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms.html'));
 });
 
-// Remove this redundant route - it's already handled by static middleware
-// app.get('/public/index.html', (req, res) => {...});
 
 // For all other pages in src/pages
 app.get('/src/pages/:page', (req, res) => {
