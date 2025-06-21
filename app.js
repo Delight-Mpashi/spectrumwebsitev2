@@ -11,6 +11,8 @@ app.use('/src', express.static(path.join(__dirname, 'src')));
 app.use('/images', express.static(path.join(__dirname, 'public/assets/images')));
 app.use('/fonts', express.static(path.join(__dirname, 'public/assets/fonts')));
 app.use('/svg', express.static(path.join(__dirname, 'public/assets/svg')));
+app.use('/pages', express.static(path.join(__dirname, 'src/pages')));
+app.use('/loanforms', express.static(path.join(__dirname, 'src/loanforms')));
 
 // Route handlers
 app.get('/', (req, res) => {
@@ -21,8 +23,24 @@ app.get('/faqs', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/faqs.html'));
 });
 
+app.get('/about', (req,res)=>{
+  res.sendFile(path.join(__dirname, 'src/pages/aboutus.html'));
+});
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/contactus.html'));
+});
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/aboutus.html'));
+});
+app.get('/terms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/terms&conditions.html'));
+});
+
 app.get('/loanforms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms.html'));
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
+});
+app.get('/laonforms/assetsecured', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
 });
 
 
