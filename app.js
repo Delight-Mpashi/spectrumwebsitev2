@@ -42,6 +42,9 @@ app.get('/loanforms', (req, res) => {
 app.get('/laonforms/assetsecured', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
 });
+app.get('/public/index.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 
 // For all other pages in src/pages
