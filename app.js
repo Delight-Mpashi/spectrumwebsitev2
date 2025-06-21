@@ -45,6 +45,9 @@ app.get('/laonforms/assetsecured', (req, res) => {
 app.get('/public/index.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+app.get('/public/assets/images/:image', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/assets/images', req.params.image));
+});
 
 
 // For all other pages in src/pages
