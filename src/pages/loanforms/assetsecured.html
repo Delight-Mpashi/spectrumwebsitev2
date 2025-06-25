@@ -1,556 +1,805 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asset Secured Loan Application | Spectrum Credit</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary: #1d62e3;
-      --primary-dark: #1a56cb;
-      --secondary: #4caf50;
-      --dark: #1e293b;
-      --light: #f8fafc;
-      --accent: #f59e0b;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-text-size-adjust: 100%;
-    }
-    
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-    
-    .hamburger span {
-      transition: all 0.3s ease;
-    }
-    
-    .hamburger.open span:first-child {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .hamburger.open span:last-child {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    
-    .custom-prompt {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none; /* Changed from flex to none */
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    
-    .prompt-box {
-      background-color: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      width: 90%;
-      max-width: 400px;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    
-    .prompt-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .prompt-button {
-      padding: 0.5rem 1.5rem;
-      border-radius: 0.375rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    
-    .prompt-button-yes {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-    }
-    
-    .prompt-button-yes:hover {
-      background-color: var(--primary-dark);
-    }
-    
-    .prompt-button-no {
-      background-color: white;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-    
-    .prompt-button-no:hover {
-      background-color: #f8fafc;
-    }
-    
-    .nrc-input {
-      background-image: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8H14' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-    }
-    
-    .form-container {
-      display: none;
-    }
-    
-    .form-container.active {
-      display: block;
-    }
-  </style>
-</head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
- <!-- Mobile Navigation -->
-   <!-- Mobile Navigation -->
-   <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="#" class="flex items-center">
-        <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
-      </a>
-  
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-1">
-        <a href="/public/index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
-        <a href="/src/pages/faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
-        <a href="/src/pages/aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About Us</a>
-        <a href="/src/pages/terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
-  
-        <div class="relative group">
-          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
-            <a href="/src/pages/loanforms/csloanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Civil Servant</a>
-            <a href="/src/pages/loanforms/assetsecured.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Asset Secured</a>
-          </div>
-        </div>
-  
-        <a href="/src/pages/contactus.html" class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition">
-          Contact Us
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asset Secured Loan Application | Spectrum Credit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary: #1d62e3;
+        --primary-dark: #1a56cb;
+        --secondary: #4caf50;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --accent: #f59e0b;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .hamburger span {
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.open span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .custom-prompt {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none; /* Changed from flex to none */
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .prompt-box {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        width: 90%;
+        max-width: 400px;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .prompt-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .prompt-button {
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .prompt-button-yes {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+      }
+
+      .prompt-button-yes:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .prompt-button-no {
+        background-color: white;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+      }
+
+      .prompt-button-no:hover {
+        background-color: #f8fafc;
+      }
+
+      .nrc-input {
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8H14' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+      }
+
+      .form-container {
+        display: none;
+      }
+
+      .form-container.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Mobile Navigation -->
+    <!-- Mobile Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center">
+          <img
+            src="/src/images/sclogo.png"
+            alt="Spectrum Credit Logo"
+            class="h-10"
+          />
         </a>
-      </nav>
-  
-      <!-- Mobile menu button -->
-      <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700"></span>
-      </button>
-    </div>
-  
-    <!-- Mobile menu -->
-    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-      <div class="flex justify-end mb-6">
-        <button id="close-mobile-menu" class="text-gray-500 hover:text-gray-700">
-          <i class="fas fa-times text-xl"></i>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a
+            href="/public/index.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+          <a
+            href="/src/pages/faqs.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >FAQs</a
+          >
+          <a
+            href="/src/pages/aboutus.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >About Us</a
+          >
+          <a
+            href="/src/pages/terms&conditions.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Terms</a
+          >
+
+          <div class="relative group">
+            <button
+              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block"
+            >
+              <a
+                href="/src/pages/loanforms/csloanForm.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Civil Servant</a
+              >
+              <a
+                href="/src/pages/loanforms/assetsecured.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="/src/pages/contactus.html"
+            class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition"
+          >
+            Contact Us
+          </a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden hamburger focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700"></span>
         </button>
       </div>
-  
-      <nav class="flex flex-col space-y-4">
-        <a href="/public/index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
-        <a href="/src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
-        <a href="/src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About Us</a>
-        <a href="/src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
-  
-        <div class="px-3 py-2">
-          <button class="flex items-center justify-between w-full font-medium text-gray-700" id="mobile-products-toggle">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+
+      <!-- Mobile menu -->
+      <div
+        class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4"
+        id="mobile-menu"
+      >
+        <div class="flex justify-end mb-6">
+          <button
+            id="close-mobile-menu"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times text-xl"></i>
           </button>
-          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="/loanforms/csloanForm.html" class="block py-2 text-gray-700 hover:text-blue-600">Civil Servant</a>
-            <a href="/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600">Asset Secured</a>
+        </div>
+
+        <nav class="flex flex-col space-y-4">
+          <a
+            href="/public/index.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Home</a
+          >
+          <a
+            href="/src/pages/faqs.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >FAQs</a
+          >
+          <a
+            href="/src/pages/aboutus.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >About Us</a
+          >
+          <a
+            href="/src/pages/terms&conditions.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Terms</a
+          >
+
+          <div class="px-3 py-2">
+            <button
+              class="flex items-center justify-between w-full font-medium text-gray-700"
+              id="mobile-products-toggle"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+              <a
+                href="/loanforms/csloanForm.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Civil Servant</a
+              >
+              <a
+                href="/loanforms/assetsecured.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="/src/pages/contactus.html"
+            class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition"
+          >
+            Contact Us
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-6">
+      <!-- Custom Prompt -->
+      <div id="whitebookPrompt" class="custom-prompt">
+        <div class="prompt-box">
+          <h3 class="text-lg font-bold text-gray-800 mb-4">
+            Asset Secured Loan Application
+          </h3>
+          <p class="text-gray-700 mb-6">
+            Do you have a registered white book in your name?
+          </p>
+          <div class="prompt-buttons">
+            <button id="promptYes" class="prompt-button prompt-button-yes">
+              Yes
+            </button>
+            <button id="promptNo" class="prompt-button prompt-button-no">
+              No
+            </button>
           </div>
         </div>
-  
-        <a href="/src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
-          Contact Us
-        </a>
-      </nav>
-    </div>
-  </header>
-    
+      </div>
 
-  <!-- Main Content -->
-  <main class="flex-grow container mx-auto px-4 py-6">
-    <!-- Custom Prompt -->
-    <div id="whitebookPrompt" class="custom-prompt">
-      <div class="prompt-box">
-        <h3 class="text-lg font-bold text-gray-800 mb-4">Asset Secured Loan Application</h3>
-        <p class="text-gray-700 mb-6">Do you have a registered white book in your name?</p>
-        <div class="prompt-buttons">
-          <button id="promptYes" class="prompt-button prompt-button-yes">Yes</button>
-          <button id="promptNo" class="prompt-button prompt-button-no">No</button>
+      <!-- Form Container -->
+      <div
+        id="assetSecuredForm"
+        class="form-container bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto"
+      >
+        <h2 class="text-xl font-bold text-gray-800 mb-6">
+          Asset Secured Loan Application
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="fullName"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              for="nrc"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >NRC Number</label
+            >
+            <input
+              type="text"
+              id="nrc"
+              placeholder="e.g. 123456/78/9"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md nrc-input focus:outline-none focus:ring-2 focus:ring-blue-500"
+              maxlength="11"
+              required
+            />
+            <p class="text-xs text-gray-500 mt-1">Format: 000000/00/1</p>
+          </div>
+
+          <div>
+            <label
+              for="vehicleMake"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Vehicle Make</label
+            >
+            <select
+              id="vehicleMake"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Select vehicle make</option>
+
+              <optgroup label="Japan">
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+              </optgroup>
+
+              <optgroup label="USA">
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="GMC">GMC</option>
+                <option value="Buick">Buick</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Jeep">Jeep</option>
+                <option value="Tesla">Tesla</option>
+              </optgroup>
+
+              <optgroup label="Germany">
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Opel">Opel</option>
+                <option value="Smart">Smart</option>
+              </optgroup>
+
+              <optgroup label="France">
+                <option value="Renault">Renault</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Citroën">Citroën</option>
+                <option value="Bugatti">Bugatti</option>
+              </optgroup>
+
+              <optgroup label="Italy">
+                <option value="Fiat">Fiat</option>
+                <option value="Alfa Romeo">Alfa Romeo</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Maserati">Maserati</option>
+                <option value="Ferrari">Ferrari</option>
+                <option value="Pagani">Pagani</option>
+                <option value="Abarth">Abarth</option>
+                <option value="Lancia">Lancia</option>
+              </optgroup>
+
+              <optgroup label="UK">
+                <option value="Aston Martin">Aston Martin</option>
+                <option value="Bentley">Bentley</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Land Rover">Land Rover</option>
+                <option value="Mini">Mini</option>
+                <option value="Lotus">Lotus</option>
+                <option value="McLaren">McLaren</option>
+                <option value="Rolls-Royce">Rolls-Royce</option>
+              </optgroup>
+
+              <optgroup label="South Korea">
+                <option value="Hyundai">Hyundai</option>
+                <option value="Kia">Kia</option>
+                <option value="Genesis">Genesis</option>
+              </optgroup>
+
+              <optgroup label="China/Sweden">
+                <option value="BYD">BYD</option>
+                <option value="Geely">Geely</option>
+                <option value="Great Wall">Great Wall</option>
+                <option value="Chery">Chery</option>
+                <option value="NIO">NIO</option>
+                <option value="Xpeng">Xpeng</option>
+                <option value="Li Auto">Li Auto</option>
+                <option value="Saab">Saab</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Polestar">Polestar</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="vehicleModel"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Vehicle Model</label
+            >
+            <input
+              type="text"
+              id="vehicleModel"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              for="vehicleYear"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Vehicle Year</label
+            >
+            <select
+              id="vehicleYear"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Select year</option>
+              <script>
+                // Generate year options from current year back to 1990
+                const currentYear = new Date().getFullYear();
+                for (let year = currentYear; year >= 1990; year--) {
+                  document.write(`<option value="${year}">${year}</option>`);
+                }
+              </script>
+            </select>
+          </div>
+
+          <div class="flex items-start mt-6">
+            <input type="checkbox" id="consent" class="mt-1 mr-2" required />
+            <label for="consent" class="text-sm text-gray-700"
+              >I consent to Spectrum Credit using my information for loan
+              registration and processing.</label
+            >
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <button
+            id="submitApplication"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300"
+          >
+            Submit Application <i class="fas fa-paper-plane ml-2"></i>
+          </button>
         </div>
       </div>
-    </div>
+    </main>
 
-    <!-- Form Container -->
-    <div id="assetSecuredForm" class="form-container bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto">
-      <h2 class="text-xl font-bold text-gray-800 mb-6">Asset Secured Loan Application</h2>
-      
-      <div class="space-y-4">
-        <div>
-          <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input type="text" id="fullName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <!-- Column 1 -->
+          <div>
+            <img
+              src="/src/images/sclogo.png"
+              alt="Spectrum Credit Logo"
+              class="h-10 mb-4"
+            />
+            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="../../../public/index.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/src/pages/aboutus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products"
+                  class="text-gray-400 hover:text-white transition"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../contactus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="/whistleblower"
+                  class="text-gray-400 hover:text-white transition"
+                  >Whistleblower Portal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/grievance"
+                  class="text-gray-400 hover:text-white transition"
+                  >Grievance Reporting</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../terms&conditions.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/policy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Environment and Social Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/privacy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Data Privacy Statement</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/charter"
+                  class="text-gray-400 hover:text-white transition"
+                  >Customer Service Charter</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+            <address class="text-gray-400 not-italic text-sm">
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+                Woodlands, Lusaka, Zambia
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+              </p>
+            </address>
+          </div>
         </div>
-        
-        <div>
-          <label for="nrc" class="block text-sm font-medium text-gray-700 mb-1">NRC Number</label>
-          <input type="text" id="nrc" placeholder="e.g. 123456/78/9" class="w-full px-3 py-2 border border-gray-300 rounded-md nrc-input focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="11" required>
-          <p class="text-xs text-gray-500 mt-1">Format: 000000/00/1</p>
+
+        <div
+          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
+        >
+          <p>
+            &copy; <span id="current-year">2025</span> Spectrum Credit. All
+            rights reserved. |
+            <a href="/privacy" class="hover:text-white transition"
+              >Privacy Policy</a
+            >
+            |
+            <a
+              href="../terms&conditions.html"
+              class="hover:text-white transition"
+              >Terms of Service</a
+            >
+            |
+            <a href="/complaints" class="hover:text-white transition"
+              >Complaints</a
+            >
+          </p>
         </div>
-                 
-        <div>
-          <label for="vehicleMake" class="block text-sm font-medium text-gray-700 mb-1">Vehicle Make</label>
-          <select id="vehicleMake" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-            <option value="">Select vehicle make</option>
-            
-            <optgroup label="Japan">
-              <option value="Toyota">Toyota</option>
-              <option value="Honda">Honda</option>
-              <option value="Nissan">Nissan</option>
-              <option value="Mazda">Mazda</option>
-              <option value="Subaru">Subaru</option>
-              <option value="Suzuki">Suzuki</option>
-              <option value="Mitsubishi">Mitsubishi</option>
-            </optgroup>
-            
-            <optgroup label="USA">
-              <option value="Ford">Ford</option>
-              <option value="Chevrolet">Chevrolet</option>
-              <option value="Cadillac">Cadillac</option>
-              <option value="GMC">GMC</option>
-              <option value="Buick">Buick</option>
-              <option value="Chrysler">Chrysler</option>
-              <option value="Dodge">Dodge</option>
-              <option value="Jeep">Jeep</option>
-              <option value="Tesla">Tesla</option>
-            </optgroup>
-            
-            <optgroup label="Germany">
-              <option value="Volkswagen">Volkswagen</option>
-              <option value="Audi">Audi</option>
-              <option value="BMW">BMW</option>
-              <option value="Mercedes-Benz">Mercedes-Benz</option>
-              <option value="Porsche">Porsche</option>
-              <option value="Opel">Opel</option>
-              <option value="Smart">Smart</option>
-            </optgroup>
-            
-            <optgroup label="France">
-              <option value="Renault">Renault</option>
-              <option value="Peugeot">Peugeot</option>
-              <option value="Citroën">Citroën</option>
-              <option value="Bugatti">Bugatti</option>
-            </optgroup>
-            
-            <optgroup label="Italy">
-              <option value="Fiat">Fiat</option>
-              <option value="Alfa Romeo">Alfa Romeo</option>
-              <option value="Lamborghini">Lamborghini</option>
-              <option value="Maserati">Maserati</option>
-              <option value="Ferrari">Ferrari</option>
-              <option value="Pagani">Pagani</option>
-              <option value="Abarth">Abarth</option>
-              <option value="Lancia">Lancia</option>
-            </optgroup>
-            
-            <optgroup label="UK">
-              <option value="Aston Martin">Aston Martin</option>
-              <option value="Bentley">Bentley</option>
-              <option value="Jaguar">Jaguar</option>
-              <option value="Land Rover">Land Rover</option>
-              <option value="Mini">Mini</option>
-              <option value="Lotus">Lotus</option>
-              <option value="McLaren">McLaren</option>
-              <option value="Rolls-Royce">Rolls-Royce</option>
-            </optgroup>
-            
-            <optgroup label="South Korea">
-              <option value="Hyundai">Hyundai</option>
-              <option value="Kia">Kia</option>
-              <option value="Genesis">Genesis</option>
-            </optgroup>
-            
-            <optgroup label="China/Sweden">
-              <option value="BYD">BYD</option>
-              <option value="Geely">Geely</option>
-              <option value="Great Wall">Great Wall</option>
-              <option value="Chery">Chery</option>
-              <option value="NIO">NIO</option>
-              <option value="Xpeng">Xpeng</option>
-              <option value="Li Auto">Li Auto</option>
-              <option value="Saab">Saab</option>
-              <option value="Volvo">Volvo</option>
-              <option value="Polestar">Polestar</option>
-            </optgroup>
-          </select>
-        </div>
-        
-        <div>
-          <label for="vehicleModel" class="block text-sm font-medium text-gray-700 mb-1">Vehicle Model</label>
-          <input type="text" id="vehicleModel" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        </div>
-        
-        <div>
-          <label for="vehicleYear" class="block text-sm font-medium text-gray-700 mb-1">Vehicle Year</label>
-          <select id="vehicleYear" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-            <option value="">Select year</option>
-            <script>
-              // Generate year options from current year back to 1990
-              const currentYear = new Date().getFullYear();
-              for (let year = currentYear; year >= 1990; year--) {
-                document.write(`<option value="${year}">${year}</option>`);
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show the prompt when page loads
+        const whitebookPrompt = document.getElementById("whitebookPrompt");
+        if (whitebookPrompt) {
+          whitebookPrompt.style.display = "flex";
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenuButton.classList.toggle("open");
+            mobileMenu.classList.toggle("open");
+            document.body.style.overflow = mobileMenu.classList.contains("open")
+              ? "hidden"
+              : "auto";
+          });
+
+          const closeMobileMenu = document.getElementById("close-mobile-menu");
+          if (closeMobileMenu) {
+            closeMobileMenu.addEventListener("click", () => {
+              mobileMenuButton.classList.remove("open");
+              mobileMenu.classList.remove("open");
+              document.body.style.overflow = "auto";
+            });
+          }
+
+          const mobileProductsToggle = document.getElementById(
+            "mobile-products-toggle"
+          );
+          const mobileProductsMenu = document.getElementById(
+            "mobile-products-menu"
+          );
+
+          if (mobileProductsToggle && mobileProductsMenu) {
+            mobileProductsToggle.addEventListener("click", () => {
+              mobileProductsMenu.classList.toggle("hidden");
+              const icon = mobileProductsToggle.querySelector("i");
+              if (icon) {
+                icon.classList.toggle("fa-chevron-down");
+                icon.classList.toggle("fa-chevron-up");
               }
-            </script>
-          </select>
-        </div>
-        
-        <div class="flex items-start mt-6">
-          <input type="checkbox" id="consent" class="mt-1 mr-2" required>
-          <label for="consent" class="text-sm text-gray-700">I consent to Spectrum Credit using my information for loan registration and processing.</label>
-        </div>
-      </div>
-      
-      <div class="mt-8">
-        <button id="submitApplication" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300">
-          Submit Application <i class="fas fa-paper-plane ml-2"></i>
-        </button>
-      </div>
-    </div>
-  </main>
+            });
+          }
+        }
 
-   <!-- Footer -->
-   <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <!-- Column 1 -->
-        <div>
-          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4">
-          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Company</h3>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
-            <li><a href="/about" class="text-gray-400 hover:text-white transition">About Us</a></li>
-            <li><a href="/products" class="text-gray-400 hover:text-white transition">Products</a></li>
-            <li><a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Legal</h3>
-          <ul class="space-y-2">
-            <li><a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a></li>
-            <li><a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a></li>
-            <li><a href="/terms" class="text-gray-400 hover:text-white transition">Terms and Conditions</a></li>
-            <li><a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a></li>
-            <li><a href="/privacy" class="text-gray-400 hover:text-white transition">Data Privacy Statement</a></li>
-            <li><a href="/charter" class="text-gray-400 hover:text-white transition">Customer Service Charter</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-          <address class="text-gray-400 not-italic text-sm">
-            <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 761 197 777</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
-          </address>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
-        <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
-          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
-          <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
-          <a href="/complaints" class="hover:text-white transition">Complaints</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+        // Whitebook prompt handling
+        const promptYes = document.getElementById("promptYes");
+        const promptNo = document.getElementById("promptNo");
+        const assetSecuredForm = document.getElementById("assetSecuredForm");
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Show the prompt when page loads
-      const whitebookPrompt = document.getElementById('whitebookPrompt');
-      if (whitebookPrompt) {
-        whitebookPrompt.style.display = 'flex';
-      }
+        if (promptYes && promptNo && assetSecuredForm) {
+          promptYes.addEventListener("click", () => {
+            whitebookPrompt.style.display = "none";
+            assetSecuredForm.classList.add("active");
+          });
 
-      // Mobile menu toggle
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-          mobileMenuButton.classList.toggle('open');
-          mobileMenu.classList.toggle('open');
-          document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-        });
-        
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
-        if (closeMobileMenu) {
-          closeMobileMenu.addEventListener('click', () => {
-            mobileMenuButton.classList.remove('open');
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = 'auto';
+          promptNo.addEventListener("click", () => {
+            // In a real app, you might redirect to a different page
+            alert("You need a registered white book to apply for this loan.");
+            // window.location.href = '/';
           });
         }
-        
-        const mobileProductsToggle = document.getElementById('mobile-products-toggle');
-        const mobileProductsMenu = document.getElementById('mobile-products-menu');
-        
-        if (mobileProductsToggle && mobileProductsMenu) {
-          mobileProductsToggle.addEventListener('click', () => {
-            mobileProductsMenu.classList.toggle('hidden');
-            const icon = mobileProductsToggle.querySelector('i');
-            if (icon) {
-              icon.classList.toggle('fa-chevron-down');
-              icon.classList.toggle('fa-chevron-up');
+
+        // NRC input formatting
+        const nrcInput = document.getElementById("nrc");
+        if (nrcInput) {
+          nrcInput.addEventListener("input", function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+
+            if (value.length > 6) {
+              value = value.substring(0, 6) + "/" + value.substring(6);
             }
+            if (value.length > 9) {
+              value = value.substring(0, 9) + "/" + value.substring(9);
+            }
+            if (value.length > 11) {
+              value = value.substring(0, 11);
+            }
+
+            e.target.value = value;
           });
         }
-      }
 
-      // Whitebook prompt handling
-      const promptYes = document.getElementById('promptYes');
-      const promptNo = document.getElementById('promptNo');
-      const assetSecuredForm = document.getElementById('assetSecuredForm');
-      
-      if (promptYes && promptNo && assetSecuredForm) {
-        promptYes.addEventListener('click', () => {
-          whitebookPrompt.style.display = 'none';
-          assetSecuredForm.classList.add('active');
-        });
-        
-        promptNo.addEventListener('click', () => {
-          // In a real app, you might redirect to a different page
-          alert('You need a registered white book to apply for this loan.');
-          // window.location.href = '/';
-        });
-      }
-      
-      // NRC input formatting
-      const nrcInput = document.getElementById('nrc');
-      if (nrcInput) {
-        nrcInput.addEventListener('input', function(e) {
-          let value = e.target.value.replace(/\D/g, '');
-          
-          if (value.length > 6) {
-            value = value.substring(0, 6) + '/' + value.substring(6);
-          }
-          if (value.length > 9) {
-            value = value.substring(0, 9) + '/' + value.substring(9);
-          }
-          if (value.length > 11) {
-            value = value.substring(0, 11);
-          }
-          
-          e.target.value = value;
-        });
-      }
-      
-      // Form submission
-      const submitButton = document.getElementById('submitApplication');
-      if (submitButton) {
-        submitButton.addEventListener('click', function() {
-          // Validate form
-          const requiredFields = ['fullName', 'nrc', 'netPay', 'vehicleMake', 'vehicleModel', 'vehicleYear'];
-          let isValid = true;
-          
-          requiredFields.forEach(fieldId => {
-            const field = document.getElementById(fieldId);
-            if (field && !field.value.trim()) {
-              field.classList.add('border-red-500');
+        // Form submission
+        const submitButton = document.getElementById("submitApplication");
+        if (submitButton) {
+          submitButton.addEventListener("click", function () {
+            // Validate form
+            const requiredFields = [
+              "fullName",
+              "nrc",
+              "netPay",
+              "vehicleMake",
+              "vehicleModel",
+              "vehicleYear",
+            ];
+            let isValid = true;
+
+            requiredFields.forEach((fieldId) => {
+              const field = document.getElementById(fieldId);
+              if (field && !field.value.trim()) {
+                field.classList.add("border-red-500");
+                isValid = false;
+              } else if (field) {
+                field.classList.remove("border-red-500");
+              }
+            });
+
+            const consentCheckbox = document.getElementById("consent");
+            if (consentCheckbox && !consentCheckbox.checked) {
+              alert("Please consent to information usage to proceed");
               isValid = false;
-            } else if (field) {
-              field.classList.remove('border-red-500');
+            }
+
+            if (isValid) {
+              // Collect all form data
+              const formData = {
+                fullName: document.getElementById("fullName").value,
+                nrc: document.getElementById("nrc").value,
+                netPay: document.getElementById("netPay").value,
+                vehicleMake: document.getElementById("vehicleMake").value,
+                vehicleModel: document.getElementById("vehicleModel").value,
+                vehicleYear: document.getElementById("vehicleYear").value,
+                consent: document.getElementById("consent").checked,
+              };
+
+              // In a real app, you would send data to your backend here
+              console.log("Form data:", formData);
+              alert(
+                "Application submitted successfully! We will contact you shortly."
+              );
+
+              // Reset form (for demo purposes)
+              document.getElementById("fullName").value = "";
+              document.getElementById("nrc").value = "";
+              document.getElementById("netPay").value = "";
+              document.getElementById("vehicleMake").value = "";
+              document.getElementById("vehicleModel").value = "";
+              document.getElementById("vehicleYear").value = "";
+              document.getElementById("consent").checked = false;
+            } else {
+              alert("Please fill in all required fields");
             }
           });
-          
-          const consentCheckbox = document.getElementById('consent');
-          if (consentCheckbox && !consentCheckbox.checked) {
-            alert('Please consent to information usage to proceed');
-            isValid = false;
-          }
-          
-          if (isValid) {
-            // Collect all form data
-            const formData = {
-              fullName: document.getElementById('fullName').value,
-              nrc: document.getElementById('nrc').value,
-              netPay: document.getElementById('netPay').value,
-              vehicleMake: document.getElementById('vehicleMake').value,
-              vehicleModel: document.getElementById('vehicleModel').value,
-              vehicleYear: document.getElementById('vehicleYear').value,
-              consent: document.getElementById('consent').checked
-            };
-            
-            // In a real app, you would send data to your backend here
-            console.log('Form data:', formData);
-            alert('Application submitted successfully! We will contact you shortly.');
-            
-            // Reset form (for demo purposes)
-            document.getElementById('fullName').value = '';
-            document.getElementById('nrc').value = '';
-            document.getElementById('netPay').value = '';
-            document.getElementById('vehicleMake').value = '';
-            document.getElementById('vehicleModel').value = '';
-            document.getElementById('vehicleYear').value = '';
-            document.getElementById('consent').checked = false;
-          } else {
-            alert('Please fill in all required fields');
-          }
-        });
-      }
-      
-      // Set current year
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-    });
-  </script>
-</body>
+        }
+
+        // Set current year
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+  </body>
 </html>
