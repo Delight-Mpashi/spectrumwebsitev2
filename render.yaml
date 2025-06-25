@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: spectrum-credit-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: GMAIL_USER
+        value: delighto54@gmail.com
+      - key: GMAIL_PASS
+        value: ygykl brfy vnsc gumj
+      - key: RECIPIENT_EMAIL
+        value: your-business-email@gmail.com
+      - key: MONGODB_URI
+        value: your-mongodb-uri
