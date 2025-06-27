@@ -1,585 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spectrum Credit - Easy Loan Application</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --primary: #1d62e3;
-      --primary-dark: #1a56cb;
-      --secondary: #4caf50;
-      --dark: #1e293b;
-      --light: #f8fafc;
-      --accent: #f59e0b;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-text-size-adjust: 100%;
-    }
-    
-    /* Mobile-first navigation */
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-    
-    .hamburger span {
-      transition: all 0.3s ease;
-    }
-    
-    .hamburger.open span:first-child {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .hamburger.open span:last-child {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    
-    /* Form elements */
-    input, select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-    
-    /* Loan calculator */
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 20px;
-      height: 20px;
-      background: var(--primary);
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    
-    /* Testimonials */
-    .testimonial-card {
-      scroll-snap-align: start;
-    }
-    
-    /* FAQ accordion */
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    
-    .faq-answer.open {
-      max-height: 300px;
-    }
-    
-    .faq-icon {
-      transition: transform 0.3s ease;
-    }
-    
-    .faq-item.open .faq-icon {
-      transform: rotate(180deg);
-    }
-  </style>
-</head>
-<body class="bg-gray-50">
-  <!-- Mobile Navigation -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/" class="flex items-center">
-        <img src="./assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
-      </a>
-  
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-1">
-        <a href="./index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
-        <a href="../src/pages/faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
-        <a href="../src/pages/aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About Us</a>
-        <a href="../src/pages/terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
-  
-        <div class="relative group">
-          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
-            <a href="../src/pages//loanforms/csloanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Civil Servant</a>
-            <a href="../src/pages/loanforms/assetsecured.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Asset Secured</a>
-          </div>
-        </div>
-  
-        <a href="../src/pages/contactus.html" class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition">
-          Contact Us
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectrum Credit - Easy Loan Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary: #1d62e3;
+        --primary-dark: #1a56cb;
+        --secondary: #4caf50;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --accent: #f59e0b;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* Mobile-first navigation */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .hamburger span {
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.open span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      /* Form elements */
+      input,
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      /* Loan calculator */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        scroll-snap-align: start;
+      }
+
+      /* FAQ accordion */
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-answer.open {
+        max-height: 300px;
+      }
+
+      .faq-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.open .faq-icon {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Mobile Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="./index.html" class="flex items-center">
+          <img
+            src="./assets/images/sclogo.png"
+            alt="Spectrum Credit Logo"
+            class="h-10"
+          />
         </a>
-      </nav>
-  
-      <!-- Mobile menu button -->
-      <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700"></span>
-      </button>
-    </div>
-  
-    <!-- Mobile menu -->
-    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-      <div class="flex justify-end mb-6">
-        <button id="close-mobile-menu" class="text-gray-500 hover:text-gray-700">
-          <i class="fas fa-times text-xl"></i>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a
+            href="./index.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+          <a
+            href="../src/pages/faqs.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >FAQs</a
+          >
+          <a
+            href="../src/pages/aboutus.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >About Us</a
+          >
+          <a
+            href="../src/pages/terms&conditions.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Terms</a
+          >
+
+          <div class="relative group">
+            <button
+              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block"
+            >
+              <a
+                href="../src/pages//loanforms/csloanForm.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Civil Servant</a
+              >
+              <a
+                href="../src/pages/loanforms/assetsecured.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="../src/pages/contactus.html"
+            class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition"
+          >
+            Contact Us
+          </a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden hamburger focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700"></span>
         </button>
       </div>
-  
-      <nav class="flex flex-col space-y-4">
-        <a href="./index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Home</a>
-        <a href="../src/pages/faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">FAQs</a>
-        <a href="../src/pages/aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">About Us</a>
-        <a href="../src/pages/terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded">Terms</a>
-  
-        <div class="px-3 py-2">
-          <button class="flex items-center justify-between w-full font-medium text-gray-700" id="mobile-products-toggle">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+
+      <!-- Mobile menu -->
+      <div
+        class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4"
+        id="mobile-menu"
+      >
+        <div class="flex justify-end mb-6">
+          <button
+            id="close-mobile-menu"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times text-xl"></i>
           </button>
-          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="../src/pages//loanforms/csloanForm.html" class="block py-2 text-gray-700 hover:text-blue-600">Civil Servant</a>
-            <a href="../src/pages/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600">Asset Secured</a>
-          </div>
         </div>
-  
-        <a href="../src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
-          Contact Us
-        </a>
-      </nav>
-    </div>
-  </header>
-  
-  <!-- Hero Section with Loan Form -->
-  <section class="relative bg-blue-600 overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" class="w-full h-full object-cover opacity-20">
-    </div>
-  
-    <div class="relative container mx-auto px-4 py-12 md:py-20">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Apply for a Civil Servant loan and Asset Secured Loan Today</h2>
-      </div>
-  
-      <!-- Improved Card Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
-        <!-- Civil Servant Loan Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h3>
-          <p class="text-gray-600 mb-4">Tailored for government employees with flexible repayments and low interest.</p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Low interest rates</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Payslip Deductions</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Up to 60 months repayment</li>
-          </ul>
-          <a href="../src/pages/loanforms/csloanForm.html" class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-            Apply Now <i class="fas fa-arrow-right ml-2"></i>
+
+        <nav class="flex flex-col space-y-4">
+          <a
+            href="./index.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Home</a
+          >
+          <a
+            href="../src/pages/faqs.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >FAQs</a
+          >
+          <a
+            href="../src/pages/aboutus.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >About Us</a
+          >
+          <a
+            href="../src/pages/terms&conditions.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Terms</a
+          >
+
+          <div class="px-3 py-2">
+            <button
+              class="flex items-center justify-between w-full font-medium text-gray-700"
+              id="mobile-products-toggle"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+              <a
+                href="../src/pages//loanforms/csloanForm.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Civil Servant</a
+              >
+              <a
+                href="../src/pages/loanforms/assetsecured.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="../src/pages/contactus.html"
+            class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition"
+          >
+            Contact Us
           </a>
-        </div>
-  
-        <!-- Asset Secured Loan Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Asset Secured Loan</h3>
-          <p class="text-gray-600 mb-4">Get funding for business growth backed by collateral.</p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Fast approval process</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Competitive rates</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Flexible repayment options</li>
-          </ul>
-          <a href="../src/pages/loanforms/assetsecured.html" class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-            Apply Now <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
+        </nav>
       </div>
-    </div>
-  </section>
-  <!-- Requirements Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">Loan Application Requirements</h2>
-  
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
-        <!-- Requirement 1 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-file-invoice text-blue-600 text-3xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Latest Payslip</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Submit your most recent payslip as proof of income.</p>
-        </div>
-  
-        <!-- Requirement 2 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-id-card text-blue-600 text-3xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">NRC/Passport</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Clear copy of your national identification document.</p>
-        </div>
-  
-        <!-- Requirement 3 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-camera text-blue-600 text-3xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Passport Photo</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Recent colored passport-size photograph.</p>
-        </div>
-  
-        <!-- Requirement 4 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-file-alt text-blue-600 text-3xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Bank Statements</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Provide your last 3 months of bank statements.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  
+    </header>
 
-  <!-- How It Works Section -->
-  <section class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">How to Apply via USSD</h2>
-      <p class="text-blue-100 text-center mb-12 max-w-2xl mx-auto">Get a loan in just 3 simple steps without internet</p>
-      
-      <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8">
-        <!-- Step 1 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">1</div>
-          <h3 class="font-semibold text-lg mb-2">Dial *619#</h3>
-          <p class="text-blue-100 text-sm">Start by dialing our USSD code from your mobile phone</p>
-        </div>
-        
-        <div class="hidden md:flex items-center justify-center h-24">
-          <i class="fas fa-arrow-right text-2xl text-white/50"></i>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">2</div>
-          <h3 class="font-semibold text-lg mb-2">Select Loan Type</h3>
-          <p class="text-blue-100 text-sm">Choose the loan product that suits your needs</p>
-        </div>
-        
-        <div class="hidden md:flex items-center justify-center h-24">
-          <i class="fas fa-arrow-right text-2xl text-white/50"></i>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">3</div>
-          <h3 class="font-semibold text-lg mb-2">Enter Details</h3>
-          <p class="text-blue-100 text-sm">Provide required information and submit your application</p>
-        </div>
+    <!-- Hero Section with Loan Form -->
+    <section class="relative bg-blue-600 overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="./assets/images/dashboardimage.jpg"
+          alt="Happy customer"
+          class="w-full h-full object-cover opacity-20"
+        />
       </div>
-      
-      <div class="text-center mt-12">
-        <button class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center">
-          <i class="fas fa-mobile-alt mr-2"></i> Get Started Now
-        </button>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Testimonials Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">What Our Customers Say</h2>
-      <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Hear from people who have used our services</p>
-  
-      <div class="flex flex-wrap justify-center gap-6">
-        <!-- Testimonial 1 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
-            <img src="assets/images/mary.jpg" alt="Mary Chanda" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-semibold text-gray-800">Mary Chanda</h4>
-              <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <p class="text-gray-600 text-sm">"I got my loan approved within 24 hours! The process was so simple and the customer service was excellent. Highly recommend Spectrum Credit!"</p>
-        </div>
-  
-        <!-- Testimonial 2 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
-            <img src="assets/images/john.png" alt="John Banda" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-semibold text-gray-800">John Banda</h4>
-              <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-              </div>
-            </div>
-          </div>
-          <p class="text-gray-600 text-sm">"As a small business owner, the Nkwazi Working Capital loan helped me expand my inventory. The repayment terms are very reasonable."</p>
-        </div>
-  
-        <!-- Testimonial 3 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
-            <img src="assets/images/sarah.png" alt="Sarah Mwansa" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-semibold text-gray-800">Sarah Mwansa</h4>
-              <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          <p class="text-gray-600 text-sm">"The USSD application is a game changer! I applied for a loan during my lunch break and had the money by evening. So convenient!"</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- FAQ Section -->
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4 max-w-3xl">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-2">Frequently Asked Questions</h2>
-      <p class="text-gray-600 text-center mb-8">Find answers to common questions</p>
-      
-      <div class="space-y-3">
-        <!-- FAQ Item 1 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="1">
-            <span class="font-medium text-gray-800">How long does the application process take?</span>
-            <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
-          </button>
-          <div class="faq-answer px-4" data-answer="1">
-            <div class="pb-3 text-gray-600">
-              <p>Most applications are processed within 24-48 hours. If you provide all the required documents and information, we can often approve your loan the same day.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 2 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="2">
-            <span class="font-medium text-gray-800">What are the interest rates?</span>
-            <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
-          </button>
-          <div class="faq-answer px-4" data-answer="2">
-            <div class="pb-3 text-gray-600">
-              <p>Interest rates vary depending on the loan product and repayment period. Our rates start from 10% per annum. Use our loan calculator to estimate your repayment amounts.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 3 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="3">
-            <span class="font-medium text-gray-800">Can I repay my loan early?</span>
-            <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
-          </button>
-          <div class="faq-answer px-4" data-answer="3">
-            <div class="pb-3 text-gray-600">
-              <p>Yes, you can repay your loan early without any penalties. Early repayment may even qualify you for discounts on future loans.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- FAQ Item 4 -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="4">
-            <span class="font-medium text-gray-800">What if I miss a payment?</span>
-            <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
-          </button>
-          <div class="faq-answer px-4" data-answer="4">
-            <div class="pb-3 text-gray-600">
-              <p>We understand that circumstances change. If you anticipate difficulty making a payment, please contact us immediately to discuss options. Late payments may incur additional charges.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-8">
-        <a href="/faqs" class="text-blue-600 font-medium hover:underline inline-flex items-center">
-          View all FAQs <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="py-12 bg-blue-600 text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
-      <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Apply for a loan today and get funds in your account within 24 hours</p>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#loanForm" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
-          Apply Online Now
-        </a>
-        <a href="#" class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition duration-300 inline-flex items-center justify-center">
-          <i class="fas fa-mobile-alt mr-2"></i> Dial *619#
-        </a>
-      </div>
-    </div>
-  </section>
+      <div class="relative container mx-auto px-4 py-12 md:py-20">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">
+            Apply for a Civil Servant loan and Asset Secured Loan Today
+          </h2>
+        </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white pt-12 pb-6">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <!-- Column 1 -->
-        <div>
-          <img src="/public/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4">
-          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-facebook-f"></i>
+        <!-- Improved Card Layout -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto"
+        >
+          <!-- Civil Servant Loan Card -->
+          <div
+            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Civil Servant Loan
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Tailored for government employees with flexible repayments and low
+              interest.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Low
+                interest rates
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                Payslip Deductions
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Up
+                to 60 months repayment
+              </li>
+            </ul>
+            <a
+              href="../src/pages/loanforms/csloanForm.html"
+              class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center"
+            >
+              Apply Now <i class="fas fa-arrow-right ml-2"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-instagram"></i>
+          </div>
+
+          <!-- Asset Secured Loan Card -->
+          <div
+            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Asset Secured Loan
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Get funding for business growth backed by collateral.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Fast
+                approval process
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                Competitive rates
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                Flexible repayment options
+              </li>
+            </ul>
+            <a
+              href="../src/pages/loanforms/assetsecured.html"
+              class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center"
+            >
+              Apply Now <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
         </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
-            <li><a href="/about" class="text-gray-400 hover:text-white transition">About Us</a></li>
-            <li><a href="/products" class="text-gray-400 hover:text-white transition">Products</a></li>
-            <li><a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Products</h3>
-          <ul class="space-y-2">
-            <li><a href="/civil-servant" class="text-gray-400 hover:text-white transition">Civil Servant Loans</a></li>
-            <li><a href="/nkwazi" class="text-gray-400 hover:text-white transition">Nkwazi Working Capital</a></li>
-            <li><a href="/sme-financing" class="text-gray-400 hover:text-white transition">SME Financing</a></li>
-            <li><a href="/whitebook" class="text-gray-400 hover:text-white transition">Whitebook</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-          <address class="text-gray-400 not-italic text-sm">
-            <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> info@spectrumcredit.com</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 123 456 789</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
-          </address>
+      </div>
+    </section>
+    <!-- Requirements Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10"
+        >
+          Loan Application Requirements
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto"
+        >
+          <!-- Requirement 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200"
+          >
+            <div
+              class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-file-invoice text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Latest Payslip
+            </h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Submit your most recent payslip as proof of income.
+            </p>
+          </div>
+
+          <!-- Requirement 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200"
+          >
+            <div
+              class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-id-card text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              NRC/Passport
+            </h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Clear copy of your national identification document.
+            </p>
+          </div>
+
+          <!-- Requirement 3 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200"
+          >
+            <div
+              class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-camera text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Passport Photo
+            </h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Recent colored passport-size photograph.
+            </p>
+          </div>
+
+          <!-- Requirement 4 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200"
+          >
+            <div
+              class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5"
+            >
+              <i class="fas fa-file-alt text-blue-600 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Bank Statements
+            </h3>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Provide your last 3 months of bank statements.
+            </p>
+          </div>
         </div>
       </div>
-      
-      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
-        <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
-          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
-          <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
-          <a href="/complaints" class="hover:text-white transition">Complaints</a>
+    </section>
+
+    <!-- How It Works Section -->
+    <section
+      class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white"
+    >
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">
+          How to Apply via USSD
+        </h2>
+        <p class="text-blue-100 text-center mb-12 max-w-2xl mx-auto">
+          Get a loan in just 3 simple steps without internet
         </p>
+
+        <div
+          class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8"
+        >
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center text-center max-w-xs">
+            <div
+              class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold"
+            >
+              1
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Dial *619#</h3>
+            <p class="text-blue-100 text-sm">
+              Start by dialing our USSD code from your mobile phone
+            </p>
+          </div>
+
+          <div class="hidden md:flex items-center justify-center h-24">
+            <i class="fas fa-arrow-right text-2xl text-white/50"></i>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center text-center max-w-xs">
+            <div
+              class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold"
+            >
+              2
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Select Loan Type</h3>
+            <p class="text-blue-100 text-sm">
+              Choose the loan product that suits your needs
+            </p>
+          </div>
+
+          <div class="hidden md:flex items-center justify-center h-24">
+            <i class="fas fa-arrow-right text-2xl text-white/50"></i>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center text-center max-w-xs">
+            <div
+              class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold"
+            >
+              3
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Enter Details</h3>
+            <p class="text-blue-100 text-sm">
+              Provide required information and submit your application
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center"
+          >
+            <i class="fas fa-mobile-alt mr-2"></i> Get Started Now
+          </button>
+        </div>
       </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4"
+        >
+          What Our Customers Say
+        </h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Hear from people who have used our services
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6">
+          <!-- Testimonial 1 -->
+          <div
+            class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="assets/images/mary.jpg"
+                alt="Mary Chanda"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">Mary Chanda</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm">
+              "I got my loan approved within 24 hours! The process was so simple
+              and the customer service was excellent. Highly recommend Spectrum
+              Credit!"
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="assets/images/john.png"
+                alt="John Banda"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">John Banda</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm">
+              "As a small business owner, the Nkwazi Working Capital loan helped
+              me expand my inventory. The repayment terms are very reasonable."
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="assets/images/sarah.png"
+                alt="Sarah Mwansa"
+                class="w-12 h-12 rounded-full object-cover mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">Sarah Mwansa</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                  ><i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm">
+              "The USSD application is a game changer! I applied for a loan
+              during my lunch break and had the money by evening. So
+              convenient!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-2"
+        >
+          Frequently Asked Questions
+        </h2>
+        <p class="text-gray-600 text-center mb-8">
+          Find answers to common questions
+        </p>
+
+        <div class="space-y-3">
+          <!-- FAQ Item 1 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 text-left flex justify-between items-center faq-item"
+              data-faq="1"
+            >
+              <span class="font-medium text-gray-800"
+                >How long does the application process take?</span
+              >
+              <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
+            </button>
+            <div class="faq-answer px-4" data-answer="1">
+              <div class="pb-3 text-gray-600">
+                <p>
+                  Most applications are processed within 24-48 hours. If you
+                  provide all the required documents and information, we can
+                  often approve your loan the same day.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 text-left flex justify-between items-center faq-item"
+              data-faq="2"
+            >
+              <span class="font-medium text-gray-800"
+                >What are the interest rates?</span
+              >
+              <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
+            </button>
+            <div class="faq-answer px-4" data-answer="2">
+              <div class="pb-3 text-gray-600">
+                <p>
+                  Interest rates vary depending on the loan product and
+                  repayment period. Our rates start from 10% per annum. Use our
+                  loan calculator to estimate your repayment amounts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 text-left flex justify-between items-center faq-item"
+              data-faq="3"
+            >
+              <span class="font-medium text-gray-800"
+                >Can I repay my loan early?</span
+              >
+              <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
+            </button>
+            <div class="faq-answer px-4" data-answer="3">
+              <div class="pb-3 text-gray-600">
+                <p>
+                  Yes, you can repay your loan early without any penalties.
+                  Early repayment may even qualify you for discounts on future
+                  loans.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 text-left flex justify-between items-center faq-item"
+              data-faq="4"
+            >
+              <span class="font-medium text-gray-800"
+                >What if I miss a payment?</span
+              >
+              <i class="fas fa-chevron-down text-blue-600 faq-icon"></i>
+            </button>
+            <div class="faq-answer px-4" data-answer="4">
+              <div class="pb-3 text-gray-600">
+                <p>
+                  We understand that circumstances change. If you anticipate
+                  difficulty making a payment, please contact us immediately to
+                  discuss options. Late payments may incur additional charges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a
+            href="../src/pages/faqs.html"
+            class="text-blue-600 font-medium hover:underline inline-flex items-center"
+          >
+            View all FAQs <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 bg-blue-600 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">
+          Ready to Get Started?
+        </h2>
+        <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+          Apply for a loan today and get funds in your account within 24 hours
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#loanForm"
+            class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center"
+          >
+            Apply Online Now
+          </a>
+          <a
+            href="#"
+            class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition duration-300 inline-flex items-center justify-center"
+          >
+            <i class="fas fa-mobile-alt mr-2"></i> Dial *619#
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <!-- Column 1 -->
+          <div>
+            <img
+              src="/src/images/sclogo.png"
+              alt="Spectrum Credit Logo"
+              class="h-10 mb-4"
+            />
+            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="../public/index.html"
+                  class="text-gray-400 hover:text-white transition"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/src/pages/aboutus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="/src/pages/contactus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="../src/pages/whistleblower.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Whistleblower Portal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/grievance"
+                  class="text-gray-400 hover:text-white transition"
+                  >Grievance Reporting</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./terms&conditions.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/policy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Environment and Social Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/privacy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Data Privacy Statement</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/charter"
+                  class="text-gray-400 hover:text-white transition"
+                  >Customer Service Charter</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div>
+            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+            <address class="text-gray-400 not-italic text-sm">
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+                Woodlands, Lusaka, Zambia
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
+        >
+          <p>
+            &copy; <span id="current-year">2025</span> Spectrum Credit. All
+            rights reserved. |
+            <a href="/privacy" class="hover:text-white transition"
+              >Privacy Policy</a
+            >
+            |
+            <a href="/terms" class="hover:text-white transition"
+              >Terms of Service</a
+            >
+            |
+            <a href="/complaints" class="hover:text-white transition"
+              >Complaints</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+      <a
+        href="https://wa.me/260123456789"
+        class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110"
+      >
+        <i class="fab fa-whatsapp text-2xl"></i>
+      </a>
     </div>
-  </footer>
 
-  <!-- Floating WhatsApp Button -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <a href="https://wa.me/260123456789" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110">
-      <i class="fab fa-whatsapp text-2xl"></i>
-    </a>
-  </div>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMobileMenu = document.getElementById("close-mobile-menu");
+      const mobileProductsToggle = document.getElementById(
+        "mobile-products-toggle"
+      );
+      const mobileProductsMenu = document.getElementById(
+        "mobile-products-menu"
+      );
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMobileMenu = document.getElementById('close-mobile-menu');
-    const mobileProductsToggle = document.getElementById('mobile-products-toggle');
-    const mobileProductsMenu = document.getElementById('mobile-products-menu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenuButton.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
-    });
-    
-    closeMobileMenu.addEventListener('click', () => {
-      mobileMenuButton.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = 'auto';
-    });
-    
-    mobileProductsToggle.addEventListener('click', () => {
-      mobileProductsMenu.classList.toggle('hidden');
-      mobileProductsToggle.querySelector('i').classList.toggle('fa-chevron-down');
-      mobileProductsToggle.querySelector('i').classList.toggle('fa-chevron-up');
-    });
-    
-    // FAQ accordion
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const faqId = item.getAttribute('data-faq');
-        const answer = document.querySelector(`.faq-answer[data-answer="${faqId}"]`);
-        const icon = item.querySelector('.faq-icon');
-        
-        // Close all other FAQs
-        document.querySelectorAll('.faq-answer').forEach(ans => {
-          if (ans !== answer) {
-            ans.classList.remove('open');
-            ans.previousElementSibling.classList.remove('open');
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenuButton.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+        document.body.style.overflow = mobileMenu.classList.contains("open")
+          ? "hidden"
+          : "auto";
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileMenuButton.classList.remove("open");
+        mobileMenu.classList.remove("open");
+        document.body.style.overflow = "auto";
+      });
+
+      mobileProductsToggle.addEventListener("click", () => {
+        mobileProductsMenu.classList.toggle("hidden");
+        mobileProductsToggle
+          .querySelector("i")
+          .classList.toggle("fa-chevron-down");
+        mobileProductsToggle
+          .querySelector("i")
+          .classList.toggle("fa-chevron-up");
+      });
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const faqId = item.getAttribute("data-faq");
+          const answer = document.querySelector(
+            `.faq-answer[data-answer="${faqId}"]`
+          );
+          const icon = item.querySelector(".faq-icon");
+
+          // Close all other FAQs
+          document.querySelectorAll(".faq-answer").forEach((ans) => {
+            if (ans !== answer) {
+              ans.classList.remove("open");
+              ans.previousElementSibling.classList.remove("open");
+            }
+          });
+
+          // Toggle current FAQ
+          answer.classList.toggle("open");
+          item.classList.toggle("open");
+        });
+      });
+
+      // Set current year
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Form submission
+      document.getElementById("loanForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        // Here you would normally send the form data to your server
+        alert(
+          "Application submitted successfully! We will contact you shortly."
+        );
+        e.target.reset();
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+            });
           }
         });
-        
-        // Toggle current FAQ
-        answer.classList.toggle('open');
-        item.classList.toggle('open');
       });
-    });
-    
-    // Set current year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // Form submission
-    document.getElementById('loanForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Here you would normally send the form data to your server
-      alert('Application submitted successfully! We will contact you shortly.');
-      e.target.reset();
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
