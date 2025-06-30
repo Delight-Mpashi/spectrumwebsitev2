@@ -36,12 +36,12 @@ app.get('/terms', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/terms&conditions.html'));
 });
 
-app.get('/loanforms/csloanform', (req, res) => {
+app.get('/csloanform', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/asloanform.html'));
 });
 
 app.get('/src/pages/loanforms/csloanform.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/loanforms/csloanform.html'));
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/csloanform.html'));
 });
 app.get('/laonforms/assetsecured', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
