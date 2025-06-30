@@ -36,7 +36,7 @@ app.get('/terms', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/terms&conditions.html'));
 });
 
-app.get('/loanforms', (req, res) => {
+app.get('/loanforms/csloanform', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/asloanform.html'));
 });
 app.get('/loanforms', (req, res) => {
