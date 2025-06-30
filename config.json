@@ -1,0 +1,24 @@
+'"spectrum-credit-zambia": {
+    "mambuUrl": "spectrumzambia.sandbox.mambu.com",
+    "mambuApiKey": "dWGwbNp2XVV9cjvR5KjAPEadeKMq4RIk",
+    "smeProduct": "8a93865e922cb30501922d24b5fa0031",
+    "USSDRefinanceProductsCS": {
+        "60": "8a9386df9130d85b019131d63d980993",
+        "48": "8a9386df9130d85b019131d52f0f083b",
+        "36": "8a9386df9130d85b019131d52bba078f",
+        "24": "8a9386df9130d85b019131d408ac06e0",
+        "12": "8a93862f9096e7a3019096ea48a70005",
+        "6": "8a9386df9130d85b019131d5b71308e7"
+    },
+    "USSDProductsCS": {
+        "60": "8a93870283ca95b70183d11026ff3ba9",
+        "48": "8a9386a983e975780183ef15fabb6e33",
+        "36": "8a9386a983e975780183ef1aeef17165",
+        "24": "8a93867e8615b206018615cf0145035a",
+        "12": "8a93867e8615b206018615f205df0960",
+        "6": "8a93867e8615b206018615cc8f8d02aa"
+    },
+    "csProspectiveClientDefaultUserKey": "8a9386bb92b3b49c0192b3d0a1b3000c",
+    "csProspectiveClientDefaultBranchKey": "8a93867e8fa3f386018fa4f0985f381a",
+    "csProspectiveClientDefaultTeamLeaderKey": "8a9387d17e6c05eb017e723b45597445"
+}

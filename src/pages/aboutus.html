@@ -27,8 +27,9 @@
             },
             colors: {
               spectrum: {
-                primary: "#1d62e3",
-                "primary-dark": "#1a56cb",
+                primary: "#1E488F",
+                "primary-dark": "#163875",
+                "primary-light": "#E6EEF9",
                 secondary: "#4caf50",
                 dark: "#1e293b",
                 light: "#f8fafc",
@@ -66,7 +67,7 @@
       button:focus,
       input:focus,
       select:focus {
-        outline: 2px solid #1d62e3;
+        outline: 2px solid #1E488F;
         outline-offset: 2px;
       }
 
@@ -74,6 +75,59 @@
       img {
         max-width: 100%;
         height: auto;
+      }
+
+      /* Navigation styles */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link:hover {
+        color: #1E488F;
+      }
+      .nav-link:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #1E488F;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover:after {
+        width: 100%;
+      }
+      .dropdown-menu {
+        border-top: 2px solid #1E488F;
+      }
+      .footer {
+        border-top: 4px solid #1E488F;
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .hamburger span {
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.open span:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
       }
     </style>
   </head>
@@ -94,42 +148,42 @@
         <nav class="hidden md:flex items-center space-x-1">
           <a
             href="/public/index.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >Home</a
           >
           <a
             href="./faqs.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >FAQs</a
           >
           <a
             href="./aboutus.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >About Us</a
           >
           <a
             href="./terms&conditions.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >Terms</a
           >
 
           <div class="relative group">
             <button
-              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >
               Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
             </button>
             <div
-              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block"
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
             >
               <a
                 href="./loanforms/csloanForm.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
                 >Civil Servant</a
               >
               <a
                 href="./loanforms/assetsecured.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
                 >Asset Secured</a
               >
             </div>
@@ -137,7 +191,7 @@
 
           <a
             href="./contactus.html"
-            class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition"
+            class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition"
           >
             Contact Us
           </a>
@@ -162,7 +216,7 @@
         <div class="flex justify-end mb-6">
           <button
             id="close-mobile-menu"
-            class="text-gray-500 hover:text-gray-700"
+            class="text-gray-500 hover:text-[#1E488F]"
           >
             <i class="fas fa-times text-xl"></i>
           </button>
@@ -171,28 +225,28 @@
         <nav class="flex flex-col space-y-4">
           <a
             href="../../public/index.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >Home</a
           >
           <a
             href="./faqs.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >FAQs</a
           >
           <a
             href="./aboutus.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >About Us</a
           >
           <a
             href="./terms&conditions.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >Terms</a
           >
 
           <div class="px-3 py-2">
             <button
-              class="flex items-center justify-between w-full font-medium text-gray-700"
+              class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
               id="mobile-products-toggle"
             >
               Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
@@ -200,12 +254,12 @@
             <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
               <a
                 href="./loanforms/csloanForm.html"
-                class="block py-2 text-gray-700 hover:text-blue-600"
+                class="block py-2 text-gray-700 hover:text-[#1E488F]"
                 >Civil Servant</a
               >
               <a
                 href="./loanforms/assetsecured.html"
-                class="block py-2 text-gray-700 hover:text-blue-600"
+                class="block py-2 text-gray-700 hover:text-[#1E488F]"
                 >Asset Secured</a
               >
             </div>
@@ -213,7 +267,7 @@
 
           <a
             href="./contactus.html"
-            class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition"
+            class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition"
           >
             Contact Us
           </a>
@@ -255,10 +309,10 @@
             class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100 transform transition hover:-translate-y-1"
           >
             <div
-              class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4"
+              class="bg-[#E6EEF9] w-12 h-12 rounded-full flex items-center justify-center mb-4"
             >
               <svg
-                class="w-6 h-6 text-spectrum-primary"
+                class="w-6 h-6 text-[#1E488F]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -286,10 +340,10 @@
             class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100 transform transition hover:-translate-y-1"
           >
             <div
-              class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4"
+              class="bg-[#E6EEF9] w-12 h-12 rounded-full flex items-center justify-center mb-4"
             >
               <svg
-                class="w-6 h-6 text-spectrum-primary"
+                class="w-6 h-6 text-[#1E488F]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -318,8 +372,8 @@
       <section class="bg-gray-50 py-12 md:py-16">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4">Who We Are</h2>
-            <div class="w-20 h-1 bg-spectrum-primary mx-auto"></div>
+            <h2 class="text-3xl font-bold text-[#1E488F] mb-4">Who We Are</h2>
+            <div class="w-20 h-1 bg-[#1E488F] mx-auto"></div>
           </div>
 
           <div
@@ -327,7 +381,7 @@
           >
             <div class="md:flex">
               <div
-                class="md:w-2/5 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-6 md:p-8"
+                class="md:w-2/5 bg-gradient-to-br from-[#E6EEF9] to-blue-100 flex items-center justify-center p-6 md:p-8"
               >
                 <img
                   src="/src/images/team.png"
@@ -341,7 +395,7 @@
 
               <div class="md:w-3/5 p-6 md:p-8">
                 <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                  <span class="font-bold text-spectrum-primary"
+                  <span class="font-bold text-[#1E488F]"
                     >Spectrum Credit</span
                   >
                   is a Zambian-owned microfinance leader transforming lives
@@ -353,10 +407,10 @@
                   <div class="flex items-start">
                     <div class="flex-shrink-0 mt-1">
                       <div
-                        class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center"
+                        class="h-6 w-6 rounded-full bg-[#E6EEF9] flex items-center justify-center"
                       >
                         <svg
-                          class="h-4 w-4 text-spectrum-primary"
+                          class="h-4 w-4 text-[#1E488F]"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -375,10 +429,10 @@
                   <div class="flex items-start">
                     <div class="flex-shrink-0 mt-1">
                       <div
-                        class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center"
+                        class="h-6 w-6 rounded-full bg-[#E6EEF9] flex items-center justify-center"
                       >
                         <svg
-                          class="h-4 w-4 text-spectrum-primary"
+                          class="h-4 w-4 text-[#1E488F]"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -397,10 +451,10 @@
                   <div class="flex items-start">
                     <div class="flex-shrink-0 mt-1">
                       <div
-                        class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center"
+                        class="h-6 w-6 rounded-full bg-[#E6EEF9] flex items-center justify-center"
                       >
                         <svg
-                          class="h-4 w-4 text-spectrum-primary"
+                          class="h-4 w-4 text-[#1E488F]"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -418,9 +472,9 @@
                 </div>
 
                 <div
-                  class="mt-8 bg-blue-50 p-4 md:p-5 rounded-xl border border-blue-100"
+                  class="mt-8 bg-[#E6EEF9] p-4 md:p-5 rounded-xl border border-[#1E488F]/30"
                 >
-                  <p class="text-blue-800 font-medium italic text-center">
+                  <p class="text-[#1E488F] font-medium italic text-center">
                     "Our vision extends beyond loans - we're building financial
                     capability across Zambia, one customer at a time."
                   </p>
@@ -437,7 +491,7 @@
               class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105"
             >
               <div
-                class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2"
+                class="text-3xl md:text-4xl font-bold text-[#1E488F] mb-2"
               >
                 3+
               </div>
@@ -449,7 +503,7 @@
               class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105"
             >
               <div
-                class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2"
+                class="text-3xl md:text-4xl font-bold text-[#1E488F] mb-2"
               >
                 50K+
               </div>
@@ -461,7 +515,7 @@
               class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105"
             >
               <div
-                class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2"
+                class="text-3xl md:text-4xl font-bold text-[#1E488F] mb-2"
               >
                 5+
               </div>
@@ -473,7 +527,7 @@
               class="bg-white p-4 md:p-6 rounded-xl shadow-sm text-center transform transition hover:scale-105"
             >
               <div
-                class="text-3xl md:text-4xl font-bold text-spectrum-primary mb-2"
+                class="text-3xl md:text-4xl font-bold text-[#1E488F] mb-2"
               >
                 100%
               </div>
@@ -489,10 +543,10 @@
       <section class="py-12 md:py-16 bg-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-8 md:mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1E488F] mb-4">
               Our Nationwide Presence
             </h2>
-            <div class="w-20 h-1 bg-spectrum-primary mx-auto"></div>
+            <div class="w-20 h-1 bg-[#1E488F] mx-auto"></div>
             <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
               We're growing across Zambia to serve you better with convenient
               locations
@@ -516,23 +570,23 @@
                 class="mt-4 md:mt-6 flex flex-wrap justify-center gap-2 md:gap-4"
               >
                 <span
-                  class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
+                  class="bg-[#E6EEF9] text-[#1E488F] px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
                   >Lusaka</span
                 >
                 <span
-                  class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
+                  class="bg-[#E6EEF9] text-[#1E488F] px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
                   >Ndola</span
                 >
                 <span
-                  class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
+                  class="bg-[#E6EEF9] text-[#1E488F] px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
                   >Kitwe</span
                 >
                 <span
-                  class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
+                  class="bg-[#E6EEF9] text-[#1E488F] px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
                   >Mazabuka</span
                 >
                 <span
-                  class="bg-blue-100 text-blue-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
+                  class="bg-[#E6EEF9] text-[#1E488F] px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium"
                   >Coming Soon</span
                 >
               </div>
@@ -542,7 +596,7 @@
           <div class="text-center mt-8 md:mt-10">
             <a
               href="/contact"
-              class="inline-flex items-center bg-spectrum-primary hover:bg-spectrum-primary-dark text-white font-medium py-2 md:py-3 px-6 md:px-8 rounded-lg shadow-md transition duration-300"
+              class="inline-flex items-center bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-2 md:py-3 px-6 md:px-8 rounded-lg shadow-md transition duration-300"
             >
               <svg
                 class="w-5 h-5 mr-2"
@@ -571,7 +625,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12 footer">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <!-- Column 1 -->
@@ -600,7 +654,7 @@
 
           <!-- Column 2 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
             <ul class="space-y-2">
               <li>
                 <a
@@ -635,7 +689,7 @@
 
           <!-- Column 3 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Legal</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
             <ul class="space-y-2">
               <li>
                 <a
@@ -665,39 +719,25 @@
                   >Environment and Social Policy</a
                 >
               </li>
-              <li>
-                <a
-                  href="/privacy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Data Privacy Statement</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/charter"
-                  class="text-gray-400 hover:text-white transition"
-                  >Customer Service Charter</a
-                >
-              </li>
             </ul>
           </div>
 
           <!-- Column 4 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
             <address class="text-gray-400 not-italic text-sm">
               <p class="mb-2 flex items-center">
-                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+                <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
                 Woodlands, Lusaka, Zambia
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+                <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+                <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+                <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
               </p>
             </address>
           </div>
@@ -716,14 +756,11 @@
             <a href="/terms" class="hover:text-white transition"
               >Terms of Service</a
             >
-            |
-            <a href="/complaints" class="hover:text-white transition"
-              >Complaints</a
-            >
           </p>
         </div>
       </div>
     </footer>
+
     <!-- Floating WhatsApp Button -->
     <div class="fixed bottom-6 right-6 z-50">
       <a

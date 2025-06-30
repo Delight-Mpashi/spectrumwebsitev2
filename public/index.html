@@ -11,19 +11,58 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --primary: #1d62e3;
-      --primary-dark: #1a56cb;
-      --secondary: #4caf50;
-      --dark: #1e293b;
-      --light: #f8fafc;
-      --accent: #f59e0b;
-    }
+        --primary: #1E488F;  /* Changed from #1d62e3 */
+        --primary-dark: #1a3d7a;  /* Darker shade of cobalt blue */
+        --secondary: #4caf50;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --accent: #f59e0b;
+      }
     
     body {
       font-family: 'Inter', sans-serif;
       -webkit-text-size-adjust: 100%;
+      background-color: #f9f5f0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(222, 184, 135, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.05) 0%, transparent 20%),
+        linear-gradient(to bottom, transparent 95%, rgba(139, 69, 19, 0.03) 100%);
+      background-attachment: fixed;
+      background-size: cover;
     }
     
+    /* African pattern accents */
+    .bg-white {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-white::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23f1e8d9' fill-opacity='0.2' d='M0 0h100v100H0V0zm10 10h80v80H10V10zm10 10h60v60H20V20zm10 10h40v40H30V30zm10 10h20v20H40V40z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    /* Footer pattern */
+    .bg-gray-900 {
+      background-image: 
+        linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, transparent 20%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233a2e1f' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* African-inspired borders */
+    .rounded-2xl {
+      border-top: 3px solid rgba(210, 105, 30, 0.3);
+    }
+
     /* Mobile-first navigation */
     .mobile-menu {
       transform: translateX(100%);
@@ -91,13 +130,94 @@
     .faq-item.open .faq-icon {
       transform: rotate(180deg);
     }
+
+    /* Ensure content stays above background elements */
+    .relative {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* African pattern overlay */
+    .african-pattern-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23d2691e' fill-opacity='0.05' d='M50 0c27.6 0 50 22.4 50 50s-22.4 50-50 50S0 77.6 0 50 22.4 0 50 0zm0 10c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40-17.9-40-40-40zm0 10c-16.6 0-30 13.4-30 30s13.4 30 30 30 30-13.4 30-30-13.4-30-30-30zm0 10c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20z'/%3E%3C/svg%3E");
+      background-size: 300px;
+      opacity: 0.15;
+    }
+
+    /* African Star Patterns */
+    .african-star {
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    /* Adinkra star symbol (Gye Nyame - "Except for God") */
+    .adinkra-star {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d2691e' d='M50 0c27.6 0 50 22.4 50 50s-22.4 50-50 50S0 77.6 0 50 22.4 0 50 0zm0 10c-22.1 0-40 17.9-40 40s17.9 40 40 40 40-17.9 40-40-17.9-40-40-40zm0 10c-16.6 0-30 13.4-30 30s13.4 30 30 30 30-13.4 30-30-13.4-30-30-30zm0 10c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20z'/%3E%3C/svg%3E");
+    }
+
+    /* Ndebele star pattern */
+    .ndebele-star {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%231d62e3' d='M50 0l12.4 38.3H100l-32.4 23.5 12.4 38.3L50 76.6 19.6 100l12.4-38.3L0 38.3h37.6z'/%3E%3C/svg%3E");
+    }
+
+    /* Section star decorations */
+    .section-stars::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    /* Positioning for different sections */
+    .hero-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' d='M50 0l9.6 29.6H90L66.5 49.2l9.6 29.6L50 59.2 23.9 78.8l9.6-29.6L0 29.6h30.4z'/%3E%3C/svg%3E");
+      top: 20%;
+      left: 10%;
+    }
+
+    .requirements-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d2691e' d='M50 0l5.8 17.8H75L60.9 29.5l5.8 17.8L50 35.5 33.3 47.3l5.8-17.8L25 17.8h19.2z'/%3E%3C/svg%3E");
+      bottom: 10%;
+      right: 5%;
+    }
+
+    .how-it-works-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' d='M50 0l8.7 26.7H85L63.4 44.3l8.7 26.7L50 53.3 27.9 71l8.7-26.7L15 26.7h26.3z'/%3E%3C/svg%3E");
+      top: 30%;
+      right: 15%;
+    }
+
+    .testimonials-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%231d62e3' d='M50 0l6.5 20H80L63.8 33.3l6.5 20L50 40 29.7 53.3l6.5-20L20 20h23.5z'/%3E%3C/svg%3E");
+      bottom: 15%;
+      left: 10%;
+    }
+
+    .faq-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d2691e' d='M50 0l7.2 22.2H85L65.6 37.8l7.2 22.2L50 44.4 27.2 60l7.2-22.2L15 22.2h27.8z'/%3E%3C/svg%3E");
+      top: 20%;
+      right: 10%;
+    }
+
+    .cta-stars::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' d='M50 0l9.6 29.6H90L66.5 49.2l9.6 29.6L50 59.2 23.9 78.8l9.6-29.6L0 29.6h30.4z'/%3E%3C/svg%3E");
+      bottom: 25%;
+      left: 20%;
+    }
   </style>
 </head>
 <body class="bg-gray-50">
   <!-- Mobile Navigation -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/" class="flex items-center">
+      <a href="/public/index.html" class="flex items-center">
         <img src="./assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
       </a>
   
@@ -118,7 +238,7 @@
           </div>
         </div>
   
-        <a href="../src/pages/contactus.html" class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition">
+        <a href="../src/pages/contactus.html" class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#1a3d7a] transition">
           Contact Us
         </a>
       </nav>
@@ -155,112 +275,150 @@
           </div>
         </div>
   
-        <a href="../src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition">
+        <a href="../src/pages/contactus.html" class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-[#1a3d7a] transition">
           Contact Us
         </a>
       </nav>
     </div>
   </header>
   
-  <!-- Hero Section with Loan Form -->
-  <section class="relative bg-blue-600 overflow-hidden">
+  <!-- Hero Section with Enhanced Design -->
+<section class="relative bg-blue-600 overflow-hidden hero-stars section-stars">
+    <!-- Background with increased visibility -->
     <div class="absolute inset-0">
-      <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" class="w-full h-full object-cover opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-600/70"></div>
+      <div class="absolute inset-0 african-pattern-overlay opacity-20"></div>
+      <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" class="w-full h-full object-cover opacity-40">
     </div>
   
-    <div class="relative container mx-auto px-4 py-12 md:py-20">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Apply for a Civil Servant loan and Asset Secured Loan Today</h2>
+    <!-- African decorative elements -->
+    <div class="african-star adinkra-star" style="width: 120px; height: 120px; top: 10%; right: 5%;"></div>
+    <div class="african-star ndebele-star" style="width: 80px; height: 80px; bottom: 15%; left: 8%;"></div>
+  
+    <div class="relative container mx-auto px-4 py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+          Apply for a Civil Servant loan <br class="hidden md:block">and Asset Secured Loan Today
+        </h2>
+        <p class="text-blue-100 text-lg max-w-3xl mx-auto">
+          Quick approval process with competitive rates tailored to your needs
+        </p>
       </div>
   
       <!-- Improved Card Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-5xl mx-auto">
         <!-- Civil Servant Loan Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h3>
-          <p class="text-gray-600 mb-4">Tailored for government employees with flexible repayments and low interest.</p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Low interest rates</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Payslip Deductions</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Up to 60 months repayment</li>
-          </ul>
-          <a href="../src/pages/loanforms/csloanForm.html" class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-            Apply Now <i class="fas fa-arrow-right ml-2"></i>
+        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
+          <div class="mb-6">
+            <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-user-tie text-[#1E488F] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h3>
+            <p class="text-gray-600 mb-4">Tailored for government employees with flexible repayments and low interest.</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Low interest rates</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Payslip Deductions</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Up to 60 months repayment</li>
+            </ul>
+          </div>
+          <a href="../src/pages/loanforms/CSLoanForm.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
+            <span>Apply Now</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
-  
+      
         <!-- Asset Secured Loan Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Asset Secured Loan</h3>
-          <p class="text-gray-600 mb-4">Get funding for business growth backed by collateral.</p>
-          <ul class="text-sm text-gray-600 space-y-2 mb-6">
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Fast approval process</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Competitive rates</li>
-            <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i> Flexible repayment options</li>
-          </ul>
-          <a href="../src/pages/loanforms/assetsecured.html" class="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-            Apply Now <i class="fas fa-arrow-right ml-2"></i>
+        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
+          <div class="mb-6">
+            <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-home text-[#1E488F] text-xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Asset Secured Loan</h3>
+            <p class="text-gray-600 mb-4">Get funding for business growth backed by collateral.</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-6">
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Fast approval process</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Competitive rates</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Flexible repayment options</li>
+            </ul>
+          </div>
+          <a href="../src/pages/loanforms/ASLoanform.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
+            <span>Apply Now</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
       </div>
-    </div>
   </section>
-  <!-- Requirements Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+
+ <!-- Requirements Section with African Stars -->
+<section class="relative py-16 bg-white overflow-hidden requirements-stars section-stars">
+    <div class="african-star adinkra-star" style="width: 100px; height: 100px; top: 20%; left: 5%;"></div>
+    <div class="african-star ndebele-star" style="width: 60px; height: 60px; bottom: 10%; right: 10%; transform: rotate(30deg);"></div>
+    
+    <div class="absolute -left-20 -top-20 w-64 h-64 rounded-full bg-amber-100/20"></div>
+    <div class="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-amber-100/20"></div>
+    <div class="container mx-auto px-4 relative">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">Loan Application Requirements</h2>
   
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
         <!-- Requirement 1 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-file-invoice text-blue-600 text-3xl"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
+            <i class="fas fa-file-invoice text-[#1E488F] text-3xl"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Latest Payslip</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Submit your most recent payslip as proof of income.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Latest Payslip</h3>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Submit your most recent payslip as proof of income.</p>
         </div>
   
         <!-- Requirement 2 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-id-card text-blue-600 text-3xl"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
+            <i class="fas fa-id-card text-[#1E488F] text-3xl"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">NRC/Passport</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Clear copy of your national identification document.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">NRC/Passport</h3>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Clear copy of your national identification document.</p>
         </div>
   
         <!-- Requirement 3 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-camera text-blue-600 text-3xl"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
+            <i class="fas fa-camera text-[#1E488F] text-3xl"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Passport Photo</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Recent colored passport-size photograph.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Passport Photo</h3>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Recent colored passport-size photograph.</p>
         </div>
   
         <!-- Requirement 4 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200">
-          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
-            <i class="fas fa-file-alt text-blue-600 text-3xl"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
+            <i class="fas fa-file-alt text-[#1E488F] text-3xl"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Bank Statements</h3>
-          <p class="text-gray-600 text-base leading-relaxed">Provide your last 3 months of bank statements.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Bank Statements</h3>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Provide your last 3 months of bank statements.</p>
         </div>
       </div>
     </div>
   </section>
   
-  
-
-  <!-- How It Works Section -->
-  <section class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-    <div class="container mx-auto px-4">
+   <!-- How It Works Section -->
+   <section class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+    <!-- Background image with minimal opacity -->
+    <div class="absolute inset-0">
+        <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 mix-blend-multiply"></div>
+    </div>
+    
+    <div class="absolute inset-0 opacity-10 african-pattern-overlay"></div>
+    <div class="relative container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">How to Apply via USSD</h2>
       <p class="text-blue-100 text-center mb-12 max-w-2xl mx-auto">Get a loan in just 3 simple steps without internet</p>
       
       <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8">
         <!-- Step 1 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
+        <div class="flex flex-col items-center text-center max-w-xs relative z-10">
           <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">1</div>
           <h3 class="font-semibold text-lg mb-2">Dial *619#</h3>
           <p class="text-blue-100 text-sm">Start by dialing our USSD code from your mobile phone</p>
@@ -271,7 +429,7 @@
         </div>
         
         <!-- Step 2 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
+        <div class="flex flex-col items-center text-center max-w-xs relative z-10">
           <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">2</div>
           <h3 class="font-semibold text-lg mb-2">Select Loan Type</h3>
           <p class="text-blue-100 text-sm">Choose the loan product that suits your needs</p>
@@ -282,31 +440,36 @@
         </div>
         
         <!-- Step 3 -->
-        <div class="flex flex-col items-center text-center max-w-xs">
+        <div class="flex flex-col items-center text-center max-w-xs relative z-10">
           <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">3</div>
           <h3 class="font-semibold text-lg mb-2">Enter Details</h3>
           <p class="text-blue-100 text-sm">Provide required information and submit your application</p>
         </div>
       </div>
       
-      <div class="text-center mt-12">
+      <div class="text-center mt-12 relative z-10">
         <button class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center">
           <i class="fas fa-mobile-alt mr-2"></i> Get Started Now
         </button>
       </div>
     </div>
-  </section>
+</section>
   
-  <!-- Testimonials Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+  
+  <!-- Testimonials Section with African Stars -->
+  <section class="py-16 bg-gray-50 relative overflow-hidden testimonials-stars section-stars">
+    <div class="african-star adinkra-star" style="width: 80px; height: 80px; top: 10%; right: 10%;"></div>
+    <div class="african-star ndebele-star" style="width: 60px; height: 60px; bottom: 15%; left: 15%; transform: rotate(15deg);"></div>
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 african-pattern-overlay"></div>
+    <div class="container mx-auto px-4 relative">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">What Our Customers Say</h2>
       <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Hear from people who have used our services</p>
   
       <div class="flex flex-wrap justify-center gap-6">
         <!-- Testimonial 1 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
+        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/mary.jpg" alt="Mary Chanda" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">Mary Chanda</h4>
@@ -315,12 +478,13 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm">"I got my loan approved within 24 hours! The process was so simple and the customer service was excellent. Highly recommend Spectrum Credit!"</p>
+          <p class="text-gray-600 text-sm relative z-10">"I got my loan approved within 24 hours! The process was so simple and the customer service was excellent. Highly recommend Spectrum Credit!"</p>
         </div>
   
         <!-- Testimonial 2 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
+        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/john.png" alt="John Banda" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">John Banda</h4>
@@ -329,12 +493,13 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm">"As a small business owner, the Nkwazi Working Capital loan helped me expand my inventory. The repayment terms are very reasonable."</p>
+          <p class="text-gray-600 text-sm relative z-10">"As a small business owner, the Nkwazi Working Capital loan helped me expand my inventory. The repayment terms are very reasonable."</p>
         </div>
   
         <!-- Testimonial 3 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300">
-          <div class="flex items-center mb-4">
+        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
+          <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/sarah.png" alt="Sarah Mwansa" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">Sarah Mwansa</h4>
@@ -343,15 +508,18 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm">"The USSD application is a game changer! I applied for a loan during my lunch break and had the money by evening. So convenient!"</p>
+          <p class="text-gray-600 text-sm relative z-10">"The USSD application is a game changer! I applied for a loan during my lunch break and had the money by evening. So convenient!"</p>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- FAQ Section -->
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4 max-w-3xl">
+  <!-- FAQ Section with African Stars -->
+  <section class="py-12 bg-white relative overflow-hidden faq-stars section-stars">
+    <div class="african-star ndebele-star" style="width: 70px; height: 70px; top: 30%; left: 10%;"></div>
+    <div class="african-star adinkra-star" style="width: 50px; height: 50px; bottom: 20%; right: 10%;"></div>
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 african-pattern-overlay"></div>
+    <div class="container mx-auto px-4 max-w-3xl relative">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-2">Frequently Asked Questions</h2>
       <p class="text-gray-600 text-center mb-8">Find answers to common questions</p>
       
@@ -417,9 +585,19 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-12 bg-blue-600 text-white">
-    <div class="container mx-auto px-4 text-center">
+  <!-- CTA Section with African Stars -->
+  <section class="py-12 bg-blue-600 text-white relative overflow-hidden cta-stars section-stars">
+    <!-- Background image with minimal opacity -->
+    <div class="absolute inset-0">
+        <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
+        <div class="absolute inset-0 bg-blue-600 mix-blend-multiply"></div>
+    </div>
+    
+    <div class="african-star ndebele-star" style="width: 100px; height: 100px; top: 20%; right: 20%; opacity: 0.15;"></div>
+    <div class="african-star adinkra-star" style="width: 80px; height: 80px; bottom: 15%; left: 15%; opacity: 0.15;"></div>
+    <div class="absolute inset-0 opacity-10 african-pattern-overlay"></div>
+    
+    <div class="container mx-auto px-4 text-center relative">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
       <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Apply for a loan today and get funds in your account within 24 hours</p>
       
@@ -432,75 +610,146 @@
         </a>
       </div>
     </div>
-  </section>
+</section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white pt-12 pb-6">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <!-- Column 1 -->
-        <div>
-          <img src="/public/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4">
-          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
-            <li><a href="/about" class="text-gray-400 hover:text-white transition">About Us</a></li>
-            <li><a href="/products" class="text-gray-400 hover:text-white transition">Products</a></li>
-            <li><a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Products</h3>
-          <ul class="space-y-2">
-            <li><a href="/civil-servant" class="text-gray-400 hover:text-white transition">Civil Servant Loans</a></li>
-            <li><a href="/nkwazi" class="text-gray-400 hover:text-white transition">Nkwazi Working Capital</a></li>
-            <li><a href="/sme-financing" class="text-gray-400 hover:text-white transition">SME Financing</a></li>
-            <li><a href="/whitebook" class="text-gray-400 hover:text-white transition">Whitebook</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-          <address class="text-gray-400 not-italic text-sm">
-            <p class="mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-envelope mr-3"></i> info@spectrumcredit.com</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-phone-alt mr-3"></i> +260 123 456 789</p>
-            <p class="mb-2 flex items-center"><i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30</p>
-          </address>
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-white py-12 footer">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Column 1 -->
+      <div>
+        <img
+          src="/src/images/sclogo.png"
+          alt="Spectrum Credit Logo"
+          class="h-10 mb-4"
+        />
+        <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
-      
-      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
-        <p>&copy; <span id="current-year">2025</span> Spectrum Credit. All rights reserved. | 
-          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
-          <a href="/terms" class="hover:text-white transition">Terms of Service</a> | 
-          <a href="/complaints" class="hover:text-white transition">Complaints</a>
-        </p>
+
+      <!-- Column 2 -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="../../../public/index.html"
+              class="text-gray-400 hover:text-white transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/aboutus.html"
+              class="text-gray-400 hover:text-white transition"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="/products"
+              class="text-gray-400 hover:text-white transition"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a
+              href="../contactus.html"
+              class="text-gray-400 hover:text-white transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/whistleblower"
+              class="text-gray-400 hover:text-white transition"
+              >Whistleblower Portal</a
+            >
+          </li>
+          <li>
+            <a
+              href="/src/pages/grievancePortal.html"
+              class="text-gray-400 hover:text-white transition"
+              >Grievance Reporting</a
+            >
+          </li>
+          <li>
+            <a
+              href="../terms&conditions.html"
+              class="text-gray-400 hover:text-white transition"
+              >Terms and Conditions</a
+            >
+          </li>
+          <li>
+            <a
+              href="/policy"
+              class="text-gray-400 hover:text-white transition"
+              >Environment and Social Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4 -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
+        <address class="text-gray-400 not-italic text-sm">
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
+            Woodlands, Lusaka, Zambia
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
+          </p>
+        </address>
       </div>
     </div>
-  </footer>
+
+    <div
+      class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
+    >
+      <p>
+        &copy; <span id="current-year">2025</span> Spectrum Credit. All
+        rights reserved. |
+        <a href="/privacy" class="hover:text-white transition"
+          >Privacy Policy</a
+        >
+        |
+        <a
+          href="../terms&conditions.html"
+          class="hover:text-white transition"
+          >Terms of Service</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
 
   <!-- Floating WhatsApp Button -->
   <div class="fixed bottom-6 right-6 z-50">

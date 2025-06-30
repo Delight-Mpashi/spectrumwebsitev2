@@ -17,8 +17,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
-        --primary: #1d62e3;
-        --primary-dark: #1a56cb;
+        --primary: #1E488F; /* Updated to Cobalt blue */
+        --primary-dark: #163875;
+        --primary-light: #E6EEF9;
         --secondary: #4caf50;
         --dark: #1e293b;
         --light: #f8fafc;
@@ -29,6 +30,7 @@
         font-family: "Inter", sans-serif;
         -webkit-text-size-adjust: 100%;
       }
+
       .mobile-menu {
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -129,10 +131,30 @@
         transition: all 0.2s ease;
       }
 
-      .nrc-input {
-        background-image: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8H14' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 12px center;
+      .nav-link {
+        position: relative;
+      }
+      .nav-link:hover {
+        color: var(--primary);
+      }
+      .nav-link:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover:after {
+        width: 100%;
+      }
+      .dropdown-menu {
+        border-top: 2px solid var(--primary);
+      }
+      .footer {
+        border-top: 4px solid var(--primary);
       }
     </style>
   </head>
@@ -142,7 +164,7 @@
       <div
         class="container mx-auto px-4 py-3 flex justify-between items-center"
       >
-        <a href="#" class="flex items-center">
+        <a href="/public/index.html" class="flex items-center">
           <img
             src="/src/images/sclogo.png"
             alt="Spectrum Credit Logo"
@@ -154,42 +176,42 @@
         <nav class="hidden md:flex items-center space-x-1">
           <a
             href="/public/index.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >Home</a
           >
           <a
             href="/src/pages/faqs.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >FAQs</a
           >
           <a
             href="/src/pages/aboutus.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >About Us</a
           >
           <a
             href="/src/pages/terms&conditions.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >Terms</a
           >
 
           <div class="relative group">
             <button
-              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
             >
               Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
             </button>
             <div
-              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block"
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
             >
               <a
                 href="/src/pages/loanforms/csloanForm.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
                 >Civil Servant</a
               >
               <a
                 href="/src/pages/loanforms/assetsecured.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
                 >Asset Secured</a
               >
             </div>
@@ -197,7 +219,7 @@
 
           <a
             href="/src/pages/contactus.html"
-            class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition"
+            class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition"
           >
             Contact Us
           </a>
@@ -222,7 +244,7 @@
         <div class="flex justify-end mb-6">
           <button
             id="close-mobile-menu"
-            class="text-gray-500 hover:text-gray-700"
+            class="text-gray-500 hover:text-[#1E488F]"
           >
             <i class="fas fa-times text-xl"></i>
           </button>
@@ -231,28 +253,28 @@
         <nav class="flex flex-col space-y-4">
           <a
             href="/public/index.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >Home</a
           >
           <a
             href="/src/pages/faqs.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >FAQs</a
           >
           <a
             href="/src/pages/aboutus.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >About Us</a
           >
           <a
             href="/src/pages/terms&conditions.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
             >Terms</a
           >
 
           <div class="px-3 py-2">
             <button
-              class="flex items-center justify-between w-full font-medium text-gray-700"
+              class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
               id="mobile-products-toggle"
             >
               Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
@@ -260,12 +282,12 @@
             <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
               <a
                 href="/loanforms/csloanForm.html"
-                class="block py-2 text-gray-700 hover:text-blue-600"
+                class="block py-2 text-gray-700 hover:text-[#1E488F]"
                 >Civil Servant</a
               >
               <a
                 href="/loanforms/assetsecured.html"
-                class="block py-2 text-gray-700 hover:text-blue-600"
+                class="block py-2 text-gray-700 hover:text-[#1E488F]"
                 >Asset Secured</a
               >
             </div>
@@ -273,7 +295,7 @@
 
           <a
             href="/src/pages/contactus.html"
-            class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition"
+            class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition"
           >
             Contact Us
           </a>
@@ -286,43 +308,60 @@
       <!-- Progress Steps -->
       <div class="flex justify-between items-center mb-8 max-w-md mx-auto">
         <div class="flex flex-col items-center">
-          <div
-            class="progress-step rounded-full flex items-center justify-center active"
-          >
+          <div class="progress-step rounded-full flex items-center justify-center completed">
             <span>1</span>
           </div>
           <span class="text-xs mt-1 text-gray-600">Personal Info</span>
         </div>
         <div class="h-1 flex-1 bg-gray-200 mx-2"></div>
         <div class="flex flex-col items-center">
-          <div
-            class="progress-step rounded-full flex items-center justify-center"
-          >
+          <div class="progress-step rounded-full flex items-center justify-center completed">
             <span>2</span>
           </div>
           <span class="text-xs mt-1 text-gray-600">Employment</span>
         </div>
+        <div class="h-1 flex-1 bg-gray-200 mx-2"></div>
+        <div class="flex flex-col items-center">
+          <div class="progress-step rounded-full flex items-center justify-center active">
+            <span>3</span>
+          </div>
+          <span class="text-xs mt-1 text-gray-600">Complete</span>
+        </div>
       </div>
 
       <!-- Form Pages -->
-      <div class="bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto">
+      <div class="bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto border-t-4 border-[#1E488F]">
         <!-- Page 1: Personal Information -->
         <div id="page1" class="form-page active">
-          <h2 class="text-xl font-bold text-gray-800 mb-6">
+          <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Personal Information
           </h2>
 
           <div class="space-y-4">
             <div>
               <label
-                for="fullName"
+                for="firstName"
                 class="block text-sm font-medium text-gray-700 mb-1"
-                >Full Name</label
+                >First Name</label
               >
               <input
                 type="text"
-                id="fullName"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="firstName"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                for="lastName"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                id="lastName"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required
               />
             </div>
@@ -337,34 +376,34 @@
                 type="text"
                 id="nrc"
                 placeholder="e.g. 123456/78/9"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md nrc-input focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 maxlength="11"
                 required
               />
               <p class="text-xs text-gray-500 mt-1">Format: 000000/00/1</p>
             </div>
 
+            <!-- Phone Number Field -->
             <div>
               <label
-                for="phone"
+                for="phoneNumber"
                 class="block text-sm font-medium text-gray-700 mb-1"
                 >Phone Number</label
               >
-              <div class="flex">
-                <div
-                  class="flex items-center justify-center px-3 py-2 bg-gray-100 border border-r-0 border-gray-300 rounded-l-md text-gray-700"
-                >
-                  +260
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <span class="text-gray-500">+260</span>
                 </div>
                 <input
                   type="tel"
-                  id="phone"
-                  placeholder="971234567"
-                  class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  id="phoneNumber"
+                  class="w-full pl-16 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
+                  placeholder="961234567"
                   maxlength="9"
                   required
                 />
               </div>
+              <p class="text-xs text-gray-500 mt-1">Format: +260 followed by 9 digits</p>
             </div>
 
             <div>
@@ -376,12 +415,12 @@
               <input
                 type="text"
                 id="referral"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
               />
             </div>
 
             <div class="flex items-start mt-6">
-              <input type="checkbox" id="consent" class="mt-1 mr-2" required />
+              <input type="checkbox" id="consent" class="mt-1 mr-2 accent-[#1E488F]" required />
               <label for="consent" class="text-sm text-gray-700"
                 >By clicking next, I consent to Spectrum Credit using my
                 information for loan registration and processing.</label
@@ -392,7 +431,7 @@
           <div class="mt-8">
             <button
               id="nextToPage2"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300"
+              class="w-full bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
             >
               Next <i class="fas fa-arrow-right ml-2"></i>
             </button>
@@ -401,7 +440,7 @@
 
         <!-- Page 2: Employment Information -->
         <div id="page2" class="form-page">
-          <h2 class="text-xl font-bold text-gray-800 mb-6">
+          <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Employment Information
           </h2>
 
@@ -415,7 +454,7 @@
               <input
                 type="text"
                 id="employeeNumber"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required
               />
             </div>
@@ -429,7 +468,7 @@
               <input
                 type="number"
                 id="basicPay"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required
               />
             </div>
@@ -443,7 +482,7 @@
               <input
                 type="number"
                 id="netPay"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required
               />
             </div>
@@ -511,24 +550,51 @@
           <div class="mt-8 flex space-x-3">
             <button
               id="backToPage1"
-              class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300"
+              class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
             >
               <i class="fas fa-arrow-left mr-2"></i> Back
             </button>
             <button
               type="submit"
               id="submitApplication"
-              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300"
+              class="flex-1 bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
             >
               Submit <i class="fas fa-paper-plane ml-2"></i>
             </button>
+          </div>
+        </div>
+
+        <!-- Page 3: Thank You Page -->
+        <div id="page3" class="form-page">
+          <div class="text-center py-8">
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+              <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-[#1E488F] mb-2">Thank You!</h2>
+            <p class="text-gray-600 mb-6">
+              Your application has been submitted successfully. We will contact you within 24 hours.
+            </p>
+            <div class="bg-[#E6EEF9] border border-[#1E488F]/30 rounded-md p-4 text-left mb-6">
+              <h3 class="font-medium text-[#1E488F] mb-2">What's Next?</h3>
+              <ul class="list-disc list-inside text-[#1E488F] text-sm space-y-1">
+                <li>Our team will review your application</li>
+                <li>You'll receive an SMS confirmation shortly</li>
+                <li>A loan officer will contact you for verification</li>
+                <li>Final approval typically takes 1-2 business days</li>
+              </ul>
+            </div>
+            <a href="/public/index.html" class="inline-block px-6 py-2 bg-[#1E488F] text-white font-medium rounded-md hover:bg-[#163875] transition">
+              Back to Home
+            </a>
           </div>
         </div>
       </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12 footer">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <!-- Column 1 -->
@@ -557,7 +623,7 @@
 
           <!-- Column 2 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
             <ul class="space-y-2">
               <li>
                 <a
@@ -592,7 +658,7 @@
 
           <!-- Column 3 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Legal</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
             <ul class="space-y-2">
               <li>
                 <a
@@ -622,39 +688,25 @@
                   >Environment and Social Policy</a
                 >
               </li>
-              <li>
-                <a
-                  href="/privacy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Data Privacy Statement</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/charter"
-                  class="text-gray-400 hover:text-white transition"
-                  >Customer Service Charter</a
-                >
-              </li>
             </ul>
           </div>
 
           <!-- Column 4 -->
           <div>
-            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
             <address class="text-gray-400 not-italic text-sm">
               <p class="mb-2 flex items-center">
-                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+                <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
                 Woodlands, Lusaka, Zambia
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+                <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+                <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
               </p>
               <p class="mb-2 flex items-center">
-                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+                <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
               </p>
             </address>
           </div>
@@ -672,10 +724,6 @@
             |
             <a href="/terms" class="hover:text-white transition"
               >Terms of Service</a
-            >
-            |
-            <a href="/complaints" class="hover:text-white transition"
-              >Complaints</a
             >
           </p>
         </div>
@@ -736,6 +784,15 @@
               return;
             }
 
+            // Validate phone number
+            const phoneInput = document.getElementById("phoneNumber");
+            const phoneValue = phoneInput.value.trim();
+            if (phoneValue.length !== 9 || !/^\d+$/.test(phoneValue)) {
+              phoneInput.classList.add("border-red-500");
+              alert("Please enter a valid 9-digit phone number");
+              return;
+            }
+
             document.getElementById("page1").classList.remove("active");
             document.getElementById("page2").classList.add("active");
 
@@ -780,6 +837,17 @@
         e.target.value = value;
       });
 
+      // Phone number validation
+      document.getElementById("phoneNumber").addEventListener("input", function(e) {
+        // Remove any non-digit characters
+        let value = e.target.value.replace(/\D/g, '');
+        // Limit to 9 digits
+        if (value.length > 9) {
+          value = value.substring(0, 9);
+        }
+        e.target.value = value;
+      });
+
       // Form submission
       document
         .getElementById("submitApplication")
@@ -803,7 +871,7 @@
             const formData = {
               fullName: document.getElementById("fullName").value,
               nrc: document.getElementById("nrc").value,
-              phone: "+260" + document.getElementById("phone").value,
+              phoneNumber: "+260" + document.getElementById("phoneNumber").value,
               referral: document.getElementById("referral").value,
               employeeNumber: document.getElementById("employeeNumber").value,
               basicPay: document.getElementById("basicPay").value,
@@ -813,33 +881,16 @@
               consent: document.getElementById("consent").checked,
             };
 
-            // In a real app, you would send data to your backend here
             console.log("Form data:", formData);
-            alert(
-              "Application submitted successfully! We will contact you shortly."
-            );
-
-            // Reset form (for demo purposes)
-            document.getElementById("fullName").value = "";
-            document.getElementById("nrc").value = "";
-            document.getElementById("phone").value = "";
-            document.getElementById("referral").value = "";
-            document.getElementById("employeeNumber").value = "";
-            document.getElementById("basicPay").value = "";
-            document.getElementById("netPay").value = "";
-            document.getElementById("consent").checked = false;
-
+            
+            // Show thank you page
             document.getElementById("page2").classList.remove("active");
-            document.getElementById("page1").classList.add("active");
-            document
-              .querySelectorAll(".progress-step")[1]
-              .classList.remove("active");
-            document
-              .querySelectorAll(".progress-step")[0]
-              .classList.add("active");
-            document
-              .querySelectorAll(".progress-step")[0]
-              .classList.remove("completed");
+            document.getElementById("page3").classList.add("active");
+            
+            // Update progress steps
+            document.querySelectorAll(".progress-step")[0].classList.add("completed");
+            document.querySelectorAll(".progress-step")[1].classList.add("completed");
+            document.querySelectorAll(".progress-step")[2].classList.add("active");
           } else {
             alert("Please fill in all required fields");
           }
