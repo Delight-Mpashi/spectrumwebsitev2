@@ -37,8 +37,12 @@ app.get('/terms', (req, res) => {
 });
 
 app.get('/loanforms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/ASLoanform.html'));
 });
+app.get('/loanforms/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/CSLoanForm.html'));
+});
+
 app.get('/laonforms/assetsecured', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
 });
