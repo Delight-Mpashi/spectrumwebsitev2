@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/src', express.static(path.join(__dirname, 'src')));
 
-// Asset routes (now available at root level)
+// Asset routes 
 app.use('/images', express.static(path.join(__dirname, 'public/assets/images')));
 app.use('/fonts', express.static(path.join(__dirname, 'public/assets/fonts')));
 app.use('/svg', express.static(path.join(__dirname, 'public/assets/svg')));
@@ -52,8 +52,8 @@ app.get('/public/index.html', (req, res) => {
 app.get('/public/assets/images/:image', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/assets/images', req.params.image));
 });
-app.get('../src/pages/loanforms/CSLoanForm.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms/CSLoanForm.html'));
+app.get('../src/pages/loanforms/csloanform.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/pages/loanforms/csloanform.html'));
 });
 app.get('../src/pages/loanforms/ASLoanform.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/loanforms/ASLoanform.html'));
