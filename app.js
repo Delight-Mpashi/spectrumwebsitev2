@@ -52,7 +52,7 @@ app.get('/public/index.html', (req, res) => {
 app.get('/public/assets/images/:image', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/assets/images', req.params.image));
 });
-app.get('../src/pages/loanforms/csloanform.html', (req, res) => {
+app.get('/src/pages/loanforms/csloanform.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/pages/loanforms/csloanform.html'));
 });
 app.get('../src/pages/loanforms/ASLoanform.html', (req, res) => {
