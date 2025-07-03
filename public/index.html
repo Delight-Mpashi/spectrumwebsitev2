@@ -352,12 +352,13 @@
   </header>
 
   <!-- Hero Section with Enhanced Design -->
-  <section class="relative bg-blue-600 overflow-hidden hero-stars section-stars">
+  <section class="relative bg-blue-700 overflow-hidden hero-stars section-stars">
     <!-- Background with increased visibility -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 h-[110vh] -mt-[10vh]">
       <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-600/70"></div>
       <div class="absolute inset-0 african-pattern-overlay opacity-20"></div>
-      <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" class="w-full h-full object-cover opacity-40">
+      <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" 
+           class="w-full h-full object-cover opacity-90">
     </div>
 
     <!-- African decorative elements -->
@@ -370,55 +371,91 @@
       <!-- Improved Card Layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-5xl mx-auto">
         <!-- Civil Servant Loan Card -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
-          <div class="mb-6">
-            <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-user-tie text-[#1E488F] text-xl"></i>
+        <div class="relative bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F] overflow-hidden group">
+            <!-- Expanded African Pattern Background -->
+            <div class="absolute inset-0 z-0 opacity-15">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjAgMjBDMjAgOC45NSAyOC45NSAwIDQwIDBjMTEuMDUgMCAyMCA4Ljk1IDIwIDIwIDAgMTEuMDUtOC45NSAyMC0yMCAyMEMyOC45NSA0MCAyMCAzMS4wNSAyMCAyMHoiIGZpbGw9IiMxRTQ4OEYiLz48cGF0aCBkPSJNNjAgNjBDNjAgNDguOTUgNjguOTUgNDAgODAgNDBjMTEuMDUgMCAyMCA4Ljk1IDIwIDIwIDAgMTEuMDUtOC45NSAyMC0yMCAyMEM2OC45NSA4MCA2MCA3MS4wNSA2MCA2MHoiIGZpbGw9IiMxRTQ4OEYiLz48L3N2Zz4=')]"></div>
+                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHg9IjAiIHk9IjAiIGZpbGw9IiMxRTQ4OEYiLz48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHg9IjQwIiB5PSIwIiBmaWxsPSIjMUU0ODhGIi8+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSI4MCIgeT0iMCIgZmlsbD0iIzFFNDg4RiIvPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgeD0iMCIgeT0iNDAiIGZpbGw9IiMxRTQ4OEYiLz48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHg9IjQwIiB5PSI0MCIgZmlsbD0iIzFFNDg4RiIvPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgeD0iODAiIHk9IjQwIiBmaWxsPSIjMUU0ODhGIi8+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIwIiB5PSI4MCIgZmlsbD0iIzFFNDg4RiIvPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgeD0iNDAiIHk9IjgwIiBmaWxsPSIjMUU0ODhGIi8+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSI4MCIgeT0iODAiIGZpbGw9IiMxRTQ4OEYiLz48L3N2Zz4=')]"></div>
             </div>
-            <h2 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h2>
-            <p class="text-gray-600 mb-4">Qualify for a <strong>K100,000</strong> loan</p>
-            <ul class="text-sm text-gray-600 space-y-2 mb-6">
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Low interest
-                rates</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Payslip
-                Deductions</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Up to 60 months
-                repayment</li>
-            </ul>
-          </div>
-          <a href="/src/pages/loanforms/csloanform.html"
-            class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
-            <span>Apply Now</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
+            
+            <div class="relative z-10 flex flex-col h-full">
+                <div class="mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#1E488F] to-[#1A3D7A] rounded-lg flex items-center justify-center mb-5 shadow-md">
+                        <i class="fas fa-user-tie text-white text-xl"></i>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-1">Civil Servant Loan</h2>
+                        <h1 class="text-2xl font-bold text-[#1E488F] mb-3">Up to K100,000</h1>
+                        <p class="text-gray-600 text-sm">Exclusive financing for government employees with convenient salary deductions</p>
+                    </div>
+                    
+                    <div class="space-y-2.5 mb-6">
+                        
+                        <div class="flex items-center">
+                            <div class="bg-[#E6EEF9] p-1 rounded-full mr-3 flex-shrink-0">
+                                <i class="fas fa-check-circle text-[#1E488F] text-xs"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm">Flexible repayment up to 60 months</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-[#E6EEF9] p-1 rounded-full mr-3 flex-shrink-0">
+                                <i class="fas fa-check-circle text-[#1E488F] text-xs"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm">Fast approval within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="/src/pages/loanforms/csloanform.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all flex items-center justify-center hover:shadow-md">
+                    Apply Now
+                    <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
-
+    
         <!-- Asset Secured Loan Card -->
-        <div
-          class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
-          <div class="mb-6">
-            <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-home text-[#1E488F] text-xl"></i>
+        <div class="relative bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F] overflow-hidden group">
+            <!-- Expanded African Pattern Background -->
+            <div class="absolute inset-0 z-0 opacity-15">
+                <div class="absolute -left-20 -top-20 w-80 h-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMCAwTDEwMCAxMDAgTTEwMCAwTDAgMTAwIiBzdHJva2U9IiMxRTQ4OEYiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0wIDI1TDEwMCA3NSBNMTAwIDI1TDAgNzUiIHN0cm9rZT0iIzFFNDg4RiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTI1IDBMNzUgMTAwIE03NSAwTDI1IDEwMCIgc3Ryb2tlPSIjMUU0ODhGIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')]"></div>
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUU0ODhGIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUU0ODhGIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUU0ODhGIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUU0ODhGIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')]"></div>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">Asset Secured Loan</h3>
-            <p class="text-gray-600 mb-4">Use your Motor Vehicle to get a loan of upto <strong>K70,000</strong></p>
-            <ul class="text-sm text-gray-600 space-y-2 mb-6">
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Fast approval
-                process</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Competitive
-                rates</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Flexible
-                repayment options</li>
-            </ul>
-          </div>
-          <a href="../src/pages/loanforms/ASLoanform.html"
-            class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
-            <span>Apply Now</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
+            
+            <div class="relative z-10 flex flex-col h-full">
+                <div class="mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-[#1E488F] to-[#1A3D7A] rounded-lg flex items-center justify-center mb-5 shadow-md">
+                        <i class="fas fa-home text-white text-xl"></i>
+                    </div>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-1">Asset Secured Loan</h2>
+                        <h1 class="text-2xl font-bold text-[#1E488F] mb-3">Up to K70,000</h1>
+                        <p class="text-gray-600 text-sm">Leverage your vehicle's value while maintaining full use of it</p>
+                    </div>
+                    
+                    <div class="space-y-2.5 mb-6">
+                       
+                        <div class="flex items-center">
+                            <div class="bg-[#E6EEF9] p-1 rounded-full mr-3 flex-shrink-0">
+                                <i class="fas fa-check-circle text-[#1E488F] text-xs"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm">Approval within 48 hours</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-[#E6EEF9] p-1 rounded-full mr-3 flex-shrink-0">
+                                <i class="fas fa-check-circle text-[#1E488F] text-xs"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm">Continue using your vehicle</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="../src/pages/loanforms/ASLoanform.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all flex items-center justify-center hover:shadow-md">
+                    Apply Now
+                    <i class="fas fa-arrow-right ml-2 text-sm transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
-      </div>
+    </div>
   </section>
 
   <!-- Requirements Section with African Stars -->
@@ -763,13 +800,8 @@
  <footer class="bg-gray-900 text-white py-12 footer">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <!-- Column 1 -->
       <div>
-        <img
-          src="/src/images/sclogo.png"
-          alt="Spectrum Credit Logo"
-          class="h-10 mb-4"
-        />
+        <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
         <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
         <div class="flex space-x-4">
           <a href="#" class="text-gray-400 hover:text-white transition">
@@ -784,81 +816,80 @@
           <a href="#" class="text-gray-400 hover:text-white transition">
             <i class="fab fa-instagram"></i>
           </a>
-
-        </div>
-
-        <!-- Column 2 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
-          <ul class="space-y-2">
-            <li>
-              <a href="../../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
-            </li>
-            <li>
-              <a href="/src/pages/aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
-            </li>
-            <li>
-              <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
-            </li>
-            <li>
-              <a href="../contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 3 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
-          <ul class="space-y-2">
-            <li>
-              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
-            </li>
-            <li>
-              <a href="/src/pages/grievancePortal.html" class="text-gray-400 hover:text-white transition">Grievance
-                Reporting</a>
-            </li>
-            <li>
-              <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms and
-                Conditions</a>
-            </li>
-            <li>
-              <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 4 -->
-        <div>
-          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
-          <address class="text-gray-400 not-italic text-sm">
-            <p class="mb-2 flex items-center">
-              <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
-              Woodlands, Lusaka, Zambia
-            </p>
-            <p class="mb-2 flex items-center">
-              <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
-            </p>
-            <p class="mb-2 flex items-center">
-              <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
-            </p>
-            <p class="mb-2 flex items-center">
-              <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
-            </p>
-          </address>
         </div>
       </div>
 
-      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
-        <p>
-          &copy; <span id="current-year">2025</span> Spectrum Credit. All
-          rights reserved. |
-          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
-          |
-          <a href="../terms&conditions.html" class="hover:text-white transition">Terms of Service</a>
-        </p>
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+          </li>
+          <li>
+            <a href="/src/pages/aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+          </li>
+          <li>
+            <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
+          </li>
+          <li>
+            <a href="../contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower
+              Portal</a>
+          </li>
+          <li>
+            <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance
+              Reporting</a>
+          </li>
+          <li>
+            <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms
+              and Conditions</a>
+          </li>
+          <li>
+            <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social
+              Policy</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
+        <address class="text-gray-400 not-italic text-sm">
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
+            Woodlands, Lusaka, Zambia
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
+          </p>
+          <p class="mb-2 flex items-center">
+            <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
+          </p>
+        </address>
       </div>
     </div>
-  </footer>
+
+    <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+      <p>
+        &copy; <span id="current-year">2025</span> Spectrum Credit. All
+        rights reserved. |
+        <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+        |
+        <a href="../terms&conditions.html" class="hover:text-white transition">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+</footer>
 
   <!-- Floating WhatsApp Button -->
   <div class="fixed bottom-6 right-6 z-50">
