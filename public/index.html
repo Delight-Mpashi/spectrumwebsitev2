@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,26 +12,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-        --primary: #1E488F;  /* Changed from #1d62e3 */
-        --primary-dark: #1a3d7a;  /* Darker shade of cobalt blue */
-        --secondary: #4caf50;
-        --dark: #1e293b;
-        --light: #f8fafc;
-        --accent: #f59e0b;
-      }
-    
+      --primary: #1E488F;
+      /* Changed from #1d62e3 */
+      --primary-dark: #1a3d7a;
+      /* Darker shade of cobalt blue */
+      --secondary: #4caf50;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --accent: #f59e0b;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       -webkit-text-size-adjust: 100%;
       background-color: #f9f5f0;
-      background-image: 
+      background-image:
         radial-gradient(circle at 10% 20%, rgba(222, 184, 135, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.05) 0%, transparent 20%),
         linear-gradient(to bottom, transparent 95%, rgba(139, 69, 19, 0.03) 100%);
       background-attachment: fixed;
       background-size: cover;
     }
-    
+
     /* African pattern accents */
     .bg-white {
       position: relative;
@@ -53,7 +56,7 @@
 
     /* Footer pattern */
     .bg-gray-900 {
-      background-image: 
+      background-image:
         linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, transparent 20%),
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233a2e1f' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
@@ -77,11 +80,11 @@
       z-index: 1000;
       overflow-y: auto;
     }
-    
+
     .mobile-menu.open {
       right: 0;
     }
-    
+
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -94,7 +97,7 @@
       padding: 0;
       z-index: 1001;
     }
-    
+
     .hamburger span {
       display: block;
       width: 100%;
@@ -102,19 +105,19 @@
       background-color: #1E488F;
       transition: all 0.3s ease;
     }
-    
+
     .hamburger.open span:first-child {
       transform: translateY(8px) rotate(45deg);
     }
-    
+
     .hamburger.open span:nth-child(2) {
       opacity: 0;
     }
-    
+
     .hamburger.open span:last-child {
       transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     /* Overlay for mobile menu */
     .mobile-menu-overlay {
       position: fixed;
@@ -128,19 +131,20 @@
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    
+
     .mobile-menu-overlay.active {
       opacity: 1;
       visibility: visible;
     }
-    
+
     /* Form elements */
-    input, select {
+    input,
+    select {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
     }
-    
+
     /* Loan calculator */
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -151,27 +155,27 @@
       border-radius: 50%;
       cursor: pointer;
     }
-    
+
     /* Testimonials */
     .testimonial-card {
       scroll-snap-align: start;
     }
-    
+
     /* FAQ accordion */
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    
+
     .faq-answer.open {
       max-height: 300px;
     }
-    
+
     .faq-icon {
       transition: transform 0.3s ease;
     }
-    
+
     .faq-item.open .faq-icon {
       transform: rotate(180deg);
     }
@@ -258,6 +262,7 @@
     }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <!-- Mobile Navigation -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -265,29 +270,35 @@
       <a href="/public/index.html" class="flex items-center">
         <img src="./assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
       </a>
-  
+
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
         <a href="./index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Home</a>
-        <a href="../src/pages/faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
-        <a href="../src/pages/aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About Us</a>
-        <a href="../src/pages/terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
-  
+        <a href="../src/pages/faqs.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">FAQs</a>
+        <a href="../src/pages/aboutus.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">About Us</a>
+        <a href="../src/pages/terms&conditions.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">Terms</a>
+
         <div class="relative group">
           <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
             Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
           </button>
           <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
-            <a href="/src/pages/loanforms/csloanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Civil Servant</a>
-            <a href="/src/pages/loanforms/asloanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Asset Secured</a>
+            <a href="/src/pages/loanforms/csloanform.html"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Civil Servant</a>
+            <a href="/src/pages/loanforms/asloanform.html"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Asset Secured</a>
           </div>
         </div>
-  
-        <a href="../src/pages/contactus.html" class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#1a3d7a] transition">
+
+        <a href="../src/pages/contactus.html"
+          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#1a3d7a] transition">
           Contact Us
         </a>
       </nav>
-  
+
       <!-- Mobile menu button -->
       <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button" aria-label="Toggle mobile menu">
         <span class="block w-6 h-0.5 bg-gray-700 mb-1.5 transition-all"></span>
@@ -295,10 +306,10 @@
         <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
       </button>
     </div>
-  
+
     <!-- Mobile menu overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
-    
+
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <div class="flex justify-between items-center p-4 border-b">
@@ -307,90 +318,102 @@
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
-  
+
       <nav class="flex flex-col p-4">
-        <a href="./index.html" class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">Home</a>
-        <a href="../src/pages/faqs.html" class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">FAQs</a>
-        <a href="../src/pages/aboutus.html" class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">About Us</a>
-        <a href="../src/pages/terms&conditions.html" class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">Terms</a>
-  
+        <a href="./index.html"
+          class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">Home</a>
+        <a href="../src/pages/faqs.html"
+          class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">FAQs</a>
+        <a href="../src/pages/aboutus.html"
+          class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">About
+          Us</a>
+        <a href="../src/pages/terms&conditions.html"
+          class="px-3 py-3 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded transition">Terms</a>
+
         <div class="px-3 py-3">
-          <button class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-blue-600" id="mobile-products-toggle">
+          <button class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-blue-600"
+            id="mobile-products-toggle">
             Products <i class="fas fa-chevron-down ml-1 text-xs transition-transform" id="mobile-products-icon"></i>
           </button>
           <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="/src/pages/loanforms/csloanform.html" class="block py-2 text-gray-700 hover:text-blue-600 transition">Civil Servant</a>
-            <a href="../src/pages/loanforms/assetsecured.html" class="block py-2 text-gray-700 hover:text-blue-600 transition">Asset Secured</a>
+            <a href="/src/pages/loanforms/csloanform.html"
+              class="block py-2 text-gray-700 hover:text-blue-600 transition">Civil Servant</a>
+            <a href="../src/pages/loanforms/assetsecured.html"
+              class="block py-2 text-gray-700 hover:text-blue-600 transition">Asset Secured</a>
           </div>
         </div>
-  
-        <a href="../src/pages/contactus.html" class="mt-4 px-4 py-3 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-[#1a3d7a] transition">
+
+        <a href="../src/pages/contactus.html"
+          class="mt-4 px-4 py-3 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-[#1a3d7a] transition">
           Contact Us
         </a>
       </nav>
     </div>
   </header>
-  
+
   <!-- Hero Section with Enhanced Design -->
-<section class="relative bg-blue-600 overflow-hidden hero-stars section-stars">
+  <section class="relative bg-blue-600 overflow-hidden hero-stars section-stars">
     <!-- Background with increased visibility -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-600/70"></div>
       <div class="absolute inset-0 african-pattern-overlay opacity-20"></div>
       <img src="./assets/images/dashboardimage.jpg" alt="Happy customer" class="w-full h-full object-cover opacity-40">
     </div>
-  
+
     <!-- African decorative elements -->
     <div class="african-star adinkra-star" style="width: 120px; height: 120px; top: 10%; right: 5%;"></div>
     <div class="african-star ndebele-star" style="width: 80px; height: 80px; bottom: 15%; left: 8%;"></div>
-  
+
     <div class="relative container mx-auto px-4 py-16 md:py-24">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-          Apply for a Civil Servant loan <br class="hidden md:block">and Asset Secured Loan Today
-        </h2>
-        <p class="text-blue-100 text-lg max-w-3xl mx-auto">
-          Quick approval process with competitive rates tailored to your needs
-        </p>
-      </div>
-  
+
+
       <!-- Improved Card Layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-5xl mx-auto">
         <!-- Civil Servant Loan Card -->
-        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
           <div class="mb-6">
             <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-user-tie text-[#1E488F] text-xl"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h3>
-            <p class="text-gray-600 mb-4">Tailored for government employees with flexible repayments and low interest.</p>
+            <h2 class="text-xl font-semibold text-gray-800 mb-3">Civil Servant Loan</h2>
+            <p class="text-gray-600 mb-4">Qualify for a <strong>K100,000</strong> loan</p>
             <ul class="text-sm text-gray-600 space-y-2 mb-6">
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Low interest rates</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Payslip Deductions</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Up to 60 months repayment</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Low interest
+                rates</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Payslip
+                Deductions</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Up to 60 months
+                repayment</li>
             </ul>
           </div>
-          <a href="/src/pages/loanforms/csloanform.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
+          <a href="/src/pages/loanforms/csloanform.html"
+            class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
             <span>Apply Now</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
-      
+
         <!-- Asset Secured Loan Card -->
-        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-t-4 border-[#1E488F]">
           <div class="mb-6">
             <div class="w-14 h-14 bg-[#E6EEF9] rounded-lg flex items-center justify-center mb-4">
               <i class="fas fa-home text-[#1E488F] text-xl"></i>
             </div>
             <h3 class="text-xl font-semibold text-gray-800 mb-3">Asset Secured Loan</h3>
-            <p class="text-gray-600 mb-4">Get funding for business growth backed by collateral.</p>
+            <p class="text-gray-600 mb-4">Use your Motor Vehicle to get a loan of upto <strong>K70,000</strong></p>
             <ul class="text-sm text-gray-600 space-y-2 mb-6">
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Fast approval process</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Competitive rates</li>
-              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Flexible repayment options</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Fast approval
+                process</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Competitive
+                rates</li>
+              <li class="flex items-start"><i class="fas fa-check-circle text-[#1E488F] mt-1 mr-2"></i> Flexible
+                repayment options</li>
             </ul>
           </div>
-          <a href="../src/pages/loanforms/ASLoanform.html" class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
+          <a href="../src/pages/loanforms/ASLoanform.html"
+            class="mt-auto w-full bg-gradient-to-r from-[#1E488F] to-[#1A3D7A] hover:from-[#1A3D7A] hover:to-[#153267] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg group">
             <span>Apply Now</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
@@ -398,39 +421,45 @@
       </div>
   </section>
 
- <!-- Requirements Section with African Stars -->
-<section class="relative py-16 bg-white overflow-hidden requirements-stars section-stars">
+  <!-- Requirements Section with African Stars -->
+  <section class="relative py-16 bg-white overflow-hidden requirements-stars section-stars">
     <div class="african-star adinkra-star" style="width: 100px; height: 100px; top: 20%; left: 5%;"></div>
-    <div class="african-star ndebele-star" style="width: 60px; height: 60px; bottom: 10%; right: 10%; transform: rotate(30deg);"></div>
-    
+    <div class="african-star ndebele-star"
+      style="width: 60px; height: 60px; bottom: 10%; right: 10%; transform: rotate(30deg);"></div>
+
     <div class="absolute -left-20 -top-20 w-64 h-64 rounded-full bg-amber-100/20"></div>
     <div class="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-amber-100/20"></div>
     <div class="container mx-auto px-4 relative">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">Application Requirements</h2>
-  
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
         <!-- Requirement 1 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
             <i class="fas fa-file-invoice text-[#1E488F] text-3xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Latest Payslip</h3>
-          <p class="text-gray-600 text-base leading-relaxed relative z-10">Submit your most recent payslip as proof of income.</p>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Submit your most recent payslip as proof of
+            income.</p>
         </div>
-  
+
         <!-- Requirement 2 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
             <i class="fas fa-id-card text-[#1E488F] text-3xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">NRC/Passport</h3>
-          <p class="text-gray-600 text-base leading-relaxed relative z-10">Clear copy of your national identification document.</p>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Clear copy of your national identification
+            document.</p>
         </div>
-  
+
         <!-- Requirement 3 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
             <i class="fas fa-camera text-[#1E488F] text-3xl"></i>
@@ -438,131 +467,151 @@
           <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Passport Photo</h3>
           <p class="text-gray-600 text-base leading-relaxed relative z-10">Recent colored passport-size photograph.</p>
         </div>
-  
+
         <!-- Requirement 4 -->
-        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-200 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="bg-[#E6EEF9] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 relative z-10">
             <i class="fas fa-file-alt text-[#1E488F] text-3xl"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-3 relative z-10">Bank Statements</h3>
-          <p class="text-gray-600 text-base leading-relaxed relative z-10">Provide your last 3 months of bank statements.</p>
+          <p class="text-gray-600 text-base leading-relaxed relative z-10">Provide your last 3 months of bank
+            statements.</p>
         </div>
       </div>
     </div>
   </section>
-  
-   <!-- How It Works Section -->
-   <section class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+
+  <!-- How It Works Section -->
+  <section class="py-12 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
     <!-- Background image with minimal opacity -->
     <div class="absolute inset-0">
-        <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 mix-blend-multiply"></div>
+      <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 mix-blend-multiply"></div>
     </div>
-    
+
     <div class="absolute inset-0 opacity-10 african-pattern-overlay"></div>
     <div class="relative container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">How to Apply via USSD</h2>
-      <p class="text-blue-100 text-center mb-12 max-w-2xl mx-auto">Get a loan in just 3 simple steps without internet</p>
-      
+      <p class="text-blue-100 text-center mb-12 max-w-2xl mx-auto">Get a loan in just 3 simple steps without internet
+      </p>
+
       <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8">
         <!-- Step 1 -->
         <div class="flex flex-col items-center text-center max-w-xs relative z-10">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">1</div>
+          <div
+            class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">
+            1</div>
           <h3 class="font-semibold text-lg mb-2">Dial *619#</h3>
           <p class="text-blue-100 text-sm">Start by dialing our USSD code from your mobile phone</p>
         </div>
-        
+
         <div class="hidden md:flex items-center justify-center h-24">
           <i class="fas fa-arrow-right text-2xl text-white/50"></i>
         </div>
-        
+
         <!-- Step 2 -->
         <div class="flex flex-col items-center text-center max-w-xs relative z-10">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">2</div>
+          <div
+            class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">
+            2</div>
           <h3 class="font-semibold text-lg mb-2">Select Loan Type</h3>
           <p class="text-blue-100 text-sm">Choose the loan product that suits your needs</p>
         </div>
-        
+
         <div class="hidden md:flex items-center justify-center h-24">
           <i class="fas fa-arrow-right text-2xl text-white/50"></i>
         </div>
-        
+
         <!-- Step 3 -->
         <div class="flex flex-col items-center text-center max-w-xs relative z-10">
-          <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">3</div>
+          <div
+            class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 text-3xl font-bold">
+            3</div>
           <h3 class="font-semibold text-lg mb-2">Enter Details</h3>
           <p class="text-blue-100 text-sm">Provide required information and submit your application</p>
         </div>
       </div>
-      
+
       <div class="text-center mt-12 relative z-10">
-        <button class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center">
+        <button
+          class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center">
           <i class="fas fa-mobile-alt mr-2"></i> Get Started Now
         </button>
       </div>
     </div>
-</section>
-  
-  
+  </section>
+
+
   <!-- Testimonials Section with African Stars -->
   <section class="py-16 bg-gray-50 relative overflow-hidden testimonials-stars section-stars">
     <div class="african-star adinkra-star" style="width: 80px; height: 80px; top: 10%; right: 10%;"></div>
-    <div class="african-star ndebele-star" style="width: 60px; height: 60px; bottom: 15%; left: 15%; transform: rotate(15deg);"></div>
+    <div class="african-star ndebele-star"
+      style="width: 60px; height: 60px; bottom: 15%; left: 15%; transform: rotate(15deg);"></div>
     <div class="absolute top-0 left-0 w-full h-full opacity-10 african-pattern-overlay"></div>
     <div class="container mx-auto px-4 relative">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">What Our Customers Say</h2>
       <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Hear from people who have used our services</p>
-  
+
       <div class="flex flex-wrap justify-center gap-6">
         <!-- Testimonial 1 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+        <div
+          class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/mary.jpg" alt="Mary Chanda" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">Mary Chanda</h4>
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm relative z-10">"I got my loan approved within 24 hours! The process was so simple and the customer service was excellent. Highly recommend Spectrum Credit!"</p>
+          <p class="text-gray-600 text-sm relative z-10">"I got my loan approved within 24 hours! The process was so
+            simple and the customer service was excellent. Highly recommend Spectrum Credit!"</p>
         </div>
-  
+
         <!-- Testimonial 2 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+        <div
+          class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/john.png" alt="John Banda" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">John Banda</h4>
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm relative z-10">"As a small business owner, the Nkwazi Working Capital loan helped me expand my inventory. The repayment terms are very reasonable."</p>
+          <p class="text-gray-600 text-sm relative z-10">"As a small business owner, the Nkwazi Working Capital loan
+            helped me expand my inventory. The repayment terms are very reasonable."</p>
         </div>
-  
+
         <!-- Testimonial 3 -->
-        <div class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
+        <div
+          class="w-full sm:w-96 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 relative overflow-hidden">
           <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-amber-100/10"></div>
           <div class="flex items-center mb-4 relative z-10">
             <img src="assets/images/sarah.png" alt="Sarah Mwansa" class="w-12 h-12 rounded-full object-cover mr-4">
             <div>
               <h4 class="font-semibold text-gray-800">Sarah Mwansa</h4>
               <div class="flex text-yellow-400 text-sm">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
             </div>
           </div>
-          <p class="text-gray-600 text-sm relative z-10">"The USSD application is a game changer! I applied for a loan during my lunch break and had the money by evening. So convenient!"</p>
+          <p class="text-gray-600 text-sm relative z-10">"The USSD application is a game changer! I applied for a loan
+            during my lunch break and had the money by evening. So convenient!"</p>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- FAQ Section with African Stars -->
   <section class="py-12 bg-white relative overflow-hidden faq-stars section-stars">
     <div class="african-star ndebele-star" style="width: 70px; height: 70px; top: 30%; left: 10%;"></div>
@@ -571,7 +620,7 @@
     <div class="container mx-auto px-4 max-w-3xl relative">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-2">Frequently Asked Questions</h2>
       <p class="text-gray-600 text-center mb-8">Find answers to common questions</p>
-      
+
       <div class="space-y-3">
         <!-- FAQ Item 1 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -581,11 +630,12 @@
           </button>
           <div class="faq-answer px-4" data-answer="1">
             <div class="pb-3 text-gray-600">
-              <p>Most applications are processed within 24-48 hours. If you provide all the required documents and information, we can often approve your loan the same day.</p>
+              <p>Most applications are processed within 24-48 hours. If you provide all the required documents and
+                information, we can often approve your loan the same day.</p>
             </div>
           </div>
         </div>
-        
+
         <!-- FAQ Item 2 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
           <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="2">
@@ -594,11 +644,12 @@
           </button>
           <div class="faq-answer px-4" data-answer="2">
             <div class="pb-3 text-gray-600">
-              <p>Interest rates vary depending on the loan product and repayment period. Our rates start from 10% per annum. Use our loan calculator to estimate your repayment amounts.</p>
+              <p>Interest rates vary depending on the loan product and repayment period. Our rates start from 10% per
+                annum. Use our loan calculator to estimate your repayment amounts.</p>
             </div>
           </div>
         </div>
-        
+
         <!-- FAQ Item 3 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
           <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="3">
@@ -607,11 +658,12 @@
           </button>
           <div class="faq-answer px-4" data-answer="3">
             <div class="pb-3 text-gray-600">
-              <p>Yes, you can repay your loan early without any penalties. Early repayment may even qualify you for discounts on future loans.</p>
+              <p>Yes, you can repay your loan early without any penalties. Early repayment may even qualify you for
+                discounts on future loans.</p>
             </div>
           </div>
         </div>
-        
+
         <!-- FAQ Item 4 -->
         <div class="border border-gray-200 rounded-lg overflow-hidden">
           <button class="w-full px-4 py-3 text-left flex justify-between items-center faq-item" data-faq="4">
@@ -620,12 +672,13 @@
           </button>
           <div class="faq-answer px-4" data-answer="4">
             <div class="pb-3 text-gray-600">
-              <p>We understand that circumstances change. If you anticipate difficulty making a payment, please contact us immediately to discuss options. Late payments may incur additional charges.</p>
+              <p>We understand that circumstances change. If you anticipate difficulty making a payment, please contact
+                us immediately to discuss options. Late payments may incur additional charges.</p>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="text-center mt-8">
         <a href="/faqs" class="text-blue-600 font-medium hover:underline inline-flex items-center">
           View all FAQs <i class="fas fa-arrow-right ml-2"></i>
@@ -638,18 +691,21 @@
   <section class="py-12 bg-blue-600 text-white relative overflow-hidden cta-stars section-stars">
     <!-- Background image with minimal opacity -->
     <div class="absolute inset-0">
-        <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
-        <div class="absolute inset-0 bg-blue-600 mix-blend-multiply"></div>
+      <img src="/src/images/stepsbackground.jpg" alt="Background pattern" class="w-full h-full object-cover opacity-10">
+      <div class="absolute inset-0 bg-blue-600 mix-blend-multiply"></div>
     </div>
-    
-    <div class="african-star ndebele-star" style="width: 100px; height: 100px; top: 20%; right: 20%; opacity: 0.15;"></div>
-    <div class="african-star adinkra-star" style="width: 80px; height: 80px; bottom: 15%; left: 15%; opacity: 0.15;"></div>
+
+    <div class="african-star ndebele-star" style="width: 100px; height: 100px; top: 20%; right: 20%; opacity: 0.15;">
+    </div>
+    <div class="african-star adinkra-star" style="width: 80px; height: 80px; bottom: 15%; left: 15%; opacity: 0.15;">
+    </div>
     <div class="absolute inset-0 opacity-10 african-pattern-overlay"></div>
-    
+
     <div class="container mx-auto px-4 text-center relative">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
-      <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Apply for a loan today and get funds in your account within 24 hours</p>
-      
+      <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Apply for a loan today and get funds in your account
+        within 24 hours</p>
+
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="#" id="applyNowBtn" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
           Apply Online Now
@@ -728,123 +784,86 @@
           <a href="#" class="text-gray-400 hover:text-white transition">
             <i class="fab fa-instagram"></i>
           </a>
+
+        </div>
+
+        <!-- Column 2 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="../../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="/src/pages/aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+            </li>
+            <li>
+              <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
+            </li>
+            <li>
+              <a href="../contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
+            </li>
+            <li>
+              <a href="/src/pages/grievancePortal.html" class="text-gray-400 hover:text-white transition">Grievance
+                Reporting</a>
+            </li>
+            <li>
+              <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms and
+                Conditions</a>
+            </li>
+            <li>
+              <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
+          <address class="text-gray-400 not-italic text-sm">
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
+              Woodlands, Lusaka, Zambia
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
+            </p>
+          </address>
         </div>
       </div>
 
-      <!-- Column 2 -->
-      <div>
-        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="../../../public/index.html"
-              class="text-gray-400 hover:text-white transition"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="/src/pages/aboutus.html"
-              class="text-gray-400 hover:text-white transition"
-              >About Us</a
-            >
-          </li>
-          <li>
-            <a
-              href="/products"
-              class="text-gray-400 hover:text-white transition"
-              >Products</a
-            >
-          </li>
-          <li>
-            <a
-              href="../contactus.html"
-              class="text-gray-400 hover:text-white transition"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <!-- Column 3 -->
-      <div>
-        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="/whistleblower"
-              class="text-gray-400 hover:text-white transition"
-              >Whistleblower Portal</a
-            >
-          </li>
-          <li>
-            <a
-              href="/src/pages/grievancePortal.html"
-              class="text-gray-400 hover:text-white transition"
-              >Grievance Reporting</a
-            >
-          </li>
-          <li>
-            <a
-              href="../terms&conditions.html"
-              class="text-gray-400 hover:text-white transition"
-              >Terms and Conditions</a
-            >
-          </li>
-          <li>
-            <a
-              href="/policy"
-              class="text-gray-400 hover:text-white transition"
-              >Environment and Social Policy</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <!-- Column 4 -->
-      <div>
-        <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
-        <address class="text-gray-400 not-italic text-sm">
-          <p class="mb-2 flex items-center">
-            <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
-            Woodlands, Lusaka, Zambia
-          </p>
-          <p class="mb-2 flex items-center">
-            <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
-          </p>
-          <p class="mb-2 flex items-center">
-            <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
-          </p>
-          <p class="mb-2 flex items-center">
-            <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
-          </p>
-        </address>
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+        <p>
+          &copy; <span id="current-year">2025</span> Spectrum Credit. All
+          rights reserved. |
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+          |
+          <a href="../terms&conditions.html" class="hover:text-white transition">Terms of Service</a>
+        </p>
       </div>
     </div>
-
-    <div
-      class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
-    >
-      <p>
-        &copy; <span id="current-year">2025</span> Spectrum Credit. All
-        rights reserved. |
-        <a href="/privacy" class="hover:text-white transition"
-          >Privacy Policy</a
-        >
-        |
-        <a
-          href="../terms&conditions.html"
-          class="hover:text-white transition"
-          >Terms of Service</a
-        >
-      </p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <!-- Floating WhatsApp Button -->
   <div class="fixed bottom-6 right-6 z-50">
-    <a href="https://wa.me/260123456789" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110">
+    <a href="https://wa.me/260123456789"
+      class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition transform hover:scale-110">
       <i class="fab fa-whatsapp text-2xl"></i>
     </a>
   </div>
@@ -856,7 +875,7 @@
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
       const closeMobileMenu = document.getElementById('close-mobile-menu');
-      
+
       // Toggle mobile menu
       function toggleMobileMenu() {
         mobileMenuButton.classList.toggle('open');
@@ -864,46 +883,46 @@
         mobileMenuOverlay.classList.toggle('active');
         document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
       }
-      
+
       // Event listeners
       if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', toggleMobileMenu);
       }
-      
+
       if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', toggleMobileMenu);
       }
-      
+
       if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
       }
-      
+
       // Mobile submenu toggle
       const mobileProductsToggle = document.getElementById('mobile-products-toggle');
       const mobileProductsMenu = document.getElementById('mobile-products-menu');
       const mobileProductsIcon = document.getElementById('mobile-products-icon');
-      
+
       if (mobileProductsToggle && mobileProductsMenu) {
         mobileProductsToggle.addEventListener('click', () => {
           mobileProductsMenu.classList.toggle('hidden');
           mobileProductsIcon.classList.toggle('rotate-180');
         });
       }
-      
+
       // Close mobile menu when clicking on a link (except products toggle)
       document.querySelectorAll('#mobile-menu a').forEach(link => {
         if (!link.closest('#mobile-products-menu')) {
           link.addEventListener('click', toggleMobileMenu);
         }
       });
-      
+
       // FAQ accordion
       document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', () => {
           const faqId = item.getAttribute('data-faq');
           const answer = document.querySelector(`.faq-answer[data-answer="${faqId}"]`);
           if (!answer) return;
-          
+
           // Close all other FAQ answers
           document.querySelectorAll('.faq-answer').forEach(ans => {
             if (ans !== answer) {
@@ -911,18 +930,17 @@
               ans.previousElementSibling?.classList.remove('open');
             }
           });
-          
+
           // Toggle current FAQ answer
           answer.classList.toggle('open');
           item.classList.toggle('open');
         });
       });
-
-      
-      // Current year
+     
+    // Current year
       const yearSpan = document.getElementById('current-year');
       if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-      
+
       // Smooth scrolling
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -966,6 +984,7 @@
       });
     });
   </script>
-  
+
 </body>
+
 </html>

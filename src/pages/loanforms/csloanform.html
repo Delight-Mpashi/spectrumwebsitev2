@@ -1,312 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Civil Servant Loan Application | Spectrum Credit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --primary: #1E488F; /* Updated to Cobalt blue */
-        --primary-dark: #163875;
-        --primary-light: #E6EEF9;
-        --secondary: #4caf50;
-        --dark: #1e293b;
-        --light: #f8fafc;
-        --accent: #f59e0b;
-      }
 
-      body {
-        font-family: "Inter", sans-serif;
-        -webkit-text-size-adjust: 100%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civil Servant Loan Application | Spectrum Credit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Global CSS Variables for consistent theming */
+    :root {
+      --primary: #1E488F;
+      /* Updated to Cobalt blue */
+      --primary-dark: #163875;
+      --primary-light: #E6EEF9;
+      --secondary: #4caf50;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --accent: #f59e0b;
+    }
 
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
+    /* Body and background styling */
+    body {
+      font-family: "Inter", sans-serif;
+      -webkit-text-size-adjust: 100%;
+      /* Background image with blue tint overlay */
+      background-image: linear-gradient(rgba(30, 72, 143, 0.6), rgba(30, 72, 143, 0.6)), url('/src/images/stepsbackground.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #f8fafc;
+      /* Fallback background color */
+    }
 
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
+    /* Custom shadow for the main form container */
+    .custom-shadow {
+      box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+      /* Softer, more diffused shadow */
+    }
 
-      .hamburger span {
-        transition: all 0.3s ease;
-      }
+    /* Mobile menu slide-in/out animation */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
 
-      .hamburger.open span:first-child {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
 
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
+    /* Hamburger icon animation */
+    .hamburger span {
+      transition: all 0.3s ease;
+    }
 
-      .hamburger.open span:last-child {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
+    .hamburger.open span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-      .form-page {
-        display: none;
-      }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
 
-      .form-page.active {
-        display: block;
-      }
+    .hamburger.open span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-      .progress-step {
-        width: 32px;
-        height: 32px;
-        border: 2px solid #e2e8f0;
-      }
+    /* Form page display control */
+    .form-page {
+      display: none;
+    }
 
-      .progress-step.active {
-        border-color: var(--primary);
-        background-color: var(--primary);
-        color: white;
-      }
+    .form-page.active {
+      display: block;
+    }
 
-      .progress-step.completed {
-        border-color: var(--primary);
-        background-color: var(--primary);
-        color: white;
-      }
+    /* Progress step styling (circles) */
+    .progress-step {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #e2e8f0;
+    }
 
-      .term-option {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-      }
+    .progress-step.active {
+      border-color: var(--primary);
+      background-color: var(--primary);
+      color: white;
+    }
 
-      .term-option input[type="radio"] {
-        position: absolute;
-        opacity: 0;
-      }
+    .progress-step.completed {
+      border-color: var(--primary);
+      background-color: var(--primary);
+      color: white;
+    }
 
-      .term-option .term-circle {
-        width: 24px;
-        height: 24px;
-        border: 2px solid #cbd5e1;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 4px;
-        transition: all 0.2s ease;
-      }
+    /* Loan term radio button styling */
+    .term-option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
 
-      .term-option input[type="radio"]:checked + .term-circle {
-        border-color: var(--primary);
-        background-color: var(--primary);
-      }
+    .term-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
 
-      .term-option input[type="radio"]:checked + .term-circle::after {
-        content: "";
-        width: 12px;
-        height: 12px;
-        background: white;
-        border-radius: 50%;
-      }
+    .term-option .term-circle {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #cbd5e1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+      transition: all 0.2s ease;
+    }
 
-      .term-option input[type="radio"]:checked ~ .term-label {
-        color: var(--primary);
-        font-weight: 500;
-      }
+    .term-option input[type="radio"]:checked+.term-circle {
+      border-color: var(--primary);
+      background-color: var(--primary);
+    }
 
-      .term-label {
-        font-size: 0.875rem;
-        color: #64748b;
-        transition: all 0.2s ease;
-      }
+    .term-option input[type="radio"]:checked+.term-circle::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+    }
 
-      .nav-link {
-        position: relative;
-      }
-      .nav-link:hover {
-        color: var(--primary);
-      }
-      .nav-link:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--primary);
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover:after {
-        width: 100%;
-      }
-      .dropdown-menu {
-        border-top: 2px solid var(--primary);
-      }
-      .footer {
-        border-top: 4px solid var(--primary);
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50 min-h-screen flex flex-col">
-    <!-- Mobile Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <a href="/public/index.html" class="flex items-center">
-          <img
-            src="/src/images/sclogo.png"
-            alt="Spectrum Credit Logo"
-            class="h-10"
-          />
-        </a>
+    .term-option input[type="radio"]:checked~.term-label {
+      color: var(--primary);
+      font-weight: 500;
+    }
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <a
-            href="/public/index.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Home</a
-          >
-          <a
-            href="/src/pages/faqs.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >FAQs</a
-          >
-          <a
-            href="/src/pages/aboutus.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >About Us</a
-          >
-          <a
-            href="/src/pages/terms&conditions.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Terms</a
-          >
+    .term-label {
+      font-size: 0.875rem;
+      color: #64748b;
+      transition: all 0.2s ease;
+    }
 
-          <div class="relative group">
-            <button
-              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div
-              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
-            >
-              <a
-                href="/src/pages/loanforms/CSLoanForm.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Civil Servant</a
-              >
-              <a
-                href="/src/pages/loanforms/ASLoanform.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Asset Secured</a
-              >
-            </div>
+    /* Navigation link hover effect */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover:after {
+      width: 100%;
+    }
+
+    /* Dropdown menu styling */
+    .dropdown-menu {
+      border-top: 2px solid var(--primary);
+    }
+
+    /* Footer border styling */
+    .footer {
+      border-top: 4px solid var(--primary);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/public/index.html" class="flex items-center">
+        <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" />
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="/public/index.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
+        <a href="/src/pages/faqs.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
+        <a href="/src/pages/aboutus.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About Us</a>
+        <a href="/src/pages/terms&conditions.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
+
+        <div class="relative group">
+          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div
+            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu">
+            <a href="/src/pages/loanforms/CSLoanForm.html"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil Servant</a>
+            <a href="/src/pages/loanforms/ASLoanform.html"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset Secured</a>
           </div>
+        </div>
 
-          <a
-            href="/src/pages/contactus.html"
-            class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
+        <a href="/src/pages/contactus.html"
+          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
+          Contact Us
+        </a>
+      </nav>
 
-        <!-- Mobile menu button -->
-        <button
-          class="md:hidden hamburger focus:outline-none"
-          id="mobile-menu-button"
-        >
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700"></span>
+      <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </div>
+
+    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
+      <div class="flex justify-end mb-6">
+        <button id="close-mobile-menu" class="text-gray-500 hover:text-[#1E488F]">
+          <i class="fas fa-times text-xl"></i>
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <div
-        class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4"
-        id="mobile-menu"
-      >
-        <div class="flex justify-end mb-6">
-          <button
-            id="close-mobile-menu"
-            class="text-gray-500 hover:text-[#1E488F]"
-          >
-            <i class="fas fa-times text-xl"></i>
+      <nav class="flex flex-col space-y-4">
+        <a href="../../../public/index.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
+        <a href="/src/pages/faqs.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
+        <a href="/src/pages/aboutus.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About
+          Us</a>
+        <a href="/src/pages/terms&conditions.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
+
+        <div class="px-3 py-2">
+          <button class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
+            id="mobile-products-toggle">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
           </button>
+          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+            <a href="/loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
+              Servant</a>
+            <a href="/loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
+              Secured</a>
+          </div>
         </div>
 
-        <nav class="flex flex-col space-y-4">
-          <a
-            href="/public/index.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Home</a
-          >
-          <a
-            href="/src/pages/faqs.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >FAQs</a
-          >
-          <a
-            href="/src/pages/aboutus.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >About Us</a
-          >
-          <a
-            href="/src/pages/terms&conditions.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Terms</a
-          >
+        <a href="/src/pages/contactus.html"
+          class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
+          Contact Us
+        </a>
+      </nav>
+    </div>
+  </header>
 
-          <div class="px-3 py-2">
-            <button
-              class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
-              id="mobile-products-toggle"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-              <a
-                href="/loanforms/CSLoanForm.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Civil Servant</a
-              >
-              <a
-                href="/loanforms/ASLoanform.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Asset Secured</a
-              >
-            </div>
-          </div>
+  <main class="flex-grow container mx-auto px-4 py-6">
+    <div class="bg-white rounded-3xl custom-shadow p-6 max-w-md mx-auto">
 
-          <a
-            href="/src/pages/contactus.html"
-            class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-6">
-      <!-- Progress Steps -->
-      <div class="flex justify-between items-center mb-8 max-w-md mx-auto">
+      <div class="flex justify-between items-center mb-8">
         <div class="flex flex-col items-center">
           <div class="progress-step rounded-full flex items-center justify-center completed">
             <span>1</span>
@@ -329,9 +292,8 @@
         </div>
       </div>
 
-      <!-- Form Pages -->
       <div class="bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto border-t-4 border-[#1E488F]">
-        <!-- Page 1: Personal Information -->
+
         <div id="page1" class="form-page active">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Personal Information
@@ -339,106 +301,66 @@
 
           <div class="space-y-4">
             <div>
-              <label
-                for="firstName"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >First Name</label
-              >
-              <input
-                type="text"
-                id="firstName"
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+              <input type="text" id="firstName"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                required
-              />
+                required />
             </div>
 
             <div>
-              <label
-                for="lastName"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Last Name</label
-              >
-              <input
-                type="text"
-                id="lastName"
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+              <input type="text" id="lastName"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                required
-              />
+                required />
             </div>
 
             <div>
-              <label
-                for="nrc"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >NRC Number</label
-              >
-              <input
-                type="text"
-                id="nrc"
-                placeholder="e.g. 123456/78/9"
+              <label for="nrc" class="block text-sm font-medium text-gray-700 mb-1">NRC Number</label>
+              <input type="text" id="nrc" placeholder="e.g. 123456/78/9"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                maxlength="11"
-                required
-              />
+                maxlength="11" required />
               <p class="text-xs text-gray-500 mt-1">Format: 000000/00/1</p>
             </div>
 
-            <!-- Phone Number Field -->
             <div>
-              <label
-                for="phoneNumber"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Phone Number</label
-              >
+              <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Phone
+                Number</label>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <span class="text-gray-500">+260</span>
                 </div>
-                <input
-                  type="tel"
-                  id="phoneNumber"
+                <input type="tel" id="phoneNumber"
                   class="w-full pl-16 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                  placeholder="961234567"
-                  maxlength="9"
-                  required
-                />
+                  placeholder="961234567" maxlength="9" required />
               </div>
               <p class="text-xs text-gray-500 mt-1">Format: +260 followed by 9 digits</p>
             </div>
 
             <div>
-              <label
-                for="referral"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Agent Referral Code (if applicable)</label
-              >
-              <input
-                type="text"
-                id="referral"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-              />
+              <label for="referral" class="block text-sm font-medium text-gray-700 mb-1">Agent Referral Code
+                (if applicable)</label>
+              <input type="text" id="referral"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]" />
             </div>
 
-            <div class="flex items-start mt-6">
+            <div class="h-px bg-gray-200 my-6"></div>
+
+            <div class="flex items-start">
               <input type="checkbox" id="consent" class="mt-1 mr-2 accent-[#1E488F]" required />
-              <label for="consent" class="text-sm text-gray-700"
-                >By clicking next, I consent to Spectrum Credit using my
-                information for loan registration and processing.</label
-              >
+              <label for="consent" class="text-sm text-gray-700">By clicking next, I consent to Spectrum
+                Credit using my
+                information for loan registration and processing.</label>
             </div>
           </div>
 
           <div class="mt-8">
-            <button
-              id="nextToPage2"
-              class="w-full bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
-            >
+            <button id="nextToPage2"
+              class="w-full bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center">
               Next <i class="fas fa-arrow-right ml-2"></i>
             </button>
           </div>
         </div>
 
-        <!-- Page 2: Employment Information -->
         <div id="page2" class="form-page">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Employment Information
@@ -446,130 +368,49 @@
 
           <div class="space-y-4">
             <div>
-              <label
-                for="employeeNumber"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Employee Number</label
-              >
-              <input
-                type="text"
-                id="employeeNumber"
+              <label for="employeeNumber" class="block text-sm font-medium text-gray-700 mb-1">Employee
+                Number</label>
+              <input type="text" id="employeeNumber"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                required
-              />
+                required />
             </div>
 
             <div>
-              <label
-                for="basicPay"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Basic Pay (ZMW)</label
-              >
-              <input
-                type="number"
-                id="basicPay"
+              <label for="basicPay" class="block text-sm font-medium text-gray-700 mb-1">Basic Pay
+                (ZMW)</label>
+              <input type="number" id="basicPay"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                required
-              />
+                required />
             </div>
 
             <div>
-              <label
-                for="netPay"
-                class="block text-sm font-medium text-gray-700 mb-1"
-                >Net Pay (ZMW)</label
-              >
-              <input
-                type="number"
-                id="netPay"
+              <label for="netPay" class="block text-sm font-medium text-gray-700 mb-1">Net Pay (ZMW)</label>
+              <input type="number" id="netPay"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
-                required
-              />
+                required />
             </div>
 
-            <div class="pt-4">
-              <label class="block text-sm font-medium text-gray-700 mb-3"
-                >Loan Term (months)</label
-              >
-              <div class="flex justify-between mb-2">
-                <label class="term-option">
-                  <input
-                    type="radio"
-                    name="loanTerm"
-                    value="12"
-                    class="term-radio"
-                  />
-                  <span class="term-circle"></span>
-                  <span class="term-label">12</span>
-                </label>
-                <label class="term-option">
-                  <input
-                    type="radio"
-                    name="loanTerm"
-                    value="24"
-                    class="term-radio"
-                  />
-                  <span class="term-circle"></span>
-                  <span class="term-label">24</span>
-                </label>
-                <label class="term-option">
-                  <input
-                    type="radio"
-                    name="loanTerm"
-                    value="36"
-                    class="term-radio"
-                  />
-                  <span class="term-circle"></span>
-                  <span class="term-label">36</span>
-                </label>
-                <label class="term-option">
-                  <input
-                    type="radio"
-                    name="loanTerm"
-                    value="48"
-                    class="term-radio"
-                  />
-                  <span class="term-circle"></span>
-                  <span class="term-label">48</span>
-                </label>
-                <label class="term-option">
-                  <input
-                    type="radio"
-                    name="loanTerm"
-                    value="60"
-                    checked
-                    class="term-radio"
-                  />
-                  <span class="term-circle"></span>
-                  <span class="term-label">60</span>
-                </label>
-              </div>
-            </div>
+
           </div>
 
           <div class="mt-8 flex space-x-3">
-            <button
-              id="backToPage1"
-              class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
-            >
+            <button id="backToPage1"
+              class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center">
               <i class="fas fa-arrow-left mr-2"></i> Back
             </button>
-            <button
-              type="submit"
-              id="submitApplication"
-              class="flex-1 bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center"
-            >
+            <button type="submit" id="submitApplication"
+              class="flex-1 bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center">
               Submit <i class="fas fa-paper-plane ml-2"></i>
             </button>
           </div>
         </div>
 
-        <!-- Page 3: Thank You Page -->
         <div id="page3" class="form-page">
           <div class="text-center py-8">
             <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
               <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                </path>
               </svg>
             </div>
             <h2 class="text-2xl font-bold text-[#1E488F] mb-2">Thank You!</h2>
@@ -585,320 +426,290 @@
                 <li>Final approval typically takes 1-2 business days</li>
               </ul>
             </div>
-            <a href="/public/index.html" class="inline-block px-6 py-2 bg-[#1E488F] text-white font-medium rounded-md hover:bg-[#163875] transition">
+            <a href="/public/index.html"
+              class="inline-block px-6 py-2 bg-[#1E488F] text-white font-medium rounded-md hover:bg-[#163875] transition">
               Back to Home
             </a>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 footer">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <!-- Column 1 -->
-          <div>
-            <img
-              src="/src/images/sclogo.png"
-              alt="Spectrum Credit Logo"
-              class="h-10 mb-4"
-            />
-            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Column 2 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="../../../public/index.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="../aboutus.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/products"
-                  class="text-gray-400 hover:text-white transition"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a
-                  href="../contactus.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 3 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="/whistleblower"
-                  class="text-gray-400 hover:text-white transition"
-                  >Whistleblower Portal</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/grievance"
-                  class="text-gray-400 hover:text-white transition"
-                  >Grievance Reporting</a
-                >
-              </li>
-              <li>
-                <a
-                  href="../terms&conditions.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Terms and Conditions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/policy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Environment and Social Policy</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 4 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
-            <address class="text-gray-400 not-italic text-sm">
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
-                Woodlands, Lusaka, Zambia
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
-              </p>
-            </address>
+  <footer class="bg-gray-900 text-white py-12 footer">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
+          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
 
-        <div
-          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
-        >
-          <p>
-            &copy; <span id="current-year">2025</span> Spectrum Credit. All
-            rights reserved. |
-            <a href="/privacy" class="hover:text-white transition"
-              >Privacy Policy</a
-            >
-            |
-            <a href="/terms" class="hover:text-white transition"
-              >Terms of Service</a
-            >
-          </p>
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="../../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="../aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+            </li>
+            <li>
+              <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
+            </li>
+            <li>
+              <a href="../contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower
+                Portal</a>
+            </li>
+            <li>
+              <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance
+                Reporting</a>
+            </li>
+            <li>
+              <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms
+                and Conditions</a>
+            </li>
+            <li>
+              <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social
+                Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
+          <address class="text-gray-400 not-italic text-sm">
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd
+              Woodlands, Lusaka, Zambia
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-[#E6EEF9]"></i> +260 761 197 777
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-clock mr-3 text-[#E6EEF9]"></i> Mon-Fri: 7:30 - 16:30
+            </p>
+          </address>
         </div>
       </div>
-    </footer>
 
-    <script>
-      // Mobile menu toggle
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMobileMenu = document.getElementById("close-mobile-menu");
-      const mobileProductsToggle = document.getElementById(
-        "mobile-products-toggle"
-      );
-      const mobileProductsMenu = document.getElementById(
-        "mobile-products-menu"
-      );
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+        <p>
+          &copy; <span id="current-year">2025</span> Spectrum Credit. All
+          rights reserved. |
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+          |
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
 
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenuButton.classList.toggle("open");
-        mobileMenu.classList.toggle("open");
-        document.body.style.overflow = mobileMenu.classList.contains("open")
-          ? "hidden"
-          : "auto";
-      });
+  <script>
+    // Mobile menu toggle functionality
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenu = document.getElementById("close-mobile-menu");
+    const mobileProductsToggle = document.getElementById(
+      "mobile-products-toggle"
+    );
+    const mobileProductsMenu = document.getElementById(
+      "mobile-products-menu"
+    );
 
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenuButton.classList.remove("open");
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
-      });
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenuButton.classList.toggle("open");
+      mobileMenu.classList.toggle("open");
+      document.body.style.overflow = mobileMenu.classList.contains("open")
+        ? "hidden"
+        : "auto"; /* Disable scrolling when menu is open */
+    });
 
-      mobileProductsToggle.addEventListener("click", () => {
-        mobileProductsMenu.classList.toggle("hidden");
-        mobileProductsToggle
-          .querySelector("i")
-          .classList.toggle("fa-chevron-down");
-        mobileProductsToggle
-          .querySelector("i")
-          .classList.toggle("fa-chevron-up");
-      });
+    closeMobileMenu.addEventListener("click", () => {
+      mobileMenuButton.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      document.body.style.overflow = "auto"; /* Re-enable scrolling */
+    });
 
-      // Form navigation
-      document
-        .getElementById("nextToPage2")
-        .addEventListener("click", function () {
-          if (document.getElementById("consent").checked) {
-            // Validate NRC format before proceeding
-            const nrcInput = document.getElementById("nrc");
-            const nrcValue = nrcInput.value.trim();
-            const nrcPattern = /^\d{6}\/\d{2}\/\d{1}$/;
+    mobileProductsToggle.addEventListener("click", () => {
+      mobileProductsMenu.classList.toggle("hidden");
+      mobileProductsToggle
+        .querySelector("i")
+        .classList.toggle("fa-chevron-down");
+      mobileProductsToggle
+        .querySelector("i")
+        .classList.toggle("fa-chevron-up");
+    });
 
-            if (!nrcPattern.test(nrcValue)) {
-              nrcInput.classList.add("border-red-500");
-              alert(
-                "Please enter a valid NRC number in the format 000000/00/1"
-              );
-              return;
-            }
+    // Form navigation logic (Next to Page 2)
+    document
+      .getElementById("nextToPage2")
+      .addEventListener("click", function () {
+        // Check if consent checkbox is checked
+        if (document.getElementById("consent").checked) {
+          // Validate NRC format
+          const nrcInput = document.getElementById("nrc");
+          const nrcValue = nrcInput.value.trim();
+          const nrcPattern = /^\d{6}\/\d{2}\/\d{1}$/;
 
-            // Validate phone number
-            const phoneInput = document.getElementById("phoneNumber");
-            const phoneValue = phoneInput.value.trim();
-            if (phoneValue.length !== 9 || !/^\d+$/.test(phoneValue)) {
-              phoneInput.classList.add("border-red-500");
-              alert("Please enter a valid 9-digit phone number");
-              return;
-            }
-
-            document.getElementById("page1").classList.remove("active");
-            document.getElementById("page2").classList.add("active");
-
-            // Update progress steps
-            document
-              .querySelectorAll(".progress-step")[0]
-              .classList.add("completed");
-            document
-              .querySelectorAll(".progress-step")[1]
-              .classList.add("active");
+          if (!nrcPattern.test(nrcValue)) {
+            nrcInput.classList.add("border-red-500"); // Add error border
+            alert(
+              "Please enter a valid NRC number in the format 000000/00/1"
+            );
+            return; // Stop function if validation fails
           } else {
-            alert("Please consent to information usage to proceed");
+            nrcInput.classList.remove("border-red-500"); // Remove error border if valid
           }
-        });
 
-      document
-        .getElementById("backToPage1")
-        .addEventListener("click", function () {
-          document.getElementById("page2").classList.remove("active");
-          document.getElementById("page1").classList.add("active");
 
-          // Update progress steps
+          // Validate phone number
+          const phoneInput = document.getElementById("phoneNumber");
+          const phoneValue = phoneInput.value.trim();
+          if (phoneValue.length !== 9 || !/^\d+$/.test(phoneValue)) {
+            phoneInput.classList.add("border-red-500"); // Add error border
+            alert("Please enter a valid 9-digit phone number");
+            return; // Stop function if validation fails
+          } else {
+            phoneInput.classList.remove("border-red-500"); // Remove error border if valid
+          }
+
+          // Proceed to page 2 if validations pass
+          document.getElementById("page1").classList.remove("active");
+          document.getElementById("page2").classList.add("active");
+
+          // Update progress steps visual indicators
+          document
+            .querySelectorAll(".progress-step")[0]
+            .classList.add("completed");
           document
             .querySelectorAll(".progress-step")[1]
-            .classList.remove("active");
-        });
-
-      // NRC input formatting
-      document.getElementById("nrc").addEventListener("input", function (e) {
-        let value = e.target.value.replace(/\D/g, "");
-
-        if (value.length > 6) {
-          value = value.substring(0, 6) + "/" + value.substring(6);
+            .classList.add("active");
+        } else {
+          alert("Please consent to information usage to proceed");
         }
-        if (value.length > 9) {
-          value = value.substring(0, 9) + "/" + value.substring(9);
-        }
-        if (value.length > 11) {
-          value = value.substring(0, 11);
-        }
-
-        e.target.value = value;
       });
 
-      // Phone number validation
-      document.getElementById("phoneNumber").addEventListener("input", function(e) {
-        // Remove any non-digit characters
-        let value = e.target.value.replace(/\D/g, '');
-        // Limit to 9 digits
-        if (value.length > 9) {
-          value = value.substring(0, 9);
-        }
-        e.target.value = value;
+    // Form navigation logic (Back to Page 1)
+    document
+      .getElementById("backToPage1")
+      .addEventListener("click", function () {
+        document.getElementById("page2").classList.remove("active");
+        document.getElementById("page1").classList.add("active");
+
+        // Update progress steps visual indicators
+        document
+          .querySelectorAll(".progress-step")[1]
+          .classList.remove("active");
       });
 
-      // Form submission
-      document
-        .getElementById("submitApplication")
-        .addEventListener("click", function () {
-          // Validate form
-          const requiredFields = ["employeeNumber", "basicPay", "netPay"];
-          let isValid = true;
+    // NRC input formatting (adds slashes automatically)
+    document.getElementById("nrc").addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
 
-          requiredFields.forEach((fieldId) => {
-            const field = document.getElementById(fieldId);
-            if (!field.value.trim()) {
-              field.classList.add("border-red-500");
-              isValid = false;
-            } else {
-              field.classList.remove("border-red-500");
-            }
-          });
+      if (value.length > 6) {
+        value = value.substring(0, 6) + "/" + value.substring(6);
+      }
+      if (value.length > 9) {
+        value = value.substring(0, 9) + "/" + value.substring(9);
+      }
+      if (value.length > 11) {
+        value = value.substring(0, 11); // Limit total length
+      }
 
-          if (isValid) {
-            // Collect all form data
-            const formData = {
-              fullName: document.getElementById("fullName").value,
-              nrc: document.getElementById("nrc").value,
-              phoneNumber: "+260" + document.getElementById("phoneNumber").value,
-              referral: document.getElementById("referral").value,
-              employeeNumber: document.getElementById("employeeNumber").value,
-              basicPay: document.getElementById("basicPay").value,
-              netPay: document.getElementById("netPay").value,
-              loanTerm: document.querySelector('input[name="loanTerm"]:checked')
-                .value,
-              consent: document.getElementById("consent").checked,
-            };
+      e.target.value = value;
+    });
 
-            console.log("Form data:", formData);
-            
-            // Show thank you page
-            document.getElementById("page2").classList.remove("active");
-            document.getElementById("page3").classList.add("active");
-            
-            // Update progress steps
-            document.querySelectorAll(".progress-step")[0].classList.add("completed");
-            document.querySelectorAll(".progress-step")[1].classList.add("completed");
-            document.querySelectorAll(".progress-step")[2].classList.add("active");
+    // Phone number input validation (ensures only digits and max 9 length)
+    document.getElementById("phoneNumber").addEventListener("input", function (e) {
+      // Remove any non-digit characters
+      let value = e.target.value.replace(/\D/g, '');
+      // Limit to 9 digits
+      if (value.length > 9) {
+        value = value.substring(0, 9);
+      }
+      e.target.value = value;
+    });
+
+    // Form submission logic (Submit Application)
+    document
+      .getElementById("submitApplication")
+      .addEventListener("click", function () {
+        // Define required fields for Page 2
+        const requiredFields = ["employeeNumber", "basicPay", "netPay"];
+        let isValid = true;
+
+        // Validate each required field
+        requiredFields.forEach((fieldId) => {
+          const field = document.getElementById(fieldId);
+          if (!field.value.trim()) {
+            field.classList.add("border-red-500"); // Add error border
+            isValid = false;
           } else {
-            alert("Please fill in all required fields");
+            field.classList.remove("border-red-500"); // Remove error border if valid
           }
         });
 
-      // Set current year
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
-    </script>
-  </body>
+        if (isValid) {
+          // Collect all form data (for demonstration purposes, would typically be sent to a server)
+          const formData = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            nrc: document.getElementById("nrc").value,
+            phoneNumber: "+260" + document.getElementById("phoneNumber").value,
+            referral: document.getElementById("referral").value,
+            employeeNumber: document.getElementById("employeeNumber").value,
+            basicPay: document.getElementById("basicPay").value,
+            netPay: document.getElementById("netPay").value,
+            loanTerm: document.querySelector('input[name="loanTerm"]:checked')
+              .value,
+            consent: document.getElementById("consent").checked,
+          };
+
+          console.log("Form data:", formData); // Log data to console
+
+          // Show thank you page
+          document.getElementById("page2").classList.remove("active");
+          document.getElementById("page3").classList.add("active");
+
+          // Update final progress steps visual indicators
+          document.querySelectorAll(".progress-step")[0].classList.add("completed");
+          document.querySelectorAll(".progress-step")[1].classList.add("completed");
+          document.querySelectorAll(".progress-step")[2].classList.add("active");
+        } else {
+          alert("Please fill in all required fields"); // Alert user if any fields are empty
+        }
+      });
+
+    // Set current year in the footer dynamically
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+
 </html>
