@@ -181,6 +181,59 @@
     .footer {
       border-top: 4px solid var(--primary);
     }
+
+    /* Custom range slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Slider track styling */
+    .slider-track {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(to right, var(--primary) 0%, var(--primary) 50%, #e2e8f0 50%, #e2e8f0 100%);
+    }
+
+    /* Slider marks styling */
+    .slider-mark {
+      position: absolute;
+      top: 20px;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .slider-mark.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
   </style>
 </head>
 
@@ -278,23 +331,16 @@
         </div>
         <div class="h-1 flex-1 bg-gray-200 mx-2"></div>
         <div class="flex flex-col items-center">
-          <div class="progress-step rounded-full flex items-center justify-center completed">
+          <div class="progress-step rounded-full flex items-center justify-center active">
             <span>2</span>
           </div>
           <span class="text-xs mt-1 text-gray-600">Employment</span>
-        </div>
-        <div class="h-1 flex-1 bg-gray-200 mx-2"></div>
-        <div class="flex flex-col items-center">
-          <div class="progress-step rounded-full flex items-center justify-center active">
-            <span>3</span>
-          </div>
-          <span class="text-xs mt-1 text-gray-600">Complete</span>
         </div>
       </div>
 
       <div class="bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto border-t-4 border-[#1E488F]">
 
-        <div id="page1" class="form-page active">
+        <div id="page1" class="form-page">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Personal Information
           </h2>
@@ -360,8 +406,7 @@
             </button>
           </div>
         </div>
-
-        <div id="page2" class="form-page">
+        <div id="page2" class="form-page active">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Employment Information
           </h2>
@@ -369,28 +414,74 @@
           <div class="space-y-4">
             <div>
               <label for="employeeNumber" class="block text-sm font-medium text-gray-700 mb-1">Employee
-                Number</label>
-              <input type="text" id="employeeNumber"
+                Number (max 8 digits)</label>
+              <input type="text" id="employeeNumber" maxlength="8" pattern="\d{1,8}" 
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required />
+              <p class="text-xs text-gray-500 mt-1">Must be 1-8 digits only</p>
             </div>
 
             <div>
               <label for="basicPay" class="block text-sm font-medium text-gray-700 mb-1">Basic Pay
                 (ZMW)</label>
-              <input type="number" id="basicPay"
+              <input type="number" id="basicPay" min="0" step="0.01"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required />
             </div>
 
             <div>
               <label for="netPay" class="block text-sm font-medium text-gray-700 mb-1">Net Pay (ZMW)</label>
-              <input type="number" id="netPay"
+              <input type="number" id="netPay" min="0" step="0.01"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required />
             </div>
 
+            <!-- Loan Calculation Section -->
+            <!-- Loan Calculation Section -->
+<div class="bg-white border border-[#1E488F]/10 rounded-2xl p-6 shadow-sm mt-6 space-y-6">
+  <div>
+    <label class="block text-sm font-semibold text-gray-700 mb-1">Max Possible Loan (ZMW)</label>
+    <div class="text-3xl font-extrabold text-[#1E488F]" id="maxLoanAmount">K0.00</div>
+  </div>
 
+  <div>
+    <label for="loanTerm" class="block text-sm font-semibold text-gray-700 mb-2">Select Loan Term</label>
+    <div class="relative">
+      <input
+        type="range"
+        id="loanTerm"
+        min="6"
+        max="60"
+        step="6"
+        value="12"
+        class="w-full accent-[#1E488F] h-2 rounded-full appearance-none bg-gray-200"
+        oninput="document.getElementById('termLabel').innerText = this.value + ' months';"
+      />
+      <div class="text-sm text-center text-[#1E488F] font-medium mt-1" id="termLabel">12 months</div>
+    </div>
+    <div class="flex justify-between text-xs text-gray-500 mt-1 px-1">
+      <span>6</span>
+      <span>12</span>
+      <span>18</span>
+      <span>24</span>
+      <span>36</span>
+      <span>48</span>
+      <span>60</span>
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-semibold text-gray-700 mb-1">Monthly Installment (ZMW)</label>
+    <div class="text-3xl font-extrabold text-[#1E488F]" id="monthlyInstallment">K0.00</div>
+    <p class="text-xs text-gray-500 mt-1">Based on the selected loan term</p>
+  </div>
+</div>
+<!-- End Loan Calculation Section -->
+
+            <div class="flex items-start mt-4">
+              <input type="checkbox" id="finalConsent" class="mt-1 mr-2 accent-[#1E488F]" required />
+              <label for="finalConsent" class="text-sm text-gray-700">I confirm that all information provided is accurate and I agree to the terms and conditions.</label>
+            </div>
           </div>
 
           <div class="mt-8 flex space-x-3">
@@ -402,34 +493,6 @@
               class="flex-1 bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-3 px-4 rounded-md transition duration-300 flex items-center justify-center">
               Submit <i class="fas fa-paper-plane ml-2"></i>
             </button>
-          </div>
-        </div>
-
-        <div id="page3" class="form-page">
-          <div class="text-center py-8">
-            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
-              <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                </path>
-              </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-[#1E488F] mb-2">Thank You!</h2>
-            <p class="text-gray-600 mb-6">
-              Your application has been submitted successfully. We will contact you within 24 hours.
-            </p>
-            <div class="bg-[#E6EEF9] border border-[#1E488F]/30 rounded-md p-4 text-left mb-6">
-              <h3 class="font-medium text-[#1E488F] mb-2">What's Next?</h3>
-              <ul class="list-disc list-inside text-[#1E488F] text-sm space-y-1">
-                <li>Our team will review your application</li>
-                <li>You'll receive an SMS confirmation shortly</li>
-                <li>A loan officer will contact you for verification</li>
-                <li>Final approval typically takes 1-2 business days</li>
-              </ul>
-            </div>
-            <a href="/public/index.html"
-              class="inline-block px-6 py-2 bg-[#1E488F] text-white font-medium rounded-md hover:bg-[#163875] transition">
-              Back to Home
-            </a>
           </div>
         </div>
       </div>
@@ -587,7 +650,6 @@
             nrcInput.classList.remove("border-red-500"); // Remove error border if valid
           }
 
-
           // Validate phone number
           const phoneInput = document.getElementById("phoneNumber");
           const phoneValue = phoneInput.value.trim();
@@ -656,55 +718,143 @@
       e.target.value = value;
     });
 
-    // Form submission logic (Submit Application)
-    document
-      .getElementById("submitApplication")
-      .addEventListener("click", function () {
-        // Define required fields for Page 2
-        const requiredFields = ["employeeNumber", "basicPay", "netPay"];
-        let isValid = true;
-
-        // Validate each required field
-        requiredFields.forEach((fieldId) => {
-          const field = document.getElementById(fieldId);
-          if (!field.value.trim()) {
-            field.classList.add("border-red-500"); // Add error border
-            isValid = false;
-          } else {
-            field.classList.remove("border-red-500"); // Remove error border if valid
-          }
-        });
-
-        if (isValid) {
-          // Collect all form data (for demonstration purposes, would typically be sent to a server)
-          const formData = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            nrc: document.getElementById("nrc").value,
-            phoneNumber: "+260" + document.getElementById("phoneNumber").value,
-            referral: document.getElementById("referral").value,
-            employeeNumber: document.getElementById("employeeNumber").value,
-            basicPay: document.getElementById("basicPay").value,
-            netPay: document.getElementById("netPay").value,
-            loanTerm: document.querySelector('input[name="loanTerm"]:checked')
-              .value,
-            consent: document.getElementById("consent").checked,
-          };
-
-          console.log("Form data:", formData); // Log data to console
-
-          // Show thank you page
-          document.getElementById("page2").classList.remove("active");
-          document.getElementById("page3").classList.add("active");
-
-          // Update final progress steps visual indicators
-          document.querySelectorAll(".progress-step")[0].classList.add("completed");
-          document.querySelectorAll(".progress-step")[1].classList.add("completed");
-          document.querySelectorAll(".progress-step")[2].classList.add("active");
+    // Loan calculation function
+    document.addEventListener("DOMContentLoaded", () => {
+      const employeeNumberInput = document.getElementById("employeeNumber");
+      const netPayInput = document.getElementById("netPay");
+      const basicPayInput = document.getElementById("basicPay");
+      const loanTermSlider = document.getElementById("loanTerm");
+      const maxLoanAmountElement = document.getElementById("maxLoanAmount");
+      const monthlyInstallmentElement = document.getElementById("monthlyInstallment");
+    
+      // ✅ Employee number validation: only digits, max 8 characters
+      employeeNumberInput?.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 8);
+      });
+    
+      const flatRates = {
+        6: 0.02409524,
+        12: 0.02321884,
+        24: 0.02392016,
+        36: 0.02510910,
+        48: 0.02634731,
+        60: 0.02753518
+      };
+    
+      const FIXED_FEE = 0.0294;
+      const MONTHLY_FEE = 0.0055;
+    
+      // Clean Employee Number input
+      employeeNumberInput?.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 8);
+      });
+    
+      const formatCurrency = (amount) => {
+        return `K${amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+      };
+    
+      // PMEC affordability: Net - (40% of Basic) - 200
+      const calculateAffordability = (netPay, basicPay) => {
+        return netPay - (basicPay * 0.4) - 200;
+      };
+    
+      // Reverse Excel-style Loan Amount Formula
+      const calculateLoanAmount = (affordability, months, flatRate) => {
+        const numerator = affordability * months;
+        const denominator = 1 + (flatRate * months) + FIXED_FEE + (MONTHLY_FEE * months);
+        const loanAmount = numerator / denominator;
+        return loanAmount / 1.15;
+      };
+    
+      // Excel-style Installment Formula (O13)
+      const calculateInstallment = (loanAmount, months, flatRate) => {
+        const installment = loanAmount * 1.15 * (1 / months + flatRate + (FIXED_FEE / months) + MONTHLY_FEE);
+        return installment;
+      };
+    
+      const updateLoanDetails = () => {
+        const netPay = parseFloat(netPayInput.value) || 0;
+        const basicPay = parseFloat(basicPayInput.value) || 0;
+        const months = parseInt(loanTermSlider.value);
+    
+        if (netPay > 0 && basicPay > 0 && flatRates.hasOwnProperty(months)) {
+          const flatRate = flatRates[months];
+          const affordability = calculateAffordability(netPay, basicPay);
+    
+          const loanAmount = calculateLoanAmount(affordability, months, flatRate);
+          const installment = calculateInstallment(loanAmount, months, flatRate);
+    
+          maxLoanAmountElement.textContent = formatCurrency(loanAmount);
+          monthlyInstallmentElement.textContent = formatCurrency(installment);
         } else {
-          alert("Please fill in all required fields"); // Alert user if any fields are empty
+          maxLoanAmountElement.textContent = "K0.00";
+          monthlyInstallmentElement.textContent = "K0.00";
+        }
+      };
+    
+      // Bind all events
+      [netPayInput, basicPayInput, loanTermSlider].forEach(input =>
+        input.addEventListener("input", updateLoanDetails)
+      );
+    
+      updateLoanDetails();
+    });
+    
+
+    // Form submission logic (Submit Application)
+    document.getElementById("submitApplication").addEventListener("click", function(e) {
+      e.preventDefault();
+      
+      // Define required fields for Page 2
+      const requiredFields = ["employeeNumber", "basicPay", "netPay"];
+      let isValid = true;
+
+      // Validate each required field
+      requiredFields.forEach((fieldId) => {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+          field.classList.add("border-red-500");
+          isValid = false;
+        } else {
+          field.classList.remove("border-red-500");
         }
       });
+
+      // Validate final consent checkbox
+      if (!document.getElementById("finalConsent").checked) {
+        isValid = false;
+        alert("Please confirm that all information is accurate and agree to the terms");
+      }
+
+      if (isValid) {
+        // Get form values
+        const formData = {
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          nrc: document.getElementById("nrc").value,
+          phoneNumber: "+260" + document.getElementById("phoneNumber").value,
+          referral: document.getElementById("referral").value,
+          employeeNumber: document.getElementById("employeeNumber").value,
+          basicPay: parseFloat(document.getElementById("basicPay").value) || 0,
+          netPay: parseFloat(document.getElementById("netPay").value) || 0,
+          loanTerm: document.getElementById("loanTerm").value,
+          maxLoanAmount: document.getElementById("maxLoanAmount").textContent,
+          monthlyInstallment: document.getElementById("monthlyInstallment").textContent,
+          consent: document.getElementById("consent").checked,
+          finalConsent: document.getElementById("finalConsent").checked
+        };
+
+        console.log("Form submitted:", formData); // Log data to console
+        
+        // In a real application, you would send this data to your server
+        alert("Application submitted successfully! Our team will contact you shortly.");
+        
+        // Here you would typically redirect to a thank you page or reset the form
+        // window.location.href = "/thank-you.html";
+      } else {
+        alert("Please fill in all required fields");
+      }
+    });
 
     // Set current year in the footer dynamically
     document.getElementById("current-year").textContent =
