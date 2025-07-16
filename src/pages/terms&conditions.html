@@ -1,954 +1,776 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Protection Policy | Spectrum Credit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      :root {
-        --primary: #1d62e3;
-        --primary-dark: #1a56cb;
-        --secondary: #4caf50;
-        --dark: #1e293b;
-        --light: #f8fafc;
-        --accent: #f59e0b;
-      }
 
-      body {
-        font-family: "Inter", sans-serif;
-        -webkit-text-size-adjust: 100%;
-        background-color: #f8fafc;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Protection Policy | Spectrum Credit</title>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-      /* Mobile-first navigation */
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #1d62e3;
+      --primary-dark: #1a56cb;
+      --secondary: #4caf50;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --accent: #f59e0b;
+    }
 
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
+    body {
+      font-family: "Inter", sans-serif;
+      -webkit-text-size-adjust: 100%;
+      background-color: #f8fafc;
+    }
 
-      .hamburger span {
-        transition: all 0.3s ease;
-      }
+    /* Mobile-first navigation */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
 
-      .hamburger.open span:first-child {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
 
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
+    .hamburger span {
+      transition: all 0.3s ease;
+    }
 
-      .hamburger.open span:last-child {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
+    .hamburger.open span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-      /* Policy content styling */
-      .policy-container {
-        background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100px);
-      }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
 
-      .clause-item {
-        position: relative;
-        padding-left: 1.75rem;
-      }
+    .hamburger.open span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-      .clause-item:before {
-        content: counters(item, ".") ".";
-        position: absolute;
-        left: 0;
-        font-weight: 600;
-        color: #1d62e3;
-      }
+    /* Policy content styling */
+    .policy-container {
+      background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100px);
+    }
 
-      .sub-clause {
-        padding-left: 1.5rem;
-      }
+    /* Styling for main clause numbers (1., 2., 3., etc.) */
+    .clause-item.main {
+      position: relative;
+      padding-left: 1.75rem;
+    }
 
-      /* Hero image section */
+    .clause-item.main:before {
+      content: counters(main-item, ".") ".";
+      /* Uses main-item counter */
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: #1d62e3;
+    }
+
+    /* Styling for sub-clause numbers (2.1., 2.2., etc.) */
+    .clause-item.sub {
+      position: relative;
+      padding-left: 1.75rem;
+      /* Ensure consistent indentation */
+    }
+
+    .clause-item.sub:before {
+      content: counters(main-item, ".") "." counters(sub-item, ".") ".";
+      /* Combines main and sub counters */
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: #1d62e3;
+    }
+
+    .sub-clause {
+      padding-left: 1.5rem;
+      /* Adjust if needed to align content with numbers */
+    }
+
+    /* Hero image section */
+    .hero-image {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      display: none;
+    }
+
+    /* Table of contents */
+    .toc-container {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+    }
+
+    .toc-link {
+      transition: all 0.2s ease;
+    }
+
+    .toc-link:hover {
+      color: #1d62e3;
+      transform: translateX(3px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
       .hero-image {
-        height: 250px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
+        height: 200px;
       }
 
-      .hero-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+      .hero-content h1 {
+        font-size: 1.75rem;
       }
 
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        color: white;
-        text-align: center;
-        padding: 0 20px;
+      .hero-content p {
+        font-size: 1rem;
       }
 
-      /* Back to top button */
-      .back-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 99;
-        display: none;
-      }
-
-      /* Table of contents */
       .toc-container {
-        position: sticky;
-        top: 80px;
-        align-self: start;
+        position: static;
+        margin-bottom: 2rem;
       }
+    }
+  </style>
+</head>
 
-      .toc-link {
-        transition: all 0.2s ease;
-      }
+<body class="min-h-screen">
+  <header class="bg-white shadow-sm sticky top-0 z-50" id="main-header">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="flex items-center">
+        <img src="../images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" width="140" height="40" />
+      </a>
 
-      .toc-link:hover {
-        color: #1d62e3;
-        transform: translateX(3px);
-      }
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="/public/index.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
+        <a href="./faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
+        <a href="./aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
+          Us</a>
+        <a href="./terms&conditions.html"
+          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .hero-image {
-          height: 200px;
-        }
-
-        .hero-content h1 {
-          font-size: 1.75rem;
-        }
-
-        .hero-content p {
-          font-size: 1rem;
-        }
-
-        .toc-container {
-          position: static;
-          margin-bottom: 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body class="min-h-screen">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <a href="/" class="flex items-center">
-          <img
-            src="../images/sclogo.png"
-            alt="Spectrum Credit Logo"
-            class="h-10"
-          />
-        </a>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <a
-            href="/public/index.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Home</a
-          >
-          <a
-            href="./faqs.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >FAQs</a
-          >
-          <a
-            href="./aboutus.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >About Us</a
-          >
-          <a
-            href="./terms&conditions.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Terms</a
-          >
-
-          <div class="relative group">
-            <button
-              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div
-              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
-            >
-              <a
-                href="./loanforms/CSLoanForm.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Civil Servant</a
-              >
-              <a
-                href="./loanforms/ASLoanform.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Asset Secured</a
-              >
-            </div>
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            aria-haspopup="true" aria-expanded="false" id="desktop-products-toggle">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </button>
+          <div
+            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
+            id="desktop-products-menu">
+            <a href="./loanforms/CSLoanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil
+              Servant</a>
+            <a href="./loanforms/ASLoanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset
+              Secured</a>
           </div>
+        </div>
 
-          <a
-            href="./contactus.html"
-            class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
+        <a href="./contactus.html"
+          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
+          Contact Us
+        </a>
+      </nav>
 
-        <!-- Mobile menu button -->
-        <button
-          class="md:hidden hamburger focus:outline-none"
-          id="mobile-menu-button"
-        >
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700"></span>
+      <button class="md:hidden hamburger focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="mobile-menu-button"
+        aria-label="Open mobile menu" aria-haspopup="true" aria-expanded="false">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+        <span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </div>
+
+    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
+      <div class="flex justify-end mb-6">
+        <button id="close-mobile-menu"
+          class="text-gray-500 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          aria-label="Close mobile menu">
+          <i class="fas fa-times text-xl"></i>
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <div
-        class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4"
-        id="mobile-menu"
-      >
-        <div class="flex justify-end mb-6">
+      <nav class="flex flex-col space-y-4">
+        <a href="../../public/index.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
+        <a href="./faqs.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
+        <a href="./aboutus.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
+        <a href="./terms&conditions.html"
+          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
+
+        <div class="px-3 py-2">
           <button
-            id="close-mobile-menu"
-            class="text-gray-500 hover:text-[#1E488F]"
-          >
-            <i class="fas fa-times text-xl"></i>
+            class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            id="mobile-products-toggle" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
           </button>
-        </div>
-
-        <nav class="flex flex-col space-y-4">
-          <a
-            href="../../public/index.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Home</a
-          >
-          <a
-            href="./faqs.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >FAQs</a
-          >
-          <a
-            href="./aboutus.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >About Us</a
-          >
-          <a
-            href="./terms&conditions.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Terms</a
-          >
-
-          <div class="px-3 py-2">
-            <button
-              class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
-              id="mobile-products-toggle"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-              <a
-                href="./loanforms/CSLoanForm.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Civil Servant</a
-              >
-              <a
-                href="./loanforms/ASLoanform.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Asset Secured</a
-              >
-            </div>
+          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+            <a href="./loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
+              Servant</a>
+            <a href="./loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
+              Secured</a>
           </div>
-
-          <a
-            href="./contactus.html"
-            class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Image Section -->
-    <!-- Hero Section -->
-    <div class="relative w-full h-[250px] md:h-[400px] overflow-hidden">
-      <!-- Background Image with overlay -->
-      <div class="absolute inset-0 bg-black/30 z-10"></div>
-
-      <!-- Background Image -->
-      <img
-        src="/src/images/dataprotection.avif"
-        alt="Happy Spectrum Credit customers"
-        class="w-full h-full object-cover"
-        loading="eager"
-        width="1920"
-        height="600"
-      />
-
-      <!-- Hero Content -->
-      <div
-        class="absolute inset-0 z-20 flex items-center justify-center text-center px-4"
-      >
-        <div class="max-w-4xl mx-auto">
-          <h1
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-md"
-          >
-            Data Protection Policy
-          </h1>
-          <p
-            class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md"
-          >
-            Your privacy and data security are our top priorities
-          </p>
         </div>
+
+        <a href="./contactus.html"
+          class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
+          Contact Us
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="relative w-full h-[250px] md:h-[400px] overflow-hidden">
+    <div class="absolute inset-0 bg-black/30 z-10"></div>
+
+    <picture>
+      <source srcset="/src/images/dataprotection.avif" type="image/avif" />
+      <source srcset="/src/images/dataprotection.webp" type="image/webp" />
+      <img src="/src/images/dataprotection.jpg" alt="Happy Spectrum Credit customers" class="w-full h-full object-cover"
+        loading="eager" width="1920" height="600" />
+    </picture>
+
+    <div class="absolute inset-0 z-20 flex items-center justify-center text-center px-4">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-md">
+          Data Protection Policy
+        </h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
+          Your privacy and data security are our top priorities
+        </p>
       </div>
     </div>
-    <!-- Main Content -->
-    <main class="min-h-screen policy-container">
-      <div class="container mx-auto px-4 py-12">
-        <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Table of Contents (Desktop) -->
-          <div class="hidden lg:block lg:w-1/4 toc-container">
-            <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-              <h2 class="font-bold text-lg mb-4 text-gray-800">
+  </div>
+  <main class="min-h-screen policy-container">
+    <div class="container mx-auto px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <div class="hidden lg:block lg:w-1/4 toc-container">
+          <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
+            <h2 class="font-bold text-lg mb-4 text-gray-800">
+              Table of Contents
+            </h2>
+            <ul class="space-y-2">
+              <li>
+                <a href="#section1" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                  1. Data Collection and Processing
+                </a>
+              </li>
+              <li>
+                <a href="#section2" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                  2. Customer Consent and Rights
+                </a>
+                <ul class="ml-4 mt-1 space-y-1">
+                  <li>
+                    <a href="#section2a" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                      2.1 Data Provision
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#section2b" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                      2.2 Processing Consent
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#section2c" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                      2.3 Data Retention
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#section2d" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                      2.4 Customer Rights
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#section2e" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                      2.5 Marketing Communications
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#section3" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                  3. Spectrum's Commitments
+                </a>
+              </li>
+              <li>
+                <a href="#section4" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
+                  4. Contact Information
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lg:w-3/4">
+          <div class="bg-white rounded-xl shadow-sm p-6 md:p-8">
+            <details class="lg:hidden mb-8 bg-gray-50 rounded-lg p-4">
+              <summary class="font-bold text-lg cursor-pointer focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                 Table of Contents
-              </h2>
-              <ul class="space-y-2">
+              </summary>
+              <ul class="mt-3 space-y-2">
                 <li>
-                  <a
-                    href="#section1"
-                    class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                  >
+                  <a href="#section1" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                     1. Data Collection and Processing
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#section2"
-                    class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                  >
+                  <a href="#section2" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                     2. Customer Consent and Rights
                   </a>
                   <ul class="ml-4 mt-1 space-y-1">
                     <li>
-                      <a
-                        href="#section2a"
-                        class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                      >
+                      <a href="#section2a" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                         2.1 Data Provision
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#section2b"
-                        class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                      >
+                      <a href="#section2b" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                         2.2 Processing Consent
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#section2c"
-                        class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                      >
+                      <a href="#section2c" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                         2.3 Data Retention
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#section2d"
-                        class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                      >
+                      <a href="#section2d" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                         2.4 Customer Rights
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#section2e"
-                        class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                      >
+                      <a href="#section2e" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                         2.5 Marketing Communications
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a
-                    href="#section3"
-                    class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                  >
+                  <a href="#section3" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                     3. Spectrum's Commitments
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#section4"
-                    class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                  >
+                  <a href="#section4" class="toc-link text-gray-600 hover:text-blue-600 block py-1">
                     4. Contact Information
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
+            </details>
 
-          <!-- Policy Content -->
-          <div class="lg:w-3/4">
-            <div class="bg-white rounded-xl shadow-sm p-6 md:p-8">
-              <!-- Table of Contents (Mobile) -->
-              <details class="lg:hidden mb-8 bg-gray-50 rounded-lg p-4">
-                <summary
-                  class="font-bold text-lg cursor-pointer focus:outline-none"
-                >
-                  Table of Contents
-                </summary>
-                <ul class="mt-3 space-y-2">
-                  <li>
-                    <a
-                      href="#section1"
-                      class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                    >
-                      1. Data Collection and Processing
-                    </a>
+            <ol class="list-none space-y-8 text-gray-700" style="counter-reset: main-item">
+              <li id="section1" class="clause-item main" style="counter-increment: main-item">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">
+                  Data Collection and Processing
+                </h2>
+                <p class="text-sm leading-relaxed">
+                  It is hereby understood and agreed that the data herein has
+                  been directly obtained from the Customer who has provided
+                  this data to Spectrum to facilitate the processing of the
+                  Revolving Credit Facility sought by the Customer.
+                </p>
+              </li>
+
+              <li id="section2" class="clause-item main" style="counter-increment: main-item; counter-reset: sub-item;">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">
+                  Customer Consent and Rights
+                </h2>
+                <p class="text-sm leading-relaxed mb-4">
+                  It is hereby understood and agreed that by signing this
+                  Agreement the Customer:
+                </p>
+                <ol class="list-none space-y-6 sub-clause">
+                  <li id="section2a" class="clause-item sub" style="counter-increment: sub-item">
+                    <h3 class="text-base font-medium text-gray-800 mb-1">
+                      Data Provision
+                    </h3>
+                    <p class="text-sm leading-relaxed">
+                      Shall provide personal data which is required for
+                      facilitating the processing of the Revolving Credit
+                      Facility, the establishing and maintenance of business
+                      and for the fulfilment of Spectrum's contractual and
+                      legal obligation;
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      href="#section2"
-                      class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                    >
-                      2. Customer Consent and Rights
-                    </a>
-                    <ul class="ml-4 mt-1 space-y-1">
-                      <li>
-                        <a
-                          href="#section2a"
-                          class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                        >
-                          2.1 Data Provision
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#section2b"
-                          class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                        >
-                          2.2 Processing Consent
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#section2c"
-                          class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                        >
-                          2.3 Data Retention
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#section2d"
-                          class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                        >
-                          2.4 Customer Rights
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#section2e"
-                          class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                        >
-                          2.5 Marketing Communications
-                        </a>
-                      </li>
-                    </ul>
+
+                  <li id="section2b" class="clause-item sub" style="counter-increment: sub-item">
+                    <h3 class="text-base font-medium text-gray-800 mb-1">
+                      Processing Consent
+                    </h3>
+                    <p class="text-sm leading-relaxed">
+                      Consents to Spectrum processing the data as per its
+                      internal company policy and the Act No. 3 The Data
+                      Protection Act 2021 of Zambia ("Data Protection Act");
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      href="#section3"
-                      class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                    >
-                      3. Spectrum's Commitments
-                    </a>
+
+                  <li id="section2c" class="clause-item sub" style="counter-increment: sub-item">
+                    <h3 class="text-base font-medium text-gray-800 mb-1">
+                      Data Retention
+                    </h3>
+                    <p class="text-sm leading-relaxed">
+                      Has given consent to Spectrum to continue holding and
+                      processing the data provided even after all obligations
+                      under the Revolving Credit Facility have been settled
+                      for a variety of purposes including but not limited to
+                      cross-selling, research, product development, analysis
+                      of market trends, and operation of Spectrum's
+                      regulations and procedures;
+                    </p>
                   </li>
-                  <li>
-                    <a
-                      href="#section4"
-                      class="toc-link text-gray-600 hover:text-blue-600 block py-1"
-                    >
-                      4. Contact Information
-                    </a>
+
+                  <li id="section2d" class="clause-item sub" style="counter-increment: sub-item">
+                    <h3 class="text-base font-medium text-gray-800 mb-1">
+                      Customer Rights
+                    </h3>
+                    <p class="text-sm leading-relaxed">
+                      Is at liberty to exercise its rights as a data subject
+                      and as is provided by the Data Protection Act;
+                    </p>
                   </li>
-                </ul>
-              </details>
 
-              <!-- Policy Content -->
-              <ol
-                class="list-none space-y-8 text-gray-700"
-                style="counter-reset: item"
-              >
-                <!-- Section 1 -->
-                <li
-                  id="section1"
-                  class="clause-item"
-                  style="counter-increment: item"
-                >
-                  <h2 class="text-lg font-semibold text-gray-800 mb-2">
-                    Data Collection and Processing
-                  </h2>
-                  <p class="text-sm leading-relaxed">
-                    It is hereby understood and agreed that the data herein has
-                    been directly obtained from the Customer who has provided
-                    this data to Spectrum to facilitate the processing of the
-                    Revolving Credit Facility sought by the Customer.
-                  </p>
-                </li>
+                  <li id="section2e" class="clause-item sub" style="counter-increment: sub-item">
+                    <h3 class="text-base font-medium text-gray-800 mb-1">
+                      Marketing Communications
+                    </h3>
+                    <p class="text-sm leading-relaxed">
+                      Consents to the use of their personal data from time to
+                      time by Spectrum to market Spectrum's products. The
+                      Customer may opt out of receiving marketing
+                      communication at any time within the duration of the
+                      Revolving Credit Facility by officially communicating to
+                      Spectrum through the prescribed channels of
+                      communication.
+                    </p>
+                  </li>
+                </ol>
+              </li>
 
-                <!-- Section 2 -->
-                <li
-                  id="section2"
-                  class="clause-item"
-                  style="counter-increment: item"
-                >
-                  <h2 class="text-lg font-semibold text-gray-800 mb-2">
-                    Customer Consent and Rights
-                  </h2>
-                  <p class="text-sm leading-relaxed mb-4">
-                    It is hereby understood and agreed that by signing this
-                    Agreement the Customer:
-                  </p>
-                  <ol class="list-none space-y-6 sub-clause">
-                    <!-- Subsection 2.1 -->
-                    <li
-                      id="section2a"
-                      class="clause-item"
-                      style="counter-increment: item"
-                    >
-                      <h3 class="text-base font-medium text-gray-800 mb-1">
-                        Data Provision
-                      </h3>
-                      <p class="text-sm leading-relaxed">
-                        Shall provide personal data which is required for
-                        facilitating the processing of the Revolving Credit
-                        Facility, the establishing and maintenance of business
-                        and for the fulfilment of Spectrum's contractual and
-                        legal obligation;
-                      </p>
-                    </li>
+              <li id="section3" class="clause-item main" style="counter-increment: main-item">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">
+                  Spectrum's Commitments
+                </h2>
+                <p class="text-sm leading-relaxed">
+                  Spectrum undertakes to ensure the personal data provided by
+                  the Customer is processed in accordance with the Data
+                  Protection Act.
+                </p>
+              </li>
 
-                    <!-- Subsection 2.2 -->
-                    <li
-                      id="section2b"
-                      class="clause-item"
-                      style="counter-increment: item"
-                    >
-                      <h3 class="text-base font-medium text-gray-800 mb-1">
-                        Processing Consent
-                      </h3>
-                      <p class="text-sm leading-relaxed">
-                        Consents to Spectrum processing the data as per its
-                        internal company policy and the Act No. 3 The Data
-                        Protection Act 2021 of Zambia ("Data Protection Act");
-                      </p>
-                    </li>
+              <li id="section4" class="clause-item main" style="counter-increment: main-item">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2">
+                  Contact Information
+                </h2>
+                <p class="text-sm leading-relaxed">
+                  For queries and more information on Spectrum's data
+                  protection policy and privacy statement, the Customers may
+                  contact Spectrum's data protection personnel at:
+                  <a href="mailto:online@spectrumcredit.co.zm"
+                    class="text-blue-600 font-medium hover:underline">online@spectrumcredit.co.zm</a>
+                </p>
+              </li>
+            </ol>
 
-                    <!-- Subsection 2.3 -->
-                    <li
-                      id="section2c"
-                      class="clause-item"
-                      style="counter-increment: item"
-                    >
-                      <h3 class="text-base font-medium text-gray-800 mb-1">
-                        Data Retention
-                      </h3>
-                      <p class="text-sm leading-relaxed">
-                        Has given consent to Spectrum to continue holding and
-                        processing the data provided even after all obligations
-                        under the Revolving Credit Facility have been settled
-                        for a variety of purposes including but not limited to
-                        cross-selling, research, product development, analysis
-                        of market trends, and operation of Spectrum's
-                        regulations and procedures;
-                      </p>
-                    </li>
-
-                    <!-- Subsection 2.4 -->
-                    <li
-                      id="section2d"
-                      class="clause-item"
-                      style="counter-increment: item"
-                    >
-                      <h3 class="text-base font-medium text-gray-800 mb-1">
-                        Customer Rights
-                      </h3>
-                      <p class="text-sm leading-relaxed">
-                        Is at liberty to exercise its rights as a data subject
-                        and as is provided by the Data Protection Act;
-                      </p>
-                    </li>
-
-                    <!-- Subsection 2.5 -->
-                    <li
-                      id="section2e"
-                      class="clause-item"
-                      style="counter-increment: item"
-                    >
-                      <h3 class="text-base font-medium text-gray-800 mb-1">
-                        Marketing Communications
-                      </h3>
-                      <p class="text-sm leading-relaxed">
-                        Consents to the use of their personal data from time to
-                        time by Spectrum to market Spectrum's products. The
-                        Customer may opt out of receiving marketing
-                        communication at any time within the duration of the
-                        Revolving Credit Facility by officially communicating to
-                        Spectrum through the prescribed channels of
-                        communication.
-                      </p>
-                    </li>
-                  </ol>
-                </li>
-
-                <!-- Section 3 -->
-                <li
-                  id="section3"
-                  class="clause-item"
-                  style="counter-increment: item"
-                >
-                  <h2 class="text-lg font-semibold text-gray-800 mb-2">
-                    Spectrum's Commitments
-                  </h2>
-                  <p class="text-sm leading-relaxed">
-                    Spectrum undertakes to ensure the personal data provided by
-                    the Customer is processed in accordance with the Data
-                    Protection Act.
-                  </p>
-                </li>
-
-                <!-- Section 4 -->
-                <li
-                  id="section4"
-                  class="clause-item"
-                  style="counter-increment: item"
-                >
-                  <h2 class="text-lg font-semibold text-gray-800 mb-2">
-                    Contact Information
-                  </h2>
-                  <p class="text-sm leading-relaxed">
-                    For queries and more information on Spectrum's data
-                    protection policy and privacy statement, the Customers may
-                    contact Spectrum's data protection personnel at:
-                    <a
-                      href="mailto:online@spectrumcredit.co.zm"
-                      class="text-blue-600 font-medium hover:underline"
-                      >online@spectrumcredit.co.zm</a
-                    >
-                  </p>
-                </li>
-              </ol>
-
-              <!-- Acceptance Checkbox -->
-              <div class="mt-12 pt-6 border-t border-gray-200">
-                <div class="flex items-start">
-                  <div class="flex items-center h-5">
-                    <input
-                      id="policy-acceptance"
-                      name="policy-acceptance"
-                      type="checkbox"
-                      class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded transition"
-                    />
-                  </div>
-                  <div class="ml-3 text-sm">
-                    <label
-                      for="policy-acceptance"
-                      class="font-medium text-gray-700"
-                    >
-                      I acknowledge that I have read and understood Spectrum
-                      Credit's Data Protection Policy
-                    </label>
-                  </div>
+            <div class="mt-12 pt-6 border-t border-gray-200">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="policy-acceptance" name="policy-acceptance" type="checkbox"
+                    class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded transition" />
                 </div>
-
-                <button
-                  id="accept-button"
-                  disabled
-                  class="mt-4 px-6 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gray-400 cursor-not-allowed transition"
-                >
-                  Acknowledge Policy
-                </button>
+                <div class="ml-3 text-sm">
+                  <label for="policy-acceptance" class="font-medium text-gray-700">
+                    I acknowledge that I have read and understood Spectrum
+                    Credit's Data Protection Policy
+                  </label>
+                </div>
               </div>
+
+              <button id="accept-button" disabled
+                class="mt-4 px-6 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gray-400 cursor-not-allowed transition">
+                Acknowledge Policy
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- Back to Top Button -->
-    <button
-      onclick="topFunction()"
-      id="back-to-top"
-      class="back-to-top bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition transform"
-    >
-      <i class="fas fa-arrow-up"></i>
-    </button>
+  <button onclick="topFunction()" id="back-to-top"
+    class="back-to-top bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition transform focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <!-- Column 1 -->
-          <div>
-            <img
-              src="/src/images/sclogo.png"
-              alt="Spectrum Credit Logo"
-              class="h-10 mb-4"
-            />
-            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Column 2 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Company</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="../../public/index.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./aboutus.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/products"
-                  class="text-gray-400 hover:text-white transition"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./contact"
-                  class="text-gray-400 hover:text-white transition"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 3 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Legal</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="/whistleblower"
-                  class="text-gray-400 hover:text-white transition"
-                  >Whistleblower Portal</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/grievance"
-                  class="text-gray-400 hover:text-white transition"
-                  >Grievance Reporting</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/terms"
-                  class="text-gray-400 hover:text-white transition"
-                  >Terms and Conditions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/policy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Environment and Social Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/privacy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Data Privacy Statement</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/charter"
-                  class="text-gray-400 hover:text-white transition"
-                  >Customer Service Charter</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 4 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-            <address class="text-gray-400 not-italic text-sm">
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
-                Woodlands, Lusaka, Zambia
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
-              </p>
-            </address>
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" width="140" height="40" />
+          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
 
-        <div
-          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
-        >
-          <p>
-            &copy; <span id="current-year">2025</span> Spectrum Credit. All
-            rights reserved. |
-            <a href="/privacy" class="hover:text-white transition"
-              >Privacy Policy</a
-            >
-            |
-            <a href="/terms" class="hover:text-white transition"
-              >Terms of Service</a
-            >
-            |
-            <a href="/complaints" class="hover:text-white transition"
-              >Complaints</a
-            >
-          </p>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="./aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+            </li>
+            <li>
+              <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
+            </li>
+            <li>
+              <a href="./contact" class="text-gray-400 hover:text-white transition">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
+            </li>
+            <li>
+              <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
+            </li>
+            <li>
+              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and Conditions</a>
+            </li>
+            <li>
+              <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
+            </li>
+            <li>
+              <a href="/privacy" class="text-gray-400 hover:text-white transition">Data Privacy Statement</a>
+            </li>
+            <li>
+              <a href="/charter" class="text-gray-400 hover:text-white transition">Customer Service Charter</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+          <address class="text-gray-400 not-italic text-sm">
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+              Woodlands, Lusaka, Zambia
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+            </p>
+          </address>
         </div>
       </div>
-    </footer>
 
-    <script>
-      // Mobile menu toggle
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMobileMenu = document.getElementById("close-mobile-menu");
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+        <p>
+          &copy; <span id="current-year">2025</span> Spectrum Credit. All
+          rights reserved. |
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+          |
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
+          |
+          <a href="/complaints" class="hover:text-white transition">Complaints</a>
+        </p>
+      </div>
+    </div>
+  </footer>
 
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenuButton.classList.toggle("open");
-        mobileMenu.classList.toggle("open");
-        document.body.style.overflow = mobileMenu.classList.contains("open")
-          ? "hidden"
-          : "auto";
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMobileMenu = document.getElementById("close-mobile-menu");
+    const desktopProductsToggle = document.getElementById("desktop-products-toggle");
+    const desktopProductsMenu = document.getElementById("desktop-products-menu");
+    const mobileProductsToggle = document.getElementById("mobile-products-toggle");
+    const mobileProductsMenu = document.getElementById("mobile-products-menu");
+    const mainHeader = document.getElementById("main-header");
+
+
+    mobileMenuButton.addEventListener("click", () => {
+      const isOpen = mobileMenuButton.classList.toggle("open");
+      mobileMenu.classList.toggle("open");
+      document.body.style.overflow = isOpen ? "hidden" : "auto";
+      mobileMenuButton.setAttribute("aria-expanded", isOpen);
+    });
+
+    closeMobileMenu.addEventListener("click", () => {
+      mobileMenuButton.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      document.body.style.overflow = "auto";
+      mobileMenuButton.setAttribute("aria-expanded", "false");
+    });
+
+    // Desktop products dropdown ARIA
+    if (desktopProductsToggle && desktopProductsMenu) {
+      desktopProductsToggle.addEventListener('click', () => {
+        const isExpanded = desktopProductsToggle.getAttribute('aria-expanded') === 'true';
+        desktopProductsToggle.setAttribute('aria-expanded', !isExpanded);
+        desktopProductsMenu.classList.toggle('hidden');
       });
 
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenuButton.classList.remove("open");
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
-      });
-
-      // Set current year
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
-
-      // Back to top button
-      const backToTopButton = document.getElementById("back-to-top");
-
-      window.onscroll = function () {
-        if (
-          document.body.scrollTop > 300 ||
-          document.documentElement.scrollTop > 300
-        ) {
-          backToTopButton.style.display = "flex";
-        } else {
-          backToTopButton.style.display = "none";
+      // Close dropdown if clicking outside
+      document.addEventListener('click', (event) => {
+        if (!desktopProductsToggle.contains(event.target) && !desktopProductsMenu.contains(event.target)) {
+          desktopProductsToggle.setAttribute('aria-expanded', 'false');
+          desktopProductsMenu.classList.add('hidden');
         }
-      };
+      });
+    }
 
-      function topFunction() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Mobile products dropdown toggle ARIA
+    if (mobileProductsToggle && mobileProductsMenu) {
+      mobileProductsToggle.addEventListener('click', () => {
+        const isExpanded = mobileProductsMenu.classList.toggle('hidden');
+        mobileProductsToggle.setAttribute('aria-expanded', !isExpanded);
+      });
+    }
+
+    // Set current year
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    // Back to top button
+    const backToTopButton = document.getElementById("back-to-top");
+
+    window.onscroll = function () {
+      if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+      ) {
+        backToTopButton.style.display = "flex";
+      } else {
+        backToTopButton.style.display = "none";
       }
+    };
 
-      // Policy acceptance toggle
-      const policyCheckbox = document.getElementById("policy-acceptance");
-      const acceptButton = document.getElementById("accept-button");
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-      policyCheckbox.addEventListener("change", function () {
-        if (this.checked) {
-          acceptButton.disabled = false;
-          acceptButton.classList.remove("bg-gray-400", "cursor-not-allowed");
-          acceptButton.classList.add("bg-blue-600", "hover:bg-blue-700");
-        } else {
-          acceptButton.disabled = true;
-          acceptButton.classList.add("bg-gray-400", "cursor-not-allowed");
-          acceptButton.classList.remove("bg-blue-600", "hover:bg-blue-700");
+    // Policy acceptance toggle
+    const policyCheckbox = document.getElementById("policy-acceptance");
+    const acceptButton = document.getElementById("accept-button");
+    const originalButtonText = acceptButton.textContent;
+
+    policyCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        acceptButton.disabled = false;
+        acceptButton.classList.remove("bg-gray-400", "cursor-not-allowed");
+        acceptButton.classList.add("bg-blue-600", "hover:bg-blue-700");
+      } else {
+        acceptButton.disabled = true;
+        acceptButton.classList.add("bg-gray-400", "cursor-not-allowed");
+        acceptButton.classList.remove("bg-blue-600", "hover:bg-blue-700");
+        acceptButton.textContent = originalButtonText; // Reset text if unchecked
+      }
+    });
+
+    acceptButton.addEventListener("click", function () {
+      if (!acceptButton.disabled) {
+        acceptButton.textContent = "Policy Acknowledged!";
+        // Optional: Revert text after a few seconds
+        setTimeout(() => {
+          if (policyCheckbox.checked) { // Only revert if still checked
+            acceptButton.textContent = originalButtonText;
+          }
+        }, 3000);
+        // In a real application, you would record this acceptance via an API call
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          const headerOffset = mainHeader ? mainHeader.offsetHeight : 0; // Dynamically get header height
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // For mobile menu, close it after clicking a link
+          if (mobileMenu.classList.contains("open")) {
+            mobileMenuButton.classList.remove("open");
+            mobileMenu.classList.remove("open");
+            document.body.style.overflow = "auto";
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
         }
       });
+    });
+  </script>
+</body>
 
-      acceptButton.addEventListener("click", function () {
-        alert("Thank you for acknowledging our Data Protection Policy");
-        // In a real application, you would record this acceptance
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-    </script>
-  </body>
 </html>
