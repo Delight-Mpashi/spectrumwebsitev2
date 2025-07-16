@@ -340,7 +340,7 @@
 
       <div class="bg-white rounded-xl shadow-sm p-6 max-w-md mx-auto border-t-4 border-[#1E488F]">
 
-        <div id="page1" class="form-page">
+        <div id="page1" class="form-page active">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Personal Information
           </h2>
@@ -406,7 +406,7 @@
             </button>
           </div>
         </div>
-        <div id="page2" class="form-page active">
+        <div id="page2" class="form-page">
           <h2 class="text-xl font-bold text-[#1E488F] mb-6">
             Employment Information
           </h2>
@@ -415,7 +415,7 @@
             <div>
               <label for="employeeNumber" class="block text-sm font-medium text-gray-700 mb-1">Employee
                 Number (max 8 digits)</label>
-              <input type="text" id="employeeNumber" maxlength="8" pattern="\d{1,8}" 
+              <input type="text" id="employeeNumber" maxlength="8" pattern="\d{1,8}"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F] focus:border-[#1E488F]"
                 required />
               <p class="text-xs text-gray-500 mt-1">Must be 1-8 digits only</p>
@@ -438,49 +438,43 @@
 
             <!-- Loan Calculation Section -->
             <!-- Loan Calculation Section -->
-<div class="bg-white border border-[#1E488F]/10 rounded-2xl p-6 shadow-sm mt-6 space-y-6">
-  <div>
-    <label class="block text-sm font-semibold text-gray-700 mb-1">Max Possible Loan (ZMW)</label>
-    <div class="text-3xl font-extrabold text-[#1E488F]" id="maxLoanAmount">K0.00</div>
-  </div>
+            <div class="bg-white border border-[#1E488F]/10 rounded-2xl p-6 shadow-sm mt-6 space-y-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Max Possible Loan (ZMW)</label>
+                <div class="text-3xl font-extrabold text-[#1E488F]" id="maxLoanAmount">K0.00</div>
+              </div>
 
-  <div>
-    <label for="loanTerm" class="block text-sm font-semibold text-gray-700 mb-2">Select Loan Term</label>
-    <div class="relative">
-      <input
-        type="range"
-        id="loanTerm"
-        min="6"
-        max="60"
-        step="6"
-        value="12"
-        class="w-full accent-[#1E488F] h-2 rounded-full appearance-none bg-gray-200"
-        oninput="document.getElementById('termLabel').innerText = this.value + ' months';"
-      />
-      <div class="text-sm text-center text-[#1E488F] font-medium mt-1" id="termLabel">12 months</div>
-    </div>
-    <div class="flex justify-between text-xs text-gray-500 mt-1 px-1">
-      <span>6</span>
-      <span>12</span>
-      <span>18</span>
-      <span>24</span>
-      <span>36</span>
-      <span>48</span>
-      <span>60</span>
-    </div>
-  </div>
+              <div>
+                <label for="loanTerm" class="block text-sm font-semibold text-gray-700 mb-2">Select Loan Term</label>
+                <div class="relative">
+                  <input type="range" id="loanTerm" min="6" max="60" step="6" value="12"
+                    class="w-full accent-[#1E488F] h-2 rounded-full appearance-none bg-gray-200"
+                    oninput="document.getElementById('termLabel').innerText = this.value + ' months';" />
+                  <div class="text-sm text-center text-[#1E488F] font-medium mt-1" id="termLabel">12 months</div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-500 mt-1 px-1">
+                  <span>6</span>
+                  <span>12</span>
+                  <span>18</span>
+                  <span>24</span>
+                  <span>36</span>
+                  <span>48</span>
+                  <span>60</span>
+                </div>
+              </div>
 
-  <div>
-    <label class="block text-sm font-semibold text-gray-700 mb-1">Monthly Installment (ZMW)</label>
-    <div class="text-3xl font-extrabold text-[#1E488F]" id="monthlyInstallment">K0.00</div>
-    <p class="text-xs text-gray-500 mt-1">Based on the selected loan term</p>
-  </div>
-</div>
-<!-- End Loan Calculation Section -->
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Monthly Installment (ZMW)</label>
+                <div class="text-3xl font-extrabold text-[#1E488F]" id="monthlyInstallment">K0.00</div>
+                <p class="text-xs text-gray-500 mt-1">Based on the selected loan term</p>
+              </div>
+            </div>
+            <!-- End Loan Calculation Section -->
 
             <div class="flex items-start mt-4">
               <input type="checkbox" id="finalConsent" class="mt-1 mr-2 accent-[#1E488F]" required />
-              <label for="finalConsent" class="text-sm text-gray-700">I confirm that all information provided is accurate and I agree to the terms and conditions.</label>
+              <label for="finalConsent" class="text-sm text-gray-700">I confirm that all information provided is
+                accurate and I agree to the terms and conditions.</label>
             </div>
           </div>
 
@@ -726,12 +720,12 @@
       const loanTermSlider = document.getElementById("loanTerm");
       const maxLoanAmountElement = document.getElementById("maxLoanAmount");
       const monthlyInstallmentElement = document.getElementById("monthlyInstallment");
-    
+
       // ✅ Employee number validation: only digits, max 8 characters
       employeeNumberInput?.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/\D/g, '').slice(0, 8);
       });
-    
+
       const flatRates = {
         6: 0.02409524,
         12: 0.02321884,
@@ -740,24 +734,24 @@
         48: 0.02634731,
         60: 0.02753518
       };
-    
+
       const FIXED_FEE = 0.0294;
       const MONTHLY_FEE = 0.0055;
-    
+
       // Clean Employee Number input
       employeeNumberInput?.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/\D/g, '').slice(0, 8);
       });
-    
+
       const formatCurrency = (amount) => {
         return `K${amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
       };
-    
+
       // PMEC affordability: Net - (40% of Basic) - 200
       const calculateAffordability = (netPay, basicPay) => {
         return netPay - (basicPay * 0.4) - 200;
       };
-    
+
       // Reverse Excel-style Loan Amount Formula
       const calculateLoanAmount = (affordability, months, flatRate) => {
         const numerator = affordability * months;
@@ -765,25 +759,25 @@
         const loanAmount = numerator / denominator;
         return loanAmount / 1.15;
       };
-    
+
       // Excel-style Installment Formula (O13)
       const calculateInstallment = (loanAmount, months, flatRate) => {
         const installment = loanAmount * 1.15 * (1 / months + flatRate + (FIXED_FEE / months) + MONTHLY_FEE);
         return installment;
       };
-    
+
       const updateLoanDetails = () => {
         const netPay = parseFloat(netPayInput.value) || 0;
         const basicPay = parseFloat(basicPayInput.value) || 0;
         const months = parseInt(loanTermSlider.value);
-    
+
         if (netPay > 0 && basicPay > 0 && flatRates.hasOwnProperty(months)) {
           const flatRate = flatRates[months];
           const affordability = calculateAffordability(netPay, basicPay);
-    
+
           const loanAmount = calculateLoanAmount(affordability, months, flatRate);
           const installment = calculateInstallment(loanAmount, months, flatRate);
-    
+
           maxLoanAmountElement.textContent = formatCurrency(loanAmount);
           monthlyInstallmentElement.textContent = formatCurrency(installment);
         } else {
@@ -791,20 +785,20 @@
           monthlyInstallmentElement.textContent = "K0.00";
         }
       };
-    
+
       // Bind all events
       [netPayInput, basicPayInput, loanTermSlider].forEach(input =>
         input.addEventListener("input", updateLoanDetails)
       );
-    
+
       updateLoanDetails();
     });
-    
+
 
     // Form submission logic (Submit Application)
-    document.getElementById("submitApplication").addEventListener("click", function(e) {
+    document.getElementById("submitApplication").addEventListener("click", function (e) {
       e.preventDefault();
-      
+
       // Define required fields for Page 2
       const requiredFields = ["employeeNumber", "basicPay", "netPay"];
       let isValid = true;
@@ -845,10 +839,10 @@
         };
 
         console.log("Form submitted:", formData); // Log data to console
-        
+
         // In a real application, you would send this data to your server
         alert("Application submitted successfully! Our team will contact you shortly.");
-        
+
         // Here you would typically redirect to a thank you page or reset the form
         // window.location.href = "/thank-you.html";
       } else {

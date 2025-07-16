@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Report ethical concerns anonymously to Spectrum Credit in Zambia via their whistleblower portal."
+    />
+    <title>Whistle Blower Portal - Spectrum Credit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdgNsjCFyY2dAyQ9Yw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              spectrum: {
+                primary: "#1d62e3",
+                "primary-dark": "#1a56cb",
+                secondary: "#4caf50",
+                dark: "#1e293b",
+                light: "#f8fafc",
+                accent: "#f59e0b",
+              },
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
+        plugins: [require("@tailwindcss/forms")],
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="./index.html" class="flex items-center">
+          <img
+            src="../images/sclogo.png"
+            alt="Spectrum Credit Logo"
+            class="h-10"
+          />
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-1">
+          <a
+            href="../../public/index.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+          <a
+            href="./faqs.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >FAQs</a
+          >
+          <a
+            href="./aboutus.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >About Us</a
+          >
+          <a
+            href="./terms&conditions.html"
+            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >Terms</a
+          >
+
+          <div class="relative group">
+            <button
+              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block"
+            >
+              <a
+                href="./loanforms/csloanForm.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Civil Servant</a
+              >
+              <a
+                href="./loanforms/ASLoanform.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="./contactus.html"
+            class="ml-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition"
+          >
+            Contact Us
+          </a>
+        </nav>
+
+        <button
+          class="md:hidden hamburger focus:outline-none"
+          id="mobile-menu-button"
+          aria-label="Open mobile menu"
+        >
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
+          <span class="block w-6 h-0.5 bg-gray-700"></span>
+        </button>
+      </div>
+
+      <div
+        class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+        id="mobile-menu"
+        aria-hidden="true"
+      >
+        <div class="flex justify-end mb-6">
+          <button
+            id="close-mobile-menu"
+            class="text-gray-500 hover:text-gray-700 focus:outline-none"
+            aria-label="Close mobile menu"
+          >
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-4">
+          <a
+            href="../../public/index.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Home</a
+          >
+          <a
+            href="./faqs.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >FAQs</a
+          >
+          <a
+            href="./aboutus.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >About Us</a
+          >
+          <a
+            href="./terms&conditions.html"
+            class="px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded"
+            >Terms</a
+          >
+
+          <div class="px-3 py-2">
+            <button
+              class="flex items-center justify-between w-full font-medium text-gray-700"
+              id="mobile-products-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-products-menu"
+            >
+              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
+              <a
+                href="./loanforms/csloanForm.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Civil Servant</a
+              >
+              <a
+                href="./loanforms/ASLoanform.html"
+                class="block py-2 text-gray-700 hover:text-blue-600"
+                >Asset Secured</a
+              >
+            </div>
+          </div>
+
+          <a
+            href="./contactus.html"
+            class="mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md text-center hover:bg-blue-700 transition"
+          >
+            Contact Us
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:px-6 lg:px-24">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-4">
+        Spectrum Credit Anonymous Whistle Blower Portal
+      </h1>
+      <p class="text-lg text-gray-700 mb-8">
+        Spectrum is committed to fair and ethical business conduct. An effective
+        Whistle blow will go a long way in ensuring that the highest ethical
+        standards are always maintained. Any disclosure made here is treated in
+        the strictest confidence and the identity of the whistle blower is
+        highly protected.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 mt-6">
+        What can be reported?
+      </h2>
+      <p class="text-base text-gray-700 mb-4">
+        Reportable misconduct covered under this policy includes but is not
+        limited to:
+      </p>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-8 pl-4">
+        <li class="mb-2">
+          All forms of financial malpractice or impropriety such as fraud,
+          corruption, bribery, forgery, blackmail, theft misappropriation of
+          funds and classified documents
+        </li>
+        <li class="mb-2">
+          Failure to comply with legal obligation, statuses, and regulatory
+          directives
+        </li>
+        <li class="mb-2">
+          Actions detrimental to Health and Safety or the Environment
+        </li>
+        <li class="mb-2">Any form of criminal activity</li>
+        <li class="mb-2">
+          Improper conduct or unethical behavior that undermines universal and
+          core ethical values such as integrity, respect, honesty,
+          accountability, and fairness
+        </li>
+        <li class="mb-2">Other forms of corporate governance breaches</li>
+        <li class="mb-2">
+          Connected transactions not disclosed or reported in line with
+          regulations
+        </li>
+        <li class="mb-2">
+          Insider abuse - where employees with special privileges and knowledge
+          or operations and information, use of this knowledge and information
+          to alter or disable security controls for their own benefits and
+          detriment of the company
+        </li>
+        <li class="mb-2">Non-disclosure of conflict of interest</li>
+      </ol>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 mt-6">
+        What happens after I file a report with Spectrum's 'Whistle Blower'?
+      </h2>
+      <p class="text-base text-gray-700 mb-8">
+        Once the disclosure is received, it will be assessed and where
+        necessary, an investigation will be launched. A report on the findings
+        will be presented and in consultation with the board, the appropriate
+        action will be taken. Where the whistle blower wishes to know the
+        feedback on the outcome of the investigation, a follow up is done to
+        update them.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 mt-6">
+        Is confidentiality for the whistle blower guaranteed?
+      </h2>
+      <p class="text-base text-gray-700 mb-8">
+        All concerns will be treated in confidence and every effort will be made
+        not to reveal the identity of the whistle blower. However, whilst making
+        all reasonable effort to maintain the confidentiality of the matter as a
+        whole, at a certain stage in the investigation it may be necessary to
+        reveal the identity of the whistle blower in order to conduct a thorough
+        investigation. In such cases, the whistle blower will be consulted and
+        their consent sought before any disclosure is made.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-800 mb-4 mt-6">
+        How do I file a report?
+      </h2>
+      <p class="text-base text-gray-700 mb-8">
+        To file a report, please use the form below or through
+        <a
+          href="mailto:whistleblowing.platcorp@gmail.com"
+          class="text-blue-600 hover:underline"
+          >whistleblowing.platcorp@gmail.com</a
+        >
+        You can choose to remain anonymous or provide your contact details for
+        follow-up.
+      </p>
+
+      <hr class="my-8 border-gray-300" />
+
+      <form
+        action="https://formspree.io/f/xjvowzqk"
+        id="whistleblower-form"
+        method="POST"
+        class="mt-6 bg-white p-6 rounded-lg shadow-xl border border-gray-200"
+      >
+        <h2 class="text-2xl font-bold text-blue-800 mb-4">
+          Personnel/Officer(s) Involved
+        </h2>
+        <h4 class="text-lg font-semibold text-gray-700 mb-4">
+          Consent for storing submitted data
+        </h4>
+        <label class="flex items-center mb-6 cursor-pointer">
+          <input
+            type="checkbox"
+            name="consent"
+            required
+            class="form-checkbox h-5 w-5 text-blue-600 rounded"
+          />
+          <span class="ml-2 text-gray-700 text-base"
+            >I consent to the storage of my submitted data.</span
+          >
+        </label>
+
+        <div class="space-y-4 mb-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name (optional)"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email (optional)"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+          <input
+            type="text"
+            name="involved_name"
+            placeholder="Name of Personnel/Officer(s) Involved"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Personnel/Officer(s) Phone Number (optional)"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+
+        <h3 class="text-xl font-bold text-blue-800 mb-4">
+          Malpractice Details
+        </h3>
+        <div class="space-y-4 mb-6">
+          <textarea
+            name="details"
+            placeholder="Please provide details of the malpractice or misconduct"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 h-32 resize-y"
+            required
+          ></textarea>
+          <textarea
+            name="malpractice_location"
+            placeholder="Where did the malpractice occur?"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 h-24 resize-y"
+            required
+          ></textarea>
+        </div>
+
+        <label class="block mb-6">
+          <span class="text-gray-700 text-base mb-2 block"
+            >Attach supporting documents (optional):</span
+          >
+          <input
+            type="file"
+            name="attachment"
+            class="w-full text-gray-700 bg-gray-50 p-2 rounded-md border border-gray-300"
+          />
+        </label>
+
+        <button
+          type="submit"
+          class="w-full sm:w-auto px-8 py-3 bg-blue-900 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+        >
+          Submit Report
+        </button>
+      </form>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <img
+              src="../images/sclogo.png"
+              alt="Spectrum Credit Logo"
+              class="h-10 mb-4"
+            />
+            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="../../public/index.html"
+                  class="text-gray-400 hover:text-white transition"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="./aboutus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./contactus.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-lg mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="./whistleblower.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Whistleblower Portal</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./grievance.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Grievance Reporting</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./terms&conditions.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Terms and Conditions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./policy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Environment and Social Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./privacy"
+                  class="text-gray-400 hover:text-white transition"
+                  >Data Privacy Statement</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./charter"
+                  class="text-gray-400 hover:text-white transition"
+                  >Customer Service Charter</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+            <address class="text-gray-400 not-italic text-sm">
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+                Woodlands, Lusaka, Zambia
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+              </p>
+              <p class="mb-2 flex items-center">
+                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
+        >
+          <p>
+            &copy; <span id="current-year">2025</span> Spectrum Credit. All
+            rights reserved. |
+            <a href="./privacy.html" class="hover:text-white transition"
+              >Privacy Policy</a
+            >
+            |
+            <a
+              href="./terms&conditions.html"
+              class="hover:text-white transition"
+              >Terms of Service</a
+            >
+            |
+            <a href="./complaints.html" class="hover:text-white transition"
+              >Complaints</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Set current year in the footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Mobile Menu Toggle Functionality
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMobileMenuButton =
+        document.getElementById("close-mobile-menu");
+      const mobileProductsToggle = document.getElementById(
+        "mobile-products-toggle"
+      );
+      const mobileProductsMenu = document.getElementById(
+        "mobile-products-menu"
+      );
+
+      // Function to open the mobile menu
+      function openMobileMenu() {
+        mobileMenu.classList.remove("translate-x-full");
+        mobileMenu.classList.add("translate-x-0");
+        mobileMenu.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden"; // Prevent scrolling body when menu is open
+      }
+
+      // Function to close the mobile menu
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("translate-x-0");
+        mobileMenu.classList.add("translate-x-full");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = ""; // Restore body scrolling
+        // Ensure products submenu is hidden when main menu closes
+        mobileProductsMenu.classList.add("hidden");
+        mobileProductsToggle.setAttribute("aria-expanded", "false");
+        mobileProductsToggle
+          .querySelector("i")
+          .classList.remove("fa-chevron-up");
+        mobileProductsToggle
+          .querySelector("i")
+          .classList.add("fa-chevron-down");
+      }
+
+      // Toggle mobile menu on button click
+      mobileMenuButton.addEventListener("click", openMobileMenu);
+      closeMobileMenuButton.addEventListener("click", closeMobileMenu);
+
+      // Close mobile menu when clicking outside (optional, but good for UX)
+      document.addEventListener("click", function (event) {
+        if (
+          !mobileMenu.contains(event.target) &&
+          !mobileMenuButton.contains(event.target) &&
+          mobileMenu.classList.contains("translate-x-0")
+        ) {
+          closeMobileMenu();
+        }
+      });
+
+      // Mobile Products Submenu Toggle
+      mobileProductsToggle.addEventListener("click", function () {
+        const isExpanded =
+          mobileProductsToggle.getAttribute("aria-expanded") === "true";
+        if (isExpanded) {
+          mobileProductsMenu.classList.add("hidden");
+          mobileProductsToggle.setAttribute("aria-expanded", "false");
+          mobileProductsToggle
+            .querySelector("i")
+            .classList.remove("fa-chevron-up");
+          mobileProductsToggle
+            .querySelector("i")
+            .classList.add("fa-chevron-down");
+        } else {
+          mobileProductsMenu.classList.remove("hidden");
+          mobileProductsToggle.setAttribute("aria-expanded", "true");
+          mobileProductsToggle
+            .querySelector("i")
+            .classList.remove("fa-chevron-down");
+          mobileProductsToggle
+            .querySelector("i")
+            .classList.add("fa-chevron-up");
+        }
+      });
+    </script>
+  </body>
+</html>
