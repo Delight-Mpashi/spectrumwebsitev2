@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/src/js/terms&conditions.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -171,7 +172,7 @@
 </head>
 
 <body class="min-h-screen">
-  <header class="bg-white shadow-sm sticky top-0 z-50" id="main-header">
+  <header class="bg-white shadow-sm sticky top-0 z-50 px-4 md:px-10 lg:px-24 h-16 md:h-20" id="main-header">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="/" class="flex items-center">
         <img src="../images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" width="140" height="40" />
@@ -180,11 +181,8 @@
       <nav class="hidden md:flex items-center space-x-1">
         <a href="/public/index.html"
           class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-        <a href="./faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
         <a href="./aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
           Us</a>
-        <a href="./terms&conditions.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
 
         <div class="relative group">
           <button
@@ -228,12 +226,8 @@
       <nav class="flex flex-col space-y-4">
         <a href="../../public/index.html"
           class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
-        <a href="./faqs.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
         <a href="./aboutus.html"
           class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
-        <a href="./terms&conditions.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
 
         <div class="px-3 py-2">
           <button
@@ -539,7 +533,7 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <footer class="bg-gray-900 text-white py-12">
+  <footer class="bg-gray-900 text-white py-12 footer px-4 md:px-10 lg:px-24">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
@@ -583,22 +577,17 @@
           <h3 class="font-bold text-lg mb-4">Legal</h3>
           <ul class="space-y-2">
             <li>
-              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
+              <a href="./whistleblower.html" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
             </li>
             <li>
-              <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
+              <a href="./grievancePortal.html" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
             </li>
             <li>
-              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and Conditions</a>
+              <a href="./terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms and
+                Conditions</a>
             </li>
             <li>
               <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
-            </li>
-            <li>
-              <a href="/privacy" class="text-gray-400 hover:text-white transition">Data Privacy Statement</a>
-            </li>
-            <li>
-              <a href="/charter" class="text-gray-400 hover:text-white transition">Customer Service Charter</a>
             </li>
           </ul>
         </div>
@@ -629,148 +618,11 @@
           rights reserved. |
           <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
           |
-          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
-          |
-          <a href="/complaints" class="hover:text-white transition">Complaints</a>
+          <a href="./terms&conditions.html" class="hover:text-white transition">Terms of Service</a>
         </p>
       </div>
     </div>
   </footer>
-
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMobileMenu = document.getElementById("close-mobile-menu");
-    const desktopProductsToggle = document.getElementById("desktop-products-toggle");
-    const desktopProductsMenu = document.getElementById("desktop-products-menu");
-    const mobileProductsToggle = document.getElementById("mobile-products-toggle");
-    const mobileProductsMenu = document.getElementById("mobile-products-menu");
-    const mainHeader = document.getElementById("main-header");
-
-
-    mobileMenuButton.addEventListener("click", () => {
-      const isOpen = mobileMenuButton.classList.toggle("open");
-      mobileMenu.classList.toggle("open");
-      document.body.style.overflow = isOpen ? "hidden" : "auto";
-      mobileMenuButton.setAttribute("aria-expanded", isOpen);
-    });
-
-    closeMobileMenu.addEventListener("click", () => {
-      mobileMenuButton.classList.remove("open");
-      mobileMenu.classList.remove("open");
-      document.body.style.overflow = "auto";
-      mobileMenuButton.setAttribute("aria-expanded", "false");
-    });
-
-    // Desktop products dropdown ARIA
-    if (desktopProductsToggle && desktopProductsMenu) {
-      desktopProductsToggle.addEventListener('click', () => {
-        const isExpanded = desktopProductsToggle.getAttribute('aria-expanded') === 'true';
-        desktopProductsToggle.setAttribute('aria-expanded', !isExpanded);
-        desktopProductsMenu.classList.toggle('hidden');
-      });
-
-      // Close dropdown if clicking outside
-      document.addEventListener('click', (event) => {
-        if (!desktopProductsToggle.contains(event.target) && !desktopProductsMenu.contains(event.target)) {
-          desktopProductsToggle.setAttribute('aria-expanded', 'false');
-          desktopProductsMenu.classList.add('hidden');
-        }
-      });
-    }
-
-
-    // Mobile products dropdown toggle ARIA
-    if (mobileProductsToggle && mobileProductsMenu) {
-      mobileProductsToggle.addEventListener('click', () => {
-        const isExpanded = mobileProductsMenu.classList.toggle('hidden');
-        mobileProductsToggle.setAttribute('aria-expanded', !isExpanded);
-      });
-    }
-
-    // Set current year
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-
-    // Back to top button
-    const backToTopButton = document.getElementById("back-to-top");
-
-    window.onscroll = function () {
-      if (
-        document.body.scrollTop > 300 ||
-        document.documentElement.scrollTop > 300
-      ) {
-        backToTopButton.style.display = "flex";
-      } else {
-        backToTopButton.style.display = "none";
-      }
-    };
-
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // Policy acceptance toggle
-    const policyCheckbox = document.getElementById("policy-acceptance");
-    const acceptButton = document.getElementById("accept-button");
-    const originalButtonText = acceptButton.textContent;
-
-    policyCheckbox.addEventListener("change", function () {
-      if (this.checked) {
-        acceptButton.disabled = false;
-        acceptButton.classList.remove("bg-gray-400", "cursor-not-allowed");
-        acceptButton.classList.add("bg-blue-600", "hover:bg-blue-700");
-      } else {
-        acceptButton.disabled = true;
-        acceptButton.classList.add("bg-gray-400", "cursor-not-allowed");
-        acceptButton.classList.remove("bg-blue-600", "hover:bg-blue-700");
-        acceptButton.textContent = originalButtonText; // Reset text if unchecked
-      }
-    });
-
-    acceptButton.addEventListener("click", function () {
-      if (!acceptButton.disabled) {
-        acceptButton.textContent = "Policy Acknowledged!";
-        // Optional: Revert text after a few seconds
-        setTimeout(() => {
-          if (policyCheckbox.checked) { // Only revert if still checked
-            acceptButton.textContent = originalButtonText;
-          }
-        }, 3000);
-        // In a real application, you would record this acceptance via an API call
-      }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute("href");
-        const target = document.querySelector(targetId);
-
-        if (target) {
-          const headerOffset = mainHeader ? mainHeader.offsetHeight : 0; // Dynamically get header height
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-
-          // For mobile menu, close it after clicking a link
-          if (mobileMenu.classList.contains("open")) {
-            mobileMenuButton.classList.remove("open");
-            mobileMenu.classList.remove("open");
-            document.body.style.overflow = "auto";
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-          }
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
