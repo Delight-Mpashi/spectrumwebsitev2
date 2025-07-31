@@ -134,14 +134,13 @@
   <header class="bg-white shadow-sm sticky top-0 z-50 px-4 md:px-10 lg:px-24 h-16 md:h-20">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="/" class="flex items-center">
-        <img src="../images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" />
+        <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" />
       </a>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-1">
-        <a href="/public/index.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-        <a href="./aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
+        <a href="/" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
+        <a href="/about" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
           Us</a>
 
         <div class="relative group">
@@ -150,14 +149,14 @@
           </button>
           <div
             class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu">
-            <a href="./loanforms/CSLoanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil
+            <a href="/loan/civil-servant" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil
               Servant</a>
-            <a href="./loanforms/ASLoanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset
+            <a href="/loan/asset-secured" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset
               Secured</a>
           </div>
         </div>
 
-        <a href="./contactus.html"
+        <a href="/contact"
           class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
           Contact Us
         </a>
@@ -180,9 +179,9 @@
       </div>
 
       <nav class="flex flex-col space-y-4">
-        <a href="../../public/index.html"
+        <a href="/"
           class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded transition">Home</a>
-        <a href="./aboutus.html"
+        <a href="/about"
           class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
 
 
@@ -192,14 +191,14 @@
             Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
           </button>
           <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="./loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
+            <a href="/loan/civil-servant" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
               Servant</a>
-            <a href="./loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
+            <a href="/loan/asset-secured" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
               Secured</a>
           </div>
         </div>
 
-        <a href="./contactus.html"
+        <a href="/contact"
           class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
           Contact Us
         </a>
@@ -210,7 +209,7 @@
   <!-- Hero Section -->
   <div class="relative w-full hero-image">
     <!-- Background Image -->
-    <img src="/src/images/about-Us.png" alt="Happy Spectrum Credit customers" class="w-full h-full object-cover"
+    <img src="/assets/images/about-Us.png" alt="Happy Spectrum Credit customers" class="w-full h-full object-cover"
       loading="eager" width="1920" height="600" />
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center px-4">
@@ -281,7 +280,7 @@
           <div class="md:flex">
             <div
               class="md:w-2/5 bg-gradient-to-br from-[#E6EEF9] to-blue-100 flex items-center justify-center p-6 md:p-8">
-              <img src="/src/images/team.png" alt="Spectrum Credit Team"
+              <img src="/assets/images/team.png" alt="Spectrum Credit Team"
                 class="rounded-lg w-full h-auto max-h-80 md:max-h-96 object-contain" loading="lazy" width="400"
                 height="400" />
             </div>
@@ -405,7 +404,7 @@
 
         <div class="flex justify-center">
           <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 max-w-4xl w-full">
-            <img src="/src/images/locations.png" alt="Spectrum Credit branch locations across Zambia"
+            <img src="/assets/images/locations.png" alt="Spectrum Credit branch locations across Zambia"
               class="w-full h-auto rounded-lg object-contain" style="max-height: 500px" loading="lazy" width="800"
               height="500" />
             <div class="mt-4 md:mt-6 flex flex-wrap justify-center gap-2 md:gap-4">
@@ -425,7 +424,7 @@
         </div>
 
         <div class="text-center mt-8 md:mt-10">
-          <a href="/contact"
+          <a href="/find-branch"
             class="inline-flex items-center bg-[#1E488F] hover:bg-[#163875] text-white font-medium py-2 md:py-3 px-6 md:px-8 rounded-lg shadow-md transition duration-300">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -446,7 +445,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <!-- Column 1 -->
         <div>
-          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
+          <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
           <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition">
@@ -469,16 +468,16 @@
           <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
           <ul class="space-y-2">
             <li>
-              <a href="../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+              <a href="/" class="text-gray-400 hover:text-white transition">Home</a>
             </li>
             <li>
-              <a href="./aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+              <a href="/about" class="text-gray-400 hover:text-white transition">About Us</a>
             </li>
             <li>
               <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
             </li>
             <li>
-              <a href="./contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
+              <a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a>
             </li>
           </ul>
         </div>
@@ -488,13 +487,13 @@
           <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
           <ul class="space-y-2">
             <li>
-              <a href="./whistleblower.html" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
+              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
             </li>
             <li>
-              <a href="./grievancePortal.html" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
+              <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
             </li>
             <li>
-              <a href="./terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms and
+              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and
                 Conditions</a>
             </li>
             <li>
@@ -530,7 +529,7 @@
           rights reserved. |
           <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
           |
-          <a href="./whistleblower.html" class="hover:text-white transition">Terms of Service</a>
+          <a href="/whistleblower" class="hover:text-white transition">Terms of Service</a>
         </p>
       </div>
     </div>
