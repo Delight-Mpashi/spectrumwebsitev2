@@ -1,0 +1,31 @@
+:root {
+  --primary: #1e488f;
+  --primary-dark: #163875;
+  --primary-light: #e6eef9;
+  --secondary: #4caf50;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --accent: #f59e0b;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--light);
+  margin: 0; /* Ensures no default spacing */
+
+  /* This pushes your page content down below your sticky navbar */
+  padding-top: 80px;
+}
+
+.page-background-form {
+  background-image: linear-gradient(
+      rgba(30, 72, 143, 0.6),
+      rgba(30, 72, 143, 0.6)
+    ),
+    url("/assets/images/stepsbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

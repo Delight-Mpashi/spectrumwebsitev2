@@ -12,6 +12,7 @@
   <script src="/js/terms&conditions.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" src="/js/navbar.js"></script>
   <style>
     :root {
       --primary: #1d62e3;
@@ -172,82 +173,8 @@
 </head>
 
 <body class="min-h-screen">
-  <header class="bg-white shadow-sm sticky top-0 z-50 px-4 md:px-10 lg:px-24 h-16 md:h-20" id="main-header">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/" class="flex items-center">
-        <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" width="140" height="40" />
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-1">
-        <a href="/" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-        <a href="/about" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
-          Us</a>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            aria-haspopup="true" aria-expanded="false" id="desktop-products-toggle">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div
-            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
-            id="desktop-products-menu">
-            <a href="/loan/civil-servant" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil
-              Servant</a>
-            <a href="/loan/asset-secured" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset
-              Secured</a>
-          </div>
-        </div>
-
-        <a href="/contact"
-          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-
-      <button class="md:hidden hamburger focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="mobile-menu-button"
-        aria-label="Open mobile menu" aria-haspopup="true" aria-expanded="false">
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700"></span>
-      </button>
-    </div>
-
-    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-      <div class="flex justify-end mb-6">
-        <button id="close-mobile-menu"
-          class="text-gray-500 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          aria-label="Close mobile menu">
-          <i class="fas fa-times text-xl"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col space-y-4">
-        <a href="/" class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
-        <a href="/about"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
-
-        <div class="px-3 py-2">
-          <button
-            class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            id="mobile-products-toggle" aria-haspopup="true" aria-expanded="false">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="/loan/civil-servant" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
-              Servant</a>
-            <a href="/loan/asset-secured" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
-              Secured</a>
-          </div>
-        </div>
-
-        <a href="/contact"
-          class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-    </div>
-  </header>
+  <!-- Navigation Bar -->
+  <nav-bar></nav-bar>
 
   <div class="relative w-full h-[250px] md:h-[400px] overflow-hidden">
     <div class="absolute inset-0 bg-black/30 z-10"></div>
