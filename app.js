@@ -1,67 +1,60 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/src', express.static(path.join(__dirname, 'src')));
+// Serve assets and index.html from the 'public' folder
+app.use(express.static(path.join(__dirname, "public")));
 
-// Asset routes 
-app.use('/images', express.static(path.join(__dirname, 'public/assets/images')));
-app.use('/fonts', express.static(path.join(__dirname, 'public/assets/fonts')));
-app.use('/svg', express.static(path.join(__dirname, 'public/assets/svg')));
-app.use('/pages', express.static(path.join(__dirname, 'src/pages')));
-app.use('/loanforms', express.static(path.join(__dirname, 'src/loanforms')));
+// Create a virtual path for styles.
+app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
 
-// Route handlers
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+// Create a virtual path for scripts.
+app.use("/js", express.static(path.join(__dirname, "src", "js")));
+
+// routes to serve pages from 'src/pages'
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "aboutUs.html"));
 });
 
-app.get('/faqs', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/faqs.html'));
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "contactUs.html"));
 });
 
-app.get('/about', (req,res)=>{
-  res.sendFile(path.join(__dirname, 'src/pages/aboutus.html'));
-});
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/contactus.html'));
-});
-app.get('/privacy', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/aboutus.html'));
-});
-app.get('/terms', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/terms&conditions.html'));
+app.get("/faqs", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "faqs.html"));
 });
 
-app.get('/csloanform', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms/csloanform.html'));
-});
-app.get('/src/pages/loanforms/csloanform.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms/csloanform.html'));
+app.get("/grievance", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "grievance.html"));
 });
 
-app.get('/laonforms/assetsecured', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages/loanforms/assetsecured.html'));
-});
-app.get('/public/index.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
-app.get('/public/assets/images/:image', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/assets/images', req.params.image));
+app.get("/loan/civil-servant", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "src", "pages", "loanForms", "csLoanForm.html")
+  );
 });
 
-app.get('../src/pages/loanforms/ASLoanform.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/loanforms/ASLoanform.html'));
+app.get("/loan/asset-secured", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "src", "pages", "loanForms", "ASLoanForm.html")
+  );
 });
 
-// For all other pages in src/pages
-app.get('/src/pages/:page', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/pages', req.params.page + '.html'));
+app.get("/terms", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "terms&conditions.html"));
 });
 
+app.get("/whistleblower", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "whistleBlower.html"));
+});
+
+app.get("/find-branch", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "findBranch.html"));
+});
+
+// Start the server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });

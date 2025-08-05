@@ -1,863 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Frequently asked questions about Spectrum Credit's loan services in Zambia"
-    />
-    <title>FAQs | Spectrum Credit - Zambia's Leading Microfinance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-            colors: {
-              spectrum: {
-                primary: "#1d62e3",
-                "primary-dark": "#1a56cb",
-                secondary: "#4caf50",
-                dark: "#1e293b",
-                light: "#f8fafc",
-                accent: "#f59e0b",
-              },
-            },
-            animation: {
-              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Frequently asked questions about Spectrum Credit's loan services in Zambia" />
+  <title>FAQs | Spectrum Credit - Zambia's Leading Microfinance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="/js/navbar.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          colors: {
+            spectrum: {
+              primary: "#1d62e3",
+              "primary-dark": "#1a56cb",
+              secondary: "#4caf50",
+              dark: "#1e293b",
+              light: "#f8fafc",
+              accent: "#f59e0b",
             },
           },
+          animation: {
+            "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          },
         },
-      };
-    </script>
-    <style>
-      /* Custom styles */
+      },
+    };
+  </script>
+  <script src="/js/faqs.js" defer></script>
+  <style>
+    /* Custom styles */
+    .hero-image {
+      height: 300px;
+      background-image: url("/assets/images/FAQ.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
       .hero-image {
-        height: 300px;
-        background-image: url("/public/assets/images/FAQ.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;
+        height: 400px;
       }
+    }
 
-      @media (min-width: 768px) {
-        .hero-image {
-          height: 400px;
-        }
-      }
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-      .hero-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+    .faq-item {
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-      .faq-item {
-        transition: all 0.2s ease;
-        cursor: pointer;
-        border-radius: 0.75rem;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      }
+    .faq-item:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
 
-      .faq-item:hover {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
 
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
 
-      .faq-item.active .faq-answer {
-        max-height: 500px;
-      }
+    .rotate-icon {
+      transition: transform 0.3s ease;
+    }
 
-      .rotate-icon {
-        transition: transform 0.3s ease;
-      }
+    .faq-item.active .rotate-icon {
+      transform: rotate(180deg);
+    }
 
-      .faq-item.active .rotate-icon {
-        transform: rotate(180deg);
-      }
+    /* Mobile menu styles */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
 
-      /* Mobile menu styles */
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-      }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
 
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
+    .hamburger span {
+      transition: all 0.3s ease;
+    }
 
-      .hamburger span {
-        transition: all 0.3s ease;
-      }
+    .hamburger.open span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-      .hamburger.open span:first-child {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
 
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
+    .hamburger.open span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-      .hamburger.open span:last-child {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
 
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
+    /* Better focus states for accessibility */
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus {
+      outline: 2px solid #1d62e3;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
 
-      /* Better focus states for accessibility */
-      a:focus,
-      button:focus,
-      input:focus,
-      select:focus {
-        outline: 2px solid #1d62e3;
-        outline-offset: 2px;
-      }
-    </style>
-  </head>
-  <body class="font-sans bg-gray-50">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <a href="/" class="flex items-center">
-          <img
-            src="../images/sclogo.png"
-            alt="Spectrum Credit Logo"
-            class="h-10"
-          />
-        </a>
+<body class="font-sans bg-gray-50 pt-16">
+  <nav-bar></nav-bar>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <a
-            href="/public/index.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Home</a
-          >
-          <a
-            href="./faqs.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >FAQs</a
-          >
-          <a
-            href="./aboutus.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >About Us</a
-          >
-          <a
-            href="./terms&conditions.html"
-            class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >Terms</a
-          >
 
-          <div class="relative group">
-            <button
-              class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div
-              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
-            >
-              <a
-                href="./loanforms/CSLoanForm.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Civil Servant</a
-              >
-              <a
-                href="./loanforms/ASLoanform.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]"
-                >Asset Secured</a
-              >
-            </div>
+  <!-- Hero Section -->
+  <div class="relative min-h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="/assets/images/FAQ.jpg" alt="Background" class="w-full h-full object-cover opacity-70" />
+    </div>
+
+    <!-- Content (white text in front) -->
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">
+        Find answers to common questions about our services
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ Content -->
+  <main class="min-h-screen bg-white">
+    <div class="max-w-3xl mx-auto px-4 py-12">
+      <!-- Search Bar -->
+      <div class="mb-8 md:mb-12">
+        <div class="relative max-w-xl mx-auto">
+          <input type="text" placeholder="Search questions..."
+            class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            id="faq-search" aria-label="Search FAQs" />
+          <div class="absolute right-3 top-3 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </div>
-
-          <a
-            href="./contactus.html"
-            class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
-
-        <!-- Mobile menu button -->
-        <button
-          class="md:hidden hamburger focus:outline-none"
-          id="mobile-menu-button"
-        >
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-          <span class="block w-6 h-0.5 bg-gray-700"></span>
-        </button>
+        </div>
       </div>
 
-      <!-- Mobile menu -->
-      <div
-        class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4"
-        id="mobile-menu"
-      >
-        <div class="flex justify-end mb-6">
-          <button
-            id="close-mobile-menu"
-            class="text-gray-500 hover:text-[#1E488F]"
-          >
-            <i class="fas fa-times text-xl"></i>
-          </button>
+      <!-- FAQ Categories -->
+      <div class="space-y-8">
+        <!-- Category 1 -->
+        <section>
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+            Account Questions
+          </h2>
+
+          <div class="space-y-3">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white shadow-sm" onclick="toggleFAQ(this)">
+              <div class="p-4 md:p-6 flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+                <h3 class="text-base md:text-lg font-medium text-gray-900">
+                  How do I create an account?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
+                <p class="text-gray-600">
+                  You can create an account by visiting our website and
+                  clicking on the "Sign Up" button. You'll need to provide
+                  some basic information including your name, email address,
+                  and phone number. After verification, your account will be
+                  ready to use.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white shadow-sm" onclick="toggleFAQ(this)">
+              <div class="p-4 md:p-6 flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+                <h3 class="text-base md:text-lg font-medium text-gray-900">
+                  What should I do if I forget my password?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
+                <p class="text-gray-600">
+                  Click on the "Forgot Password" link on the login page.
+                  You'll receive an email with instructions to reset your
+                  password. If you don't see the email, please check your spam
+                  folder.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category 2 -->
+        <section>
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+            Loan Questions
+          </h2>
+
+          <div class="space-y-3">
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white shadow-sm" onclick="toggleFAQ(this)">
+              <div class="p-4 md:p-6 flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+                <h3 class="text-base md:text-lg font-medium text-gray-900">
+                  What are the requirements to apply for a loan?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
+                <p class="text-gray-600">To apply for a loan, you must:</p>
+                <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                  <li>Be at least 18 years old</li>
+                  <li>Have a valid government-issued ID</li>
+                  <li>Provide proof of income</li>
+                  <li>Have an active bank account</li>
+                  <li>Meet our creditworthiness criteria</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white shadow-sm" onclick="toggleFAQ(this)">
+              <div class="p-4 md:p-6 flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+                <h3 class="text-base md:text-lg font-medium text-gray-900">
+                  How long does loan approval take?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
+                <p class="text-gray-600">
+                  For complete applications with all required documents,
+                  approval typically takes 1-2 business days. Some products
+                  may offer instant approval for pre-qualified customers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category 3 -->
+        <section>
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+            Security Questions
+          </h2>
+
+          <div class="space-y-3">
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white shadow-sm" onclick="toggleFAQ(this)">
+              <div class="p-4 md:p-6 flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+                <h3 class="text-base md:text-lg font-medium text-gray-900">
+                  How do you protect my personal information?
+                </h3>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
+                <p class="text-gray-600">
+                  We use bank-level encryption and security measures to
+                  protect your data. All information is stored securely and
+                  accessed only by authorized personnel for legitimate
+                  business purposes. We comply with all applicable data
+                  protection laws including Zambia's Data Protection Act 2021.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="bg-blue-50 rounded-xl p-6 md:p-8 text-center">
+          <h3 class="text-lg md:text-xl font-medium text-gray-900 mb-3">
+            Still have questions?
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Can't find the answer you're looking for? Our team is happy to
+            help.
+          </p>
+          <a href="/contact"
+            class="inline-flex items-center px-5 md:px-6 py-2 md:py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-spectrum-primary hover:bg-spectrum-primary-dark transition-colors">
+            Contact Support
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 footer px-4 md:px-10 lg:px-24">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Column 1 -->
+        <div>
+          <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
+          <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
         </div>
 
-        <nav class="flex flex-col space-y-4">
-          <a
-            href="../../public/index.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Home</a
-          >
-          <a
-            href="./faqs.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >FAQs</a
-          >
-          <a
-            href="./aboutus.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >About Us</a
-          >
-          <a
-            href="./terms&conditions.html"
-            class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded"
-            >Terms</a
-          >
+        <!-- Column 2 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/" class="text-gray-400 hover:text-white transition">Home</a>
+            </li>
+            <li>
+              <a href="/about" class="text-gray-400 hover:text-white transition">About Us</a>
+            </li>
+            <li>
+              <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
+            </li>
+            <li>
+              <a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a>
+            </li>
+          </ul>
+        </div>
 
-          <div class="px-3 py-2">
-            <button
-              class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
-              id="mobile-products-toggle"
-            >
-              Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </button>
-            <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-              <a
-                href="./loanforms/CSLoanForm.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Civil Servant</a
-              >
-              <a
-                href="./loanforms/ASLoanform.html"
-                class="block py-2 text-gray-700 hover:text-[#1E488F]"
-                >Asset Secured</a
-              >
-            </div>
-          </div>
+        <!-- Column 3 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower
+                Portal</a>
+            </li>
+            <li>
+              <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance
+                Reporting</a>
+            </li>
+            <li>
+              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and
+                Conditions</a>
+            </li>
+            <li>
+              <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
+            </li>
+          </ul>
+        </div>
 
-          <a
-            href="./contactus.html"
-            class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition"
-          >
-            Contact Us
-          </a>
-        </nav>
-      </div>
-    </header>
-
-
-    <!-- Hero Section -->
-    <div
-      class="relative min-h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden"
-    >
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0">
-        <img
-          src="/src/images/FAQ.jpg"
-          alt="Background"
-          class="w-full h-full object-cover opacity-70"
-        />
+        <!-- Column 4 -->
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+          <address class="text-gray-400 not-italic text-sm">
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
+              Woodlands, Lusaka, Zambia
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
+            </p>
+            <p class="mb-2 flex items-center">
+              <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
+            </p>
+          </address>
+        </div>
       </div>
 
-      <!-- Content (white text in front) -->
-      <div class="relative z-10 text-center px-4">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">
-          Find answers to common questions about our services
+      <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+        <p>
+          &copy; <span id="current-year">2025</span> Spectrum Credit. All
+          rights reserved. |
+          <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
+          |
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
         </p>
       </div>
     </div>
+  </footer>
 
-    <!-- FAQ Content -->
-    <main class="min-h-screen bg-white">
-      <div class="max-w-3xl mx-auto px-4 py-12">
-        <!-- Search Bar -->
-        <div class="mb-8 md:mb-12">
-          <div class="relative max-w-xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search questions..."
-              class="w-full py-3 px-4 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-              id="faq-search"
-              aria-label="Search FAQs"
-            />
-            <div class="absolute right-3 top-3 text-gray-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/260975992516"
+      class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors transform hover:scale-110"
+      aria-label="Chat with us on WhatsApp">
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+  </div>
+</body>
 
-        <!-- FAQ Categories -->
-        <div class="space-y-8">
-          <!-- Category 1 -->
-          <section>
-            <h2
-              class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200"
-            >
-              Account Questions
-            </h2>
-
-            <div class="space-y-3">
-              <!-- FAQ Item 1 -->
-              <div
-                class="faq-item bg-white shadow-sm"
-                onclick="toggleFAQ(this)"
-              >
-                <div
-                  class="p-4 md:p-6 flex justify-between items-center cursor-pointer"
-                  onclick="toggleAccordion(this)"
-                >
-                  <h3 class="text-base md:text-lg font-medium text-gray-900">
-                    How do I create an account?
-                  </h3>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-                <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
-                  <p class="text-gray-600">
-                    You can create an account by visiting our website and
-                    clicking on the "Sign Up" button. You'll need to provide
-                    some basic information including your name, email address,
-                    and phone number. After verification, your account will be
-                    ready to use.
-                  </p>
-                </div>
-              </div>
-
-              <!-- FAQ Item 2 -->
-              <div
-                class="faq-item bg-white shadow-sm"
-                onclick="toggleFAQ(this)"
-              >
-                <div
-                  class="p-4 md:p-6 flex justify-between items-center cursor-pointer"
-                  onclick="toggleAccordion(this)"
-                >
-                  <h3 class="text-base md:text-lg font-medium text-gray-900">
-                    What should I do if I forget my password?
-                  </h3>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-                <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
-                  <p class="text-gray-600">
-                    Click on the "Forgot Password" link on the login page.
-                    You'll receive an email with instructions to reset your
-                    password. If you don't see the email, please check your spam
-                    folder.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Category 2 -->
-          <section>
-            <h2
-              class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200"
-            >
-              Loan Questions
-            </h2>
-
-            <div class="space-y-3">
-              <!-- FAQ Item 3 -->
-              <div
-                class="faq-item bg-white shadow-sm"
-                onclick="toggleFAQ(this)"
-              >
-                <div
-                  class="p-4 md:p-6 flex justify-between items-center cursor-pointer"
-                  onclick="toggleAccordion(this)"
-                >
-                  <h3 class="text-base md:text-lg font-medium text-gray-900">
-                    What are the requirements to apply for a loan?
-                  </h3>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-                <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
-                  <p class="text-gray-600">To apply for a loan, you must:</p>
-                  <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
-                    <li>Be at least 18 years old</li>
-                    <li>Have a valid government-issued ID</li>
-                    <li>Provide proof of income</li>
-                    <li>Have an active bank account</li>
-                    <li>Meet our creditworthiness criteria</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- FAQ Item 4 -->
-              <div
-                class="faq-item bg-white shadow-sm"
-                onclick="toggleFAQ(this)"
-              >
-                <div
-                  class="p-4 md:p-6 flex justify-between items-center cursor-pointer"
-                  onclick="toggleAccordion(this)"
-                >
-                  <h3 class="text-base md:text-lg font-medium text-gray-900">
-                    How long does loan approval take?
-                  </h3>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-                <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
-                  <p class="text-gray-600">
-                    For complete applications with all required documents,
-                    approval typically takes 1-2 business days. Some products
-                    may offer instant approval for pre-qualified customers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Category 3 -->
-          <section>
-            <h2
-              class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200"
-            >
-              Security Questions
-            </h2>
-
-            <div class="space-y-3">
-              <!-- FAQ Item 5 -->
-              <div
-                class="faq-item bg-white shadow-sm"
-                onclick="toggleFAQ(this)"
-              >
-                <div
-                  class="p-4 md:p-6 flex justify-between items-center cursor-pointer"
-                  onclick="toggleAccordion(this)"
-                >
-                  <h3 class="text-base md:text-lg font-medium text-gray-900">
-                    How do you protect my personal information?
-                  </h3>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 rotate-icon transition-tranform duration-200 text-spectrum-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </div>
-                <div class="faq-answer px-4 md:px-6 pb-4 md:pb-6 hidden">
-                  <p class="text-gray-600">
-                    We use bank-level encryption and security measures to
-                    protect your data. All information is stored securely and
-                    accessed only by authorized personnel for legitimate
-                    business purposes. We comply with all applicable data
-                    protection laws including Zambia's Data Protection Act 2021.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Contact CTA -->
-          <section class="bg-blue-50 rounded-xl p-6 md:p-8 text-center">
-            <h3 class="text-lg md:text-xl font-medium text-gray-900 mb-3">
-              Still have questions?
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Can't find the answer you're looking for? Our team is happy to
-              help.
-            </p>
-            <a
-              href="/contact"
-              class="inline-flex items-center px-5 md:px-6 py-2 md:py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-spectrum-primary hover:bg-spectrum-primary-dark transition-colors"
-            >
-              Contact Support
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="ml-2 -mr-1 h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </a>
-          </section>
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <!-- Column 1 -->
-          <div>
-            <img
-              src="/src/images/sclogo.png"
-              alt="Spectrum Credit Logo"
-              class="h-10 mb-4"
-            />
-            <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Column 2 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Company</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="../../public/index.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./aboutus.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/products"
-                  class="text-gray-400 hover:text-white transition"
-                  >Products</a
-                >
-              </li>
-              <li>
-                <a
-                  href="./contactus.html"
-                  class="text-gray-400 hover:text-white transition"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 3 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Legal</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="/whistleblower"
-                  class="text-gray-400 hover:text-white transition"
-                  >Whistleblower Portal</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/grievance"
-                  class="text-gray-400 hover:text-white transition"
-                  >Grievance Reporting</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/terms"
-                  class="text-gray-400 hover:text-white transition"
-                  >Terms and Conditions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/policy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Environment and Social Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/privacy"
-                  class="text-gray-400 hover:text-white transition"
-                  >Data Privacy Statement</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/charter"
-                  class="text-gray-400 hover:text-white transition"
-                  >Customer Service Charter</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 4 -->
-          <div>
-            <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-            <address class="text-gray-400 not-italic text-sm">
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-map-marker-alt mr-3"></i> 970 Ntoyo Rd
-                Woodlands, Lusaka, Zambia
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-envelope mr-3"></i> support@spectrumcredit.com
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-phone-alt mr-3"></i> +260 761 197 777
-              </p>
-              <p class="mb-2 flex items-center">
-                <i class="fas fa-clock mr-3"></i> Mon-Fri: 7:30 - 16:30
-              </p>
-            </address>
-          </div>
-        </div>
-
-        <div
-          class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm"
-        >
-          <p>
-            &copy; <span id="current-year">2025</span> Spectrum Credit. All
-            rights reserved. |
-            <a href="/privacy" class="hover:text-white transition"
-              >Privacy Policy</a
-            >
-            |
-            <a href="/terms" class="hover:text-white transition"
-              >Terms of Service</a
-            >
-            |
-            <a href="/complaints" class="hover:text-white transition"
-              >Complaints</a
-            >
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-      <a
-        href="https://wa.me/260975992516"
-        class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-colors transform hover:scale-110"
-        aria-label="Chat with us on WhatsApp"
-      >
-        <i class="fab fa-whatsapp text-2xl"></i>
-      </a>
-    </div>
-
-    <script>
-      // Mobile menu functionality
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMobileMenu = document.getElementById("close-mobile-menu");
-      const mobileProductsToggle = document.getElementById(
-        "mobile-products-toggle"
-      );
-      const mobileProductsMenu = document.getElementById(
-        "mobile-products-menu"
-      );
-
-      // Toggle mobile menu
-      mobileMenuButton.addEventListener("click", function () {
-        this.classList.toggle("open");
-        mobileMenu.classList.toggle("open");
-        document.body.style.overflow = mobileMenu.classList.contains("open")
-          ? "hidden"
-          : "auto";
-      });
-
-      // Close mobile menu
-      closeMobileMenu.addEventListener("click", function () {
-        mobileMenuButton.classList.remove("open");
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
-      });
-
-      // Toggle mobile products menu
-      mobileProductsToggle.addEventListener("click", function () {
-        mobileProductsMenu.classList.toggle("hidden");
-        const icon = this.querySelector("i");
-        icon.classList.toggle("fa-chevron-down");
-        icon.classList.toggle("fa-chevron-up");
-      });
-
-      // FAQ functionality
-      function toggleFAQ(element) {
-        // Close other FAQs when one is opened
-        document.querySelectorAll(".faq-item").forEach((item) => {
-          if (item !== element && item.classList.contains("active")) {
-            item.classList.remove("active");
-          }
-        });
-
-        // Toggle current FAQ
-        element.classList.toggle("active");
-      }
-
-      // Search functionality
-      document
-        .getElementById("faq-search")
-        .addEventListener("input", function (e) {
-          const searchTerm = e.target.value.toLowerCase();
-
-          document.querySelectorAll(".faq-item").forEach((item) => {
-            const question = item.querySelector("h3").textContent.toLowerCase();
-            const answer = item
-              .querySelector(".faq-answer")
-              .textContent.toLowerCase();
-
-            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-              item.style.display = "block";
-            } else {
-              item.style.display = "none";
-            }
-          });
-        });
-
-      // Set current year automatically
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
-
-      //Show Answer Function
-      function toggleAccordion(clickedHeader) {
-        const allItems = document.querySelectorAll(".faq-item");
-
-        allItems.forEach((item) => {
-          const answer = item.querySelector(".faq-answer");
-          const icon = item.querySelector(".rotate-icon");
-
-          if (item.contains(clickedHeader)) {
-            //Toggle the clicked answer
-            answer.classList.toggle("hidden");
-            icon.classList.toggle("rotate-180");
-          } else {
-            //Hidden other answers
-            answer.classList.add("hidden");
-            icon.classList.remove("rotate-180");
-          }
-        });
-      }
-    </script>
-  </body>
 </html>

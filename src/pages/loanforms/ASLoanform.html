@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/js/asset-secured-form.js" defer></script>
+  <script type="module" src="/js/navbar.js"></script>
   <style>
     /* Global CSS Variables for consistent theming */
     :root {
@@ -28,7 +30,7 @@
       font-family: "Inter", sans-serif;
       -webkit-text-size-adjust: 100%;
       /* Background image with blue tint overlay */
-      background-image: linear-gradient(rgba(30, 72, 143, 0.6), rgba(30, 72, 143, 0.6)), url('/src/images/stepsbackground.jpg');
+      background-image: linear-gradient(rgba(30, 72, 143, 0.6), rgba(30, 72, 143, 0.6)), url('/assets/images/stepsbackground.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -182,87 +184,9 @@
   </style>
 </head>
 
-<body class="bg-gray-50 min-h-screen flex flex-col">
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/public/index.html" class="flex items-center">
-        <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" />
-      </a>
+<body class="bg-gray-50 min-h-screen flex flex-col pt-20">
 
-      <nav class="hidden md:flex items-center space-x-1">
-        <a href="/public/index.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-        <a href="/src/pages/faqs.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
-        <a href="/src/pages/aboutus.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About Us</a>
-        <a href="/src/pages/terms&conditions.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
-
-        <div class="relative group">
-          <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div
-            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu">
-            <a href="/src/pages/loanforms/CSLoanForm.html"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil Servant</a>
-            <a href="/src/pages/loanforms/ASLoanform.html"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset Secured</a>
-          </div>
-        </div>
-
-        <a href="/src/pages/contactus.html"
-          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-
-      <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700"></span>
-      </button>
-    </div>
-
-    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-      <div class="flex justify-end mb-6">
-        <button id="close-mobile-menu" class="text-gray-500 hover:text-[#1E488F]">
-          <i class="fas fa-times text-xl"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col space-y-4">
-        <a href="/public/index.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
-        <a href="/src/pages/faqs.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
-        <a href="/src/pages/aboutus.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About
-          Us</a>
-        <a href="/src/pages/terms&conditions.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
-
-        <div class="px-3 py-2">
-          <button class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]"
-            id="mobile-products-toggle">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="/loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
-              Servant</a>
-            <a href="/loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
-              Secured</a>
-          </div>
-        </div>
-
-        <a href="/src/pages/contactus.html"
-          class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-    </div>
-  </header>
+  <nav-bar></nav-bar>
 
   <main class="flex-grow container mx-auto px-4 py-6">
     <div id="whitebookPrompt" class="custom-prompt">
@@ -461,11 +385,11 @@
     </div>
   </main>
 
-  <footer class="bg-gray-900 text-white py-12 footer">
+  <footer class="bg-gray-900 text-white py-12 footer px-4 md:px-10 lg:px-24">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
-          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
+          <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" />
           <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition">
@@ -487,16 +411,16 @@
           <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
           <ul class="space-y-2">
             <li>
-              <a href="/public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+              <a href="/" class="text-gray-400 hover:text-white transition">Home</a>
             </li>
             <li>
-              <a href="/src/pages/aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+              <a href="/about" class="text-gray-400 hover:text-white transition">About Us</a>
             </li>
             <li>
               <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
             </li>
             <li>
-              <a href="../contactus.html" class="text-gray-400 hover:text-white transition">Contact</a>
+              <a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a>
             </li>
           </ul>
         </div>
@@ -513,7 +437,7 @@
                 Reporting</a>
             </li>
             <li>
-              <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms
+              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms
                 and Conditions</a>
             </li>
             <li>
@@ -549,214 +473,11 @@
           rights reserved. |
           <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
           |
-          <a href="../terms&conditions.html" class="hover:text-white transition">Terms of Service</a>
+          <a href="/terms" class="hover:text-white transition">Terms of Service</a>
         </p>
       </div>
     </div>
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Show the whitebook prompt when the page loads
-      const whitebookPrompt = document.getElementById("whitebookPrompt");
-      if (whitebookPrompt) {
-        whitebookPrompt.style.display = "flex";
-      }
-
-      // Mobile menu toggle functionality
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenuButton.classList.toggle("open");
-          mobileMenu.classList.toggle("open");
-          // Disable scrolling when menu is open
-          document.body.style.overflow = mobileMenu.classList.contains("open")
-            ? "hidden"
-            : "auto";
-        });
-
-        // Close mobile menu button
-        const closeMobileMenu = document.getElementById("close-mobile-menu");
-        if (closeMobileMenu) {
-          closeMobileMenu.addEventListener("click", () => {
-            mobileMenuButton.classList.remove("open");
-            mobileMenu.classList.remove("open");
-            document.body.style.overflow = "auto"; // Re-enable scrolling
-          });
-        }
-
-        // Mobile products dropdown toggle
-        const mobileProductsToggle = document.getElementById(
-          "mobile-products-toggle"
-        );
-        const mobileProductsMenu = document.getElementById(
-          "mobile-products-menu"
-        );
-
-        if (mobileProductsToggle && mobileProductsMenu) {
-          mobileProductsToggle.addEventListener("click", () => {
-            mobileProductsMenu.classList.toggle("hidden");
-            const icon = mobileProductsToggle.querySelector("i");
-            if (icon) {
-              icon.classList.toggle("fa-chevron-down");
-              icon.classList.toggle("fa-chevron-up");
-            }
-          });
-        }
-      }
-
-      // Whitebook prompt 'Yes' and 'No' button handling
-      const promptYes = document.getElementById("promptYes");
-      const promptNo = document.getElementById("promptNo");
-      const assetSecuredForm = document.getElementById("assetSecuredForm");
-
-      if (promptYes && promptNo && assetSecuredForm) {
-        // If 'Yes' is clicked, hide prompt and show the form
-        promptYes.addEventListener("click", () => {
-          whitebookPrompt.style.display = "none";
-          assetSecuredForm.classList.add("active");
-        });
-
-        // If 'No' is clicked, show an alert
-        promptNo.addEventListener("click", () => {
-          alert("You need a registered white book to apply for this loan.");
-        });
-      }
-
-      // NRC input formatting (adds slashes automatically)
-      const nrcInput = document.getElementById("nrc");
-      if (nrcInput) {
-        nrcInput.addEventListener("input", function (e) {
-          let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
-
-          if (value.length > 6) {
-            value = value.substring(0, 6) + "/" + value.substring(6);
-          }
-          if (value.length > 9) {
-            value = value.substring(0, 9) + "/" + value.substring(9);
-          }
-          if (value.length > 11) {
-            value = value.substring(0, 11); // Limit total length
-          }
-
-          e.target.value = value;
-        });
-      }
-
-      // Phone number input validation (ensures only digits and max 9 length)
-      const phoneNumberInput = document.getElementById("phoneNumber");
-      if (phoneNumberInput) {
-        phoneNumberInput.addEventListener("input", function (e) {
-          // Remove any non-digit characters
-          let value = e.target.value.replace(/\D/g, '');
-          // Limit to 9 digits
-          if (value.length > 9) {
-            value = value.substring(0, 9);
-          }
-          e.target.value = value;
-        });
-      }
-
-      // Form submission logic
-      const submitButton = document.getElementById("submitApplication");
-      if (submitButton) {
-        submitButton.addEventListener("click", function () {
-          // Define required fields for validation
-          const requiredFields = [
-            "firstName",
-            "lastName",
-            "nrc",
-            "phoneNumber",
-            "vehicleMake",
-            "vehicleModel",
-            "vehicleYear",
-          ];
-          let isValid = true;
-
-          // Validate each required field
-          requiredFields.forEach((fieldId) => {
-            const field = document.getElementById(fieldId);
-            if (field && !field.value.trim()) {
-              field.classList.add("border-red-500"); // Add error border
-              isValid = false;
-            } else if (field) {
-              field.classList.remove("border-red-500"); // Remove error border if valid
-            }
-          });
-
-          // Validate NRC format
-          const nrcInput = document.getElementById("nrc");
-          const nrcValue = nrcInput.value.trim();
-          const nrcPattern = /^\d{6}\/\d{2}\/\d{1}$/;
-          if (!nrcPattern.test(nrcValue)) {
-            nrcInput.classList.add("border-red-500"); // Add error border
-            alert(
-              "Please enter a valid NRC number in the format 000000/00/1"
-            );
-            isValid = false;
-          } else {
-            nrcInput.classList.remove("border-red-500"); // Remove error border if valid
-          }
-
-          // Validate phone number
-          const phoneInput = document.getElementById("phoneNumber");
-          const phoneValue = phoneInput.value.trim();
-          if (phoneValue.length !== 9 || !/^\d+$/.test(phoneValue)) {
-            phoneInput.classList.add("border-red-500"); // Add error border
-            alert("Please enter a valid 9-digit phone number");
-            isValid = false;
-          } else {
-            phoneInput.classList.remove("border-red-500"); // Remove error border if valid
-          }
-
-
-          // Validate consent checkbox
-          const consentCheckbox = document.getElementById("consent");
-          if (consentCheckbox && !consentCheckbox.checked) {
-            alert("Please consent to information usage to proceed");
-            isValid = false;
-          }
-
-          if (isValid) {
-            // Collect all form data (for demonstration purposes, would typically be sent to a server)
-            const formData = {
-              firstName: document.getElementById("firstName").value,
-              lastName: document.getElementById("lastName").value,
-              nrc: document.getElementById("nrc").value,
-              phoneNumber: "+260" + document.getElementById("phoneNumber").value,
-              vehicleMake: document.getElementById("vehicleMake").value,
-              vehicleModel: document.getElementById("vehicleModel").value,
-              vehicleYear: document.getElementById("vehicleYear").value,
-              consent: document.getElementById("consent").checked,
-            };
-
-            console.log("Form data:", formData); // Log data to console
-            alert(
-              "Application submitted successfully! We will contact you shortly."
-            );
-
-            // Optionally, reset the form after successful submission
-            document.getElementById("firstName").value = "";
-            document.getElementById("lastName").value = "";
-            document.getElementById("nrc").value = "";
-            document.getElementById("phoneNumber").value = "";
-            document.getElementById("vehicleMake").value = "";
-            document.getElementById("vehicleModel").value = "";
-            document.getElementById("vehicleYear").value = "";
-            document.getElementById("consent").checked = false;
-          } else {
-            alert("Please fill in all required fields and correct any errors."); // General alert for validation failures
-          }
-        });
-      }
-
-      // Set current year in the footer dynamically
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
-    });
-  </script>
 </body>
 
 </html>

@@ -9,8 +9,10 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/js/terms&conditions.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="module" src="/js/navbar.js"></script>
   <style>
     :root {
       --primary: #1d62e3;
@@ -171,100 +173,17 @@
 </head>
 
 <body class="min-h-screen">
-  <header class="bg-white shadow-sm sticky top-0 z-50" id="main-header">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/" class="flex items-center">
-        <img src="../images/sclogo.png" alt="Spectrum Credit Logo" class="h-10" width="140" height="40" />
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-1">
-        <a href="/public/index.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-        <a href="./faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
-        <a href="./aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About
-          Us</a>
-        <a href="./terms&conditions.html"
-          class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            aria-haspopup="true" aria-expanded="false" id="desktop-products-toggle">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div
-            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu"
-            id="desktop-products-menu">
-            <a href="./loanforms/CSLoanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil
-              Servant</a>
-            <a href="./loanforms/ASLoanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset
-              Secured</a>
-          </div>
-        </div>
-
-        <a href="./contactus.html"
-          class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-
-      <button class="md:hidden hamburger focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="mobile-menu-button"
-        aria-label="Open mobile menu" aria-haspopup="true" aria-expanded="false">
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-        <span class="block w-6 h-0.5 bg-gray-700"></span>
-      </button>
-    </div>
-
-    <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-      <div class="flex justify-end mb-6">
-        <button id="close-mobile-menu"
-          class="text-gray-500 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          aria-label="Close mobile menu">
-          <i class="fas fa-times text-xl"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col space-y-4">
-        <a href="../../public/index.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
-        <a href="./faqs.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
-        <a href="./aboutus.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
-        <a href="./terms&conditions.html"
-          class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
-
-        <div class="px-3 py-2">
-          <button
-            class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F] focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            id="mobile-products-toggle" aria-haspopup="true" aria-expanded="false">
-            Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </button>
-          <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-            <a href="./loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil
-              Servant</a>
-            <a href="./loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset
-              Secured</a>
-          </div>
-        </div>
-
-        <a href="./contactus.html"
-          class="mt-4 px-4 py-2 bg-[#1E488F] text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
-          Contact Us
-        </a>
-      </nav>
-    </div>
-  </header>
+  <!-- Navigation Bar -->
+  <nav-bar></nav-bar>
 
   <div class="relative w-full h-[250px] md:h-[400px] overflow-hidden">
     <div class="absolute inset-0 bg-black/30 z-10"></div>
 
     <picture>
-      <source srcset="/src/images/dataprotection.avif" type="image/avif" />
-      <source srcset="/src/images/dataprotection.webp" type="image/webp" />
-      <img src="/src/images/dataprotection.jpg" alt="Happy Spectrum Credit customers" class="w-full h-full object-cover"
-        loading="eager" width="1920" height="600" />
+      <source srcset="/assets/images/dataprotection.avif" type="image/avif" />
+      <source srcset="/assets/images/dataprotection.webp" type="image/webp" />
+      <img src="/assets/images/dataprotection.jpg" alt="Happy Spectrum Credit customers"
+        class="w-full h-full object-cover" loading="eager" width="1920" height="600" />
     </picture>
 
     <div class="absolute inset-0 z-20 flex items-center justify-center text-center px-4">
@@ -539,11 +458,11 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <footer class="bg-gray-900 text-white py-12">
+  <footer class="bg-gray-900 text-white py-12 footer px-4 md:px-10 lg:px-24">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
-          <img src="/src/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" width="140" height="40" />
+          <img src="/assets/images/sclogo.png" alt="Spectrum Credit Logo" class="h-10 mb-4" width="140" height="40" />
           <p class="text-gray-400 text-sm mb-4">There When You Need Us!</p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
@@ -565,16 +484,16 @@
           <h3 class="font-bold text-lg mb-4">Company</h3>
           <ul class="space-y-2">
             <li>
-              <a href="../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+              <a href="/" class="text-gray-400 hover:text-white transition">Home</a>
             </li>
             <li>
-              <a href="./aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
+              <a href="/about" class="text-gray-400 hover:text-white transition">About Us</a>
             </li>
             <li>
               <a href="/products" class="text-gray-400 hover:text-white transition">Products</a>
             </li>
             <li>
-              <a href="./contact" class="text-gray-400 hover:text-white transition">Contact</a>
+              <a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a>
             </li>
           </ul>
         </div>
@@ -589,16 +508,11 @@
               <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
             </li>
             <li>
-              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and Conditions</a>
+              <a href="/terms" class="text-gray-400 hover:text-white transition">Terms and
+                Conditions</a>
             </li>
             <li>
               <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
-            </li>
-            <li>
-              <a href="/privacy" class="text-gray-400 hover:text-white transition">Data Privacy Statement</a>
-            </li>
-            <li>
-              <a href="/charter" class="text-gray-400 hover:text-white transition">Customer Service Charter</a>
             </li>
           </ul>
         </div>
@@ -630,147 +544,10 @@
           <a href="/privacy" class="hover:text-white transition">Privacy Policy</a>
           |
           <a href="/terms" class="hover:text-white transition">Terms of Service</a>
-          |
-          <a href="/complaints" class="hover:text-white transition">Complaints</a>
         </p>
       </div>
     </div>
   </footer>
-
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMobileMenu = document.getElementById("close-mobile-menu");
-    const desktopProductsToggle = document.getElementById("desktop-products-toggle");
-    const desktopProductsMenu = document.getElementById("desktop-products-menu");
-    const mobileProductsToggle = document.getElementById("mobile-products-toggle");
-    const mobileProductsMenu = document.getElementById("mobile-products-menu");
-    const mainHeader = document.getElementById("main-header");
-
-
-    mobileMenuButton.addEventListener("click", () => {
-      const isOpen = mobileMenuButton.classList.toggle("open");
-      mobileMenu.classList.toggle("open");
-      document.body.style.overflow = isOpen ? "hidden" : "auto";
-      mobileMenuButton.setAttribute("aria-expanded", isOpen);
-    });
-
-    closeMobileMenu.addEventListener("click", () => {
-      mobileMenuButton.classList.remove("open");
-      mobileMenu.classList.remove("open");
-      document.body.style.overflow = "auto";
-      mobileMenuButton.setAttribute("aria-expanded", "false");
-    });
-
-    // Desktop products dropdown ARIA
-    if (desktopProductsToggle && desktopProductsMenu) {
-      desktopProductsToggle.addEventListener('click', () => {
-        const isExpanded = desktopProductsToggle.getAttribute('aria-expanded') === 'true';
-        desktopProductsToggle.setAttribute('aria-expanded', !isExpanded);
-        desktopProductsMenu.classList.toggle('hidden');
-      });
-
-      // Close dropdown if clicking outside
-      document.addEventListener('click', (event) => {
-        if (!desktopProductsToggle.contains(event.target) && !desktopProductsMenu.contains(event.target)) {
-          desktopProductsToggle.setAttribute('aria-expanded', 'false');
-          desktopProductsMenu.classList.add('hidden');
-        }
-      });
-    }
-
-
-    // Mobile products dropdown toggle ARIA
-    if (mobileProductsToggle && mobileProductsMenu) {
-      mobileProductsToggle.addEventListener('click', () => {
-        const isExpanded = mobileProductsMenu.classList.toggle('hidden');
-        mobileProductsToggle.setAttribute('aria-expanded', !isExpanded);
-      });
-    }
-
-    // Set current year
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-
-    // Back to top button
-    const backToTopButton = document.getElementById("back-to-top");
-
-    window.onscroll = function () {
-      if (
-        document.body.scrollTop > 300 ||
-        document.documentElement.scrollTop > 300
-      ) {
-        backToTopButton.style.display = "flex";
-      } else {
-        backToTopButton.style.display = "none";
-      }
-    };
-
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // Policy acceptance toggle
-    const policyCheckbox = document.getElementById("policy-acceptance");
-    const acceptButton = document.getElementById("accept-button");
-    const originalButtonText = acceptButton.textContent;
-
-    policyCheckbox.addEventListener("change", function () {
-      if (this.checked) {
-        acceptButton.disabled = false;
-        acceptButton.classList.remove("bg-gray-400", "cursor-not-allowed");
-        acceptButton.classList.add("bg-blue-600", "hover:bg-blue-700");
-      } else {
-        acceptButton.disabled = true;
-        acceptButton.classList.add("bg-gray-400", "cursor-not-allowed");
-        acceptButton.classList.remove("bg-blue-600", "hover:bg-blue-700");
-        acceptButton.textContent = originalButtonText; // Reset text if unchecked
-      }
-    });
-
-    acceptButton.addEventListener("click", function () {
-      if (!acceptButton.disabled) {
-        acceptButton.textContent = "Policy Acknowledged!";
-        // Optional: Revert text after a few seconds
-        setTimeout(() => {
-          if (policyCheckbox.checked) { // Only revert if still checked
-            acceptButton.textContent = originalButtonText;
-          }
-        }, 3000);
-        // In a real application, you would record this acceptance via an API call
-      }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute("href");
-        const target = document.querySelector(targetId);
-
-        if (target) {
-          const headerOffset = mainHeader ? mainHeader.offsetHeight : 0; // Dynamically get header height
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-
-          // For mobile menu, close it after clicking a link
-          if (mobileMenu.classList.contains("open")) {
-            mobileMenuButton.classList.remove("open");
-            mobileMenu.classList.remove("open");
-            document.body.style.overflow = "auto";
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-          }
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
