@@ -7,6 +7,13 @@ const port = process.env.PORT || 3000;
 // Serve assets and index.html from the 'public' folder
 app.use(express.static(path.join(__dirname, "public")));
 
+
+
+// this is passing of all routes to the index.html file
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});s
+
 // Create a virtual path for styles.
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
 
