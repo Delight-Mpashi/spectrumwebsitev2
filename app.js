@@ -4,35 +4,17 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve assets and index.html from the 'public' folder
+// Serve static files from 'public' (like index.html, images, etc.)
 app.use(express.static(path.join(__dirname, "public")));
 
-
-
-// this is passing of all routes to the index.html file
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/src", (req, res) => {
-  res.sendFile(path.join(__dirname, "src"));
-});
-
-app.get("/src/pages", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "pages"));
-});
-
-app.get("/src/pages/loanforms/csloanform.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "pages", "loanForms", "csLoanForm.html"));
-});
-
-// Create a virtual path for styles.
+// Serve static styles and JS
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
-
-// Create a virtual path for scripts.
 app.use("/js", express.static(path.join(__dirname, "src", "js")));
 
-// routes to serve pages from 'src/pages'
+// Serve static pages from src/pages
+app.use("/pages", express.static(path.join(__dirname, "src", "pages")));
+
+// Specific routes for important pages
 app.get("/about", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "aboutUs.html"));
 });
@@ -71,6 +53,11 @@ app.get("/whistleblower", (req, res) => {
 
 app.get("/find-branch", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "findBranch.html"));
+});
+
+// Catch-all route — must be LAST
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Start the server
