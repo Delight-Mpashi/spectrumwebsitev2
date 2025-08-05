@@ -14,6 +14,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+app.get("/src", (req, res) => {
+  res.sendFile(path.join(__dirname, "src"));
+});
+
 // Create a virtual path for styles.
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
 
