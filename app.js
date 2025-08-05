@@ -22,6 +22,9 @@ app.get("/src/pages", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages"));
 });
 
+app.get("/src/pages/loanforms/csloanform.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "loanForms", "csLoanForm.html"));
+});
 
 // Create a virtual path for styles.
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
