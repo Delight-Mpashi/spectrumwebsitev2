@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,117 +9,64 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="module" src="/js/navbar.js"></script>
     <style>
         .dropdown-menu {
             display: none;
         }
+
         .group:hover .dropdown-menu {
             display: block;
         }
+
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
         }
+
         .mobile-menu.open {
             transform: translateX(0);
         }
+
         .hamburger span {
             transition: all 0.3s ease;
         }
+
         .hamburger.open span:first-child {
             transform: rotate(45deg) translate(5px, 5px);
         }
+
         .hamburger.open span:nth-child(2) {
             opacity: 0;
         }
+
         .hamburger.open span:last-child {
             transform: rotate(-45deg) translate(5px, -5px);
         }
     </style>
 </head>
+
 <body class="font-sans bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="flex items-center">
-                <img src="../images/sclogo.png" alt="Spectrum Credit Logo" class="h-10">
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-1">
-                <a href="/public/index.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Home</a>
-                <a href="./faqs.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">FAQs</a>
-                <a href="./aboutus.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">About Us</a>
-                <a href="./terms&conditions.html" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">Terms</a>
-
-                <div class="relative group">
-                    <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#1E488F] nav-link">
-                        Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block dropdown-menu">
-                        <a href="./loanforms/CSLoanForm.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Civil Servant</a>
-                        <a href="./loanforms/ASLoanform.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#E6EEF9]">Asset Secured</a>
-                    </div>
-                </div>
-
-                <a href="./contactus.html" class="ml-2 px-4 py-2 bg-[#1E488F] text-white text-sm font-medium rounded-md hover:bg-[#163875] transition">
-                    Contact Us
-                </a>
-            </nav>
-
-            <!-- Mobile menu button -->
-            <button class="md:hidden hamburger focus:outline-none" id="mobile-menu-button">
-                <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span>
-                <span class="block w-6 h-0.5 bg-gray-700"></span>
-            </button>
-        </div>
-
-        <!-- Mobile menu -->
-        <div class="md:hidden mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4" id="mobile-menu">
-            <div class="flex justify-end mb-6">
-                <button id="close-mobile-menu" class="text-gray-500 hover:text-[#1E488F]">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-
-            <nav class="flex flex-col space-y-4">
-                <a href="../../public/index.html" class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Home</a>
-                <a href="./faqs.html" class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">FAQs</a>
-                <a href="./aboutus.html" class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">About Us</a>
-                <a href="./terms&conditions.html" class="px-3 py-2 font-medium text-gray-700 hover:text-[#1E488F] hover:bg-[#E6EEF9] rounded">Terms</a>
-
-                <div class="px-3 py-2">
-                    <button class="flex items-center justify-between w-full font-medium text-gray-700 hover:text-[#1E488F]" id="mobile-products-toggle">
-                        Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </button>
-                    <div class="mt-2 pl-4 hidden" id="mobile-products-menu">
-                        <a href="./loanforms/CSLoanForm.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Civil Servant</a>
-                        <a href="./loanforms/ASLoanform.html" class="block py-2 text-gray-700 hover:text-[#1E488F]">Asset Secured</a>
-                    </div>
-                </div>
-
-                <a href="./contactus.html" class="mt-4 px-4 py-2 bg-blue-500 text-white font-medium rounded-md text-center hover:bg-[#163875] transition">
-                    Contact Us
-                </a>
-            </nav>
-        </div>
-    </header>
+    <!-- Navigation Bar -->
+    <nav-bar></nav-bar>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-3xl font-bold text-[#1E488F] mb-6">WHISTLEBLOWER PORTAL</h1>
-            
+
             <div class="bg-white rounded-lg shadow-md p-6 mb-8">
                 <p class="text-gray-700 mb-4">
-                    Spectrum is committed to fair and ethical business conduct. An effective Whistle blow will go a long way in ensuring that the highest ethical standards are always maintained.
+                    Spectrum is committed to fair and ethical business conduct. An effective Whistle blow will go a long
+                    way in ensuring that the highest ethical standards are always maintained.
                 </p>
                 <p class="text-gray-700 mb-4">
-                    Any disclosure made here is treated in the strictest confidence and the identity of the whistleblower is highly protected.
+                    Any disclosure made here is treated in the strictest confidence and the identity of the
+                    whistleblower is highly protected.
                 </p>
                 <p class="text-gray-700">
-                    We will acknowledge all messages within two working days and have a full response within five working days.
+                    We will acknowledge all messages within two working days and have a full response within five
+                    working days.
                 </p>
             </div>
 
@@ -127,30 +75,47 @@
                 Reportable misconduct covered under this policy includes but is not limited to:
             </p>
             <ol class="list-decimal list-inside space-y-2 mb-8 pl-4">
-                <li class="mb-2 text-gray-700">All forms of financial malpractice or impropriety such as fraud, corruption, bribery, forgery, blackmail, theft misappropriation of funds and classified documents</li>
-                <li class="mb-2 text-gray-700">Failure to comply with legal obligation, statuses, and regulatory directives</li>
+                <li class="mb-2 text-gray-700">All forms of financial malpractice or impropriety such as fraud,
+                    corruption, bribery, forgery, blackmail, theft misappropriation of funds and classified documents
+                </li>
+                <li class="mb-2 text-gray-700">Failure to comply with legal obligation, statuses, and regulatory
+                    directives</li>
                 <li class="mb-2 text-gray-700">Actions detrimental to Health and Safety or the Environment</li>
                 <li class="mb-2 text-gray-700">Any form of criminal activity</li>
-                <li class="mb-2 text-gray-700">Improper conduct or unethical behavior that undermines universal and core ethical values such as integrity, respect, honesty, accountability, and fairness</li>
+                <li class="mb-2 text-gray-700">Improper conduct or unethical behavior that undermines universal and core
+                    ethical values such as integrity, respect, honesty, accountability, and fairness</li>
                 <li class="mb-2 text-gray-700">Other forms of corporate governance breaches</li>
-                <li class="mb-2 text-gray-700">Connected transactions not disclosed or reported in line with regulations</li>
-                <li class="mb-2 text-gray-700">Insider abuse - where employees with special privileges and knowledge or operations and information, use of this knowledge and information to alter or disable security controls for their own benefits and detriment of the company</li>
+                <li class="mb-2 text-gray-700">Connected transactions not disclosed or reported in line with regulations
+                </li>
+                <li class="mb-2 text-gray-700">Insider abuse - where employees with special privileges and knowledge or
+                    operations and information, use of this knowledge and information to alter or disable security
+                    controls for their own benefits and detriment of the company</li>
                 <li class="mb-2 text-gray-700">Non-disclosure of conflict of interest</li>
             </ol>
 
             <h2 class="text-2xl font-bold text-[#1E488F] mb-4">What happens after I file a report?</h2>
             <p class="text-gray-700 mb-8">
-                Once the disclosure is received, it will be assessed and where necessary, an investigation will be launched. A report on the findings will be presented and in consultation with the board, the appropriate action will be taken. Where the whistleblower wishes to know the feedback on the outcome of the investigation, a follow up is done to update them.
+                Once the disclosure is received, it will be assessed and where necessary, an investigation will be
+                launched. A report on the findings will be presented and in consultation with the board, the appropriate
+                action will be taken. Where the whistleblower wishes to know the feedback on the outcome of the
+                investigation, a follow up is done to update them.
             </p>
 
             <h2 class="text-2xl font-bold text-[#1E488F] mb-4">Is confidentiality guaranteed?</h2>
             <p class="text-gray-700 mb-8">
-                All concerns will be treated in confidence and every effort will be made not to reveal the identity of the whistleblower. However, whilst making all reasonable effort to maintain the confidentiality of the matter as a whole, at a certain stage in the investigation it may be necessary to reveal the identity of the whistleblower in order to conduct a thorough investigation. In such cases, the whistleblower will be consulted and their consent sought before any disclosure is made.
+                All concerns will be treated in confidence and every effort will be made not to reveal the identity of
+                the whistleblower. However, whilst making all reasonable effort to maintain the confidentiality of the
+                matter as a whole, at a certain stage in the investigation it may be necessary to reveal the identity of
+                the whistleblower in order to conduct a thorough investigation. In such cases, the whistleblower will be
+                consulted and their consent sought before any disclosure is made.
             </p>
 
             <h2 class="text-2xl font-bold text-[#1E488F] mb-4">How do I file a report?</h2>
             <p class="text-gray-700 mb-8">
-                To file a report, please use the form below or through <a href="mailto:whistleblowing.platcorp@gmail.com" class="text-[#1E488F] hover:underline">whistleblowing.platcorp@gmail.com</a>. You can choose to remain anonymous or provide your contact details for follow-up.
+                To file a report, please use the form below or through <a
+                    href="mailto:whistleblowing.platcorp@gmail.com"
+                    class="text-[#1E488F] hover:underline">whistleblowing.platcorp@gmail.com</a>. You can choose to
+                remain anonymous or provide your contact details for follow-up.
             </p>
 
             <hr class="my-8 border-gray-300">
@@ -158,53 +123,67 @@
             <div class="bg-white rounded-lg shadow-md p-6">
                 <form id="whistleblowerForm" action="https://formspree.io/f/xjvowzqk" method="POST">
                     <h3 class="text-xl font-bold text-[#1E488F] mb-6">Personnel/Officer(s) Involved</h3>
-                    
+
                     <div class="mb-6">
                         <label class="flex items-center">
-                            <input type="checkbox" name="consent" required class="form-checkbox h-5 w-5 text-[#1E488F] rounded">
+                            <input type="checkbox" name="consent" required
+                                class="form-checkbox h-5 w-5 text-[#1E488F] rounded">
                             <span class="ml-2 text-gray-700">I consent to the storage of my submitted data.</span>
                         </label>
                     </div>
 
                     <div class="mb-6">
                         <label for="name" class="block text-gray-700 font-medium mb-2">Your Name (optional)</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
                     </div>
 
                     <div class="mb-6">
                         <label for="email" class="block text-gray-700 font-medium mb-2">Your Email (optional)</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
                     </div>
 
                     <div class="mb-6">
-                        <label for="involved_name" class="block text-gray-700 font-medium mb-2">Name of Personnel/Officer(s) Involved *</label>
-                        <input type="text" id="involved_name" name="involved_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
+                        <label for="involved_name" class="block text-gray-700 font-medium mb-2">Name of
+                            Personnel/Officer(s) Involved *</label>
+                        <input type="text" id="involved_name" name="involved_name" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
                     </div>
 
                     <div class="mb-6">
-                        <label for="phone" class="block text-gray-700 font-medium mb-2">Personnel/Officer(s) Phone Number (optional)</label>
-                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Personnel/Officer(s) Phone
+                            Number (optional)</label>
+                        <input type="tel" id="phone" name="phone"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]">
                     </div>
 
                     <h3 class="text-xl font-bold text-[#1E488F] mb-6">Malpractice Details</h3>
 
                     <div class="mb-6">
-                        <label for="details" class="block text-gray-700 font-medium mb-2">Please provide details of the malpractice or misconduct *</label>
-                        <textarea id="details" name="details" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]"></textarea>
+                        <label for="details" class="block text-gray-700 font-medium mb-2">Please provide details of the
+                            malpractice or misconduct *</label>
+                        <textarea id="details" name="details" rows="4" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]"></textarea>
                     </div>
 
                     <div class="mb-6">
-                        <label for="malpractice_location" class="block text-gray-700 font-medium mb-2">Where did the malpractice occur? *</label>
-                        <textarea id="malpractice_location" name="malpractice_location" rows="2" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]"></textarea>
+                        <label for="malpractice_location" class="block text-gray-700 font-medium mb-2">Where did the
+                            malpractice occur? *</label>
+                        <textarea id="malpractice_location" name="malpractice_location" rows="2" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1E488F]"></textarea>
                     </div>
 
                     <div class="mb-6">
-                        <label for="attachment" class="block text-gray-700 font-medium mb-2">Attach supporting documents (optional):</label>
-                        <input type="file" id="attachment" name="attachment" class="w-full text-gray-700 bg-gray-50 p-2 rounded-md border border-gray-300">
+                        <label for="attachment" class="block text-gray-700 font-medium mb-2">Attach supporting documents
+                            (optional):</label>
+                        <input type="file" id="attachment" name="attachment"
+                            class="w-full text-gray-700 bg-gray-50 p-2 rounded-md border border-gray-300">
                     </div>
 
                     <div class="flex justify-end">
-                        <button type="submit" class="px-6 py-2 bg-[#0b3276] text-#0a0a0a font-medium rounded-md hover:bg-[#163875] transition">
+                        <button type="submit"
+                            class="px-6 py-2 bg-[#0b3276] text-#0a0a0a font-medium rounded-md hover:bg-[#163875] transition">
                             Submit Report
                         </button>
                     </div>
@@ -242,7 +221,8 @@
                     <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Company</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="../../../public/index.html" class="text-gray-400 hover:text-white transition">Home</a>
+                            <a href="../../../public/index.html"
+                                class="text-gray-400 hover:text-white transition">Home</a>
                         </li>
                         <li>
                             <a href="../aboutus.html" class="text-gray-400 hover:text-white transition">About Us</a>
@@ -261,16 +241,20 @@
                     <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Legal</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower Portal</a>
+                            <a href="/whistleblower" class="text-gray-400 hover:text-white transition">Whistleblower
+                                Portal</a>
                         </li>
                         <li>
-                            <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance Reporting</a>
+                            <a href="/grievance" class="text-gray-400 hover:text-white transition">Grievance
+                                Reporting</a>
                         </li>
                         <li>
-                            <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms and Conditions</a>
+                            <a href="../terms&conditions.html" class="text-gray-400 hover:text-white transition">Terms
+                                and Conditions</a>
                         </li>
                         <li>
-                            <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social Policy</a>
+                            <a href="/policy" class="text-gray-400 hover:text-white transition">Environment and Social
+                                Policy</a>
                         </li>
                     </ul>
                 </div>
@@ -280,7 +264,8 @@
                     <h3 class="font-bold text-lg mb-4 text-[#E6EEF9]">Contact Us</h3>
                     <address class="text-gray-400 not-italic text-sm">
                         <p class="mb-2 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd Woodlands, Lusaka, Zambia
+                            <i class="fas fa-map-marker-alt mr-3 text-[#E6EEF9]"></i> 970 Ntoyo Rd Woodlands, Lusaka,
+                            Zambia
                         </p>
                         <p class="mb-2 flex items-center">
                             <i class="fas fa-envelope mr-3 text-[#E6EEF9]"></i> support@spectrumcredit.com
@@ -334,13 +319,13 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // Form submission
-        document.getElementById('whistleblowerForm').addEventListener('submit', function(e) {
+        document.getElementById('whistleblowerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Validate required fields
             const requiredFields = this.querySelectorAll('[required]');
             let isValid = true;
-            
+
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     field.classList.add('border-red-500');
@@ -349,16 +334,17 @@
                     field.classList.remove('border-red-500');
                 }
             });
-            
+
             if (!isValid) {
                 alert('Please fill in all required fields.');
                 return;
             }
-            
+
             // Here you would typically send the form data to your server
             alert('Thank you for submitting your report. We will respond within the specified timeframe.');
             this.reset();
         });
     </script>
 </body>
+
 </html>
