@@ -53,6 +53,11 @@ app.get("/find-branch", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "findBranch.html"));
 });
 
+//this link catches all js files in the src/js directory
+app.get("/csloanform.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "js", "csloanform.js"));
+});
+
 // Catch-all route — must be LAST
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
