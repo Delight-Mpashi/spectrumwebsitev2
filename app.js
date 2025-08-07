@@ -9,6 +9,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Serve all files from 'src/pages' at root level
 app.use(express.static(path.join(__dirname, "src", "pages")));
+app.use("/js", express.static(path.join(__dirname, "src", "js")));
 
 // Serve static styles and JS
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
