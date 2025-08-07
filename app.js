@@ -6,30 +6,13 @@ const port = process.env.PORT || 3000;
 
 // Serve static files from 'public' (like index.html, images, etc.)
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "src", "pages")));
 
 // Serve static styles and JS
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
 app.use("/js", express.static(path.join(__dirname, "src", "js")));
 
-// Serve static pages from src/pages.............................................................
-app.use("/pages", express.static(path.join(__dirname, "src", "pages")));
 
-// Serve static loan forms new directory
-app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "pages", "aboutUs.html"));
-});
-
-app.get("/loan/civil-servant", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "src", "pages", "loanForms", "csLoanForm.html")
-  );
-});
-
-app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "src", "pages", "contactUs.html"));
-});
-
-// ...............................................................................................
 
 // Specific routes for important pages
 app.get("/about", (req, res) => {
@@ -48,9 +31,13 @@ app.get("/grievance", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "grievance.html"));
 });
 
+app.get("/csloanform", (req, res) => {
+  res.sendFile(path.join(__dirname, "src", "pages", "loanforms", "csloanform.html"));
+});
+
 app.get("/loan/civil-servant", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "src", "pages", "loanForms", "csLoanForm.html")
+    path.join(__dirname, "src", "pages", "loanforms", "csLoanForm.html")
   );
 });
 
