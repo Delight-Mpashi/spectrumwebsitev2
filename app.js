@@ -6,15 +6,15 @@ const port = process.env.PORT || 3000;
 
 // Serve static files from 'public' (like index.html, images, etc.)
 app.use(express.static(path.join(__dirname, "public")));
+
+// Serve all files from 'src/pages' at root level
 app.use(express.static(path.join(__dirname, "src", "pages")));
 
 // Serve static styles and JS
 app.use("/styles", express.static(path.join(__dirname, "src", "styles")));
 app.use("/js", express.static(path.join(__dirname, "src", "js")));
 
-
-
-// Specific routes for important pages
+// Specific routes for important pages (remove .html extensions)
 app.get("/about", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "aboutUs.html"));
 });
@@ -31,20 +31,17 @@ app.get("/grievance", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "grievance.html"));
 });
 
-app.get("/csloanform", (req, res) => {
+// Updated loan form routes to match your anchor tags
+app.get("/csloanform.html", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "pages", "loanforms", "csloanform.html"));
 });
 
 app.get("/loan/civil-servant", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "src", "pages", "loanforms", "csLoanForm.html")
-  );
+  res.sendFile(path.join(__dirname, "src", "pages", "loanforms", "csLoanForm.html"));
 });
 
 app.get("/loan/asset-secured", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "src", "pages", "loanForms", "ASLoanForm.html")
-  );
+  res.sendFile(path.join(__dirname, "src", "pages", "loanForms", "ASLoanForm.html"));
 });
 
 app.get("/terms", (req, res) => {
